@@ -4,6 +4,9 @@ site_url: https://signal.iso8583.tech
 
 theme:
   name: material
+  logo: images/logo_triangle.ico
+  favicon: images/logo_triangle.ico
+
 
 nav:
   - General: index.md
