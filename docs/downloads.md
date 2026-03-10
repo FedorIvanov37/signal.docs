@@ -1,4 +1,4 @@
-## Download the latest Signal release files
+## Download Signal v0.20 release files
 
 | Resource                           | Link                                                  | Comment                | 
 |------------------------------------|-------------------------------------------------------|------------------------|
