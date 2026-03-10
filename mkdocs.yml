@@ -1,0 +1,12 @@
+site_name: Signal
+
+site_url: https://signal.iso8583.tech
+
+theme:
+  name: material
+
+nav:
+  - General: index.md
+  - Overview: overview.md
+  - Release info: release-info.md
+  - Downloads: downloads.md
