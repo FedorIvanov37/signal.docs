@@ -6,10 +6,40 @@ theme:
   name: material
   logo: images/logo_triangle.ico
   favicon: images/logo_triangle.ico
-
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.indexes
+#    - navigation.expand
 
 nav:
-  - General: index.md
-  - Overview: overview.md
-  - Release info: release-info.md
-  - Downloads: downloads.md
+  - General:
+    - general/index.md
+    - Overview: general/overview.md
+    - Release info: general/release-info.md
+    - Downloads: general/downloads.md
+
+  - GUI:
+    - gui/index.md
+    - Features:
+        - Transactions: gui/features/transactions.md
+        - Data exchange: gui/features/data_exchange.md
+        - Validations: gui/features/validations.md
+        - Search line: gui/features/search_line.md
+        - Hide secrets: gui/features/hide_secrets.md
+        - Hotkeys: gui/features/hotkeys.md
+    - Tools:
+      - Connector: gui/tools/connector.md
+      - Echo-test: gui/tools/echo_test.md
+      - Keep alive: gui/tools/keep_alive.md
+      - Transactions auto-repeat: gui/tools/repeat.md
+      - Reversal: gui/tools/reversal.md
+      - Complex fields parser: gui/tools/fields_parser.md
+      - Print data: gui/tools/print_data.md
+      - Fields generators: gui/tools/fields_generators.md
+      - Secret features: gui/tools/secret_features.md
+    - Settings:
+      - General: gui/settings/general.md
+      - Fields: gui/settings/fields.md
+      - Specification: gui/settings/specification.md
+      - API: gui/settings/api.md
