@@ -8,11 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://signal.iso8583.tech/general/">
+        <link rel="canonical" href="https://signal.iso8583.tech/downloads/">
       
       
+        <link rel="prev" href="../todo2/">
       
-        <link rel="next" href="overview/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>General - Signal</title>
+        <title>Download - Signal</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#general" class="md-skip">
+        <a href="#signal-v020-release-files" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              General
+              Download
             
           </span>
         </div>
@@ -168,13 +168,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../general/" class="md-tabs__link">
           
   
   
@@ -271,9 +269,11 @@
   
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../downloads/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
   
@@ -322,8 +322,6 @@
       
   
   
-    
-  
   
   
     
@@ -341,21 +339,18 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../general/" class="md-nav__link ">
               
   
   
@@ -373,13 +368,13 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_1" id="__nav_1_label" tabindex="">
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -399,7 +394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="overview/" class="md-nav__link">
+      <a href="../general/overview/" class="md-nav__link">
         
   
   
@@ -427,7 +422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-info/" class="md-nav__link">
+      <a href="../general/release-info/" class="md-nav__link">
         
   
   
@@ -1368,10 +1363,35 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../downloads/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Download
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1387,6 +1407,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#signal-v020-release-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signal v0.20 release files
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1408,8 +1457,25 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#signal-v020-release-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signal v0.20 release files
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1432,13 +1498,40 @@
 
 
 
-<h1 id="general">General</h1>
-<p align="center"><img src="../images/triforce_signed.png" alt="Signal" width="500" height="500"></p>
-<p align="center">
-Signal is a multi-interface desktop application for testing ISO8583-based payment systems. Built for the everyday 
-workflows of fintech and banking engineers<br><br>Distributed as free software under the GNU GPL license. Provided free 
-of charge
-</p>
+  <h1>Download</h1>
+
+<h2 id="signal-v020-release-files">Signal v0.20 release files</h2>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Link</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Signal build for Windows x64</td>
+<td><a href="../files/Signal_v0.20.zip">Download</a></td>
+<td>No installation needed</td>
+</tr>
+<tr>
+<td>Postman collection and environment</td>
+<td><a href="../files/Signal_v0.20_postman_collection.zip">Download</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Signal source code</td>
+<td><a href="../files/Signal_v0.20.code.zip">Download</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Transaction messages example</td>
+<td><a href="../files/Signal_v0.20_messages.zip">Download</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
 
