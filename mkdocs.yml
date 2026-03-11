@@ -11,6 +11,7 @@ theme:
 #    - navigation.tabs
     - navigation.indexes
     - navigation.sections
+    - navigation.path
 
 nav:
   - General:
