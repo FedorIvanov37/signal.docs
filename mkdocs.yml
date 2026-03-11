@@ -8,7 +8,7 @@ theme:
   favicon: images/logo_triangle.ico
   features:
     - navigation.instant
-    - navigation.tabs
+#    - navigation.tabs
     - navigation.indexes
     - navigation.sections
 
