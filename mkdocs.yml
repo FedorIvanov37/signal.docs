@@ -8,9 +8,9 @@ theme:
   favicon: images/logo_triangle.ico
   features:
     - navigation.instant
-#    - navigation.tabs
+    - navigation.tabs
     - navigation.indexes
-    - navigation.sections
+#    - navigation.sections
     - navigation.path
 
 nav:
@@ -18,9 +18,7 @@ nav:
     - general/index.md
     - Overview: general/overview.md
     - Release info: general/release-info.md
-    - Downloads: general/downloads.md
-
-  - GUI:
+  - Desktop:
     - gui/index.md
     - Features:
         - Transactions: gui/features/transactions.md
@@ -44,3 +42,7 @@ nav:
       - Fields: gui/settings/fields.md
       - Specification: gui/settings/specification.md
       - API: gui/settings/api.md
+  - Command Line: todo1.md
+  - HTTP API: todo.md
+  - Python library: todo2.md
+  - Download: downloads.md
