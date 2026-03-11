@@ -10,7 +10,7 @@ theme:
     - navigation.instant
     - navigation.tabs
     - navigation.indexes
-    - navigation.path
+    - navigation.sections
 
 nav:
   - General:
