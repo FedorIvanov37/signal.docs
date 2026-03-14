@@ -3,8 +3,7 @@
 Signal is distributed under the GNU GPL license as free software. Using the Signal you have to accept the license 
 agreement
 
-See more on [GNU license page](https://www.gnu.org/licenses/) and 
-[free software Wiki article](https://en.wikipedia.org/wiki/Free_software)
+See more on [GNU license page](https://www.gnu.org/licenses/) and [Free software Wiki article](https://en.wikipedia.org/wiki/Free_software)
 
 Long story short: the Signal is free for any purpose, excluding selling it. Sales are strictly prohibited. Contact the 
 [author](/general/author) in case of any copyright questions

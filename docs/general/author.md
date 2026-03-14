@@ -9,7 +9,7 @@ In case of any question feel free to [contract author](/general/author/#contacts
 | Channel  | Link                                                                |
 |----------|---------------------------------------------------------------------|
 | LinkedIn | [Fedor Ivanov](https://www.linkedin.com/in/fedor-ivanov-4529b738b/) |
-| Main     | [fedornivanov@gmail.com](mailto:fedornivanov@gmail.com)             |
+| Mail     | [fedornivanov@gmail.com](mailto:fedornivanov@gmail.com)             |
 | Github   | [FedorIvanov37](https://github.com/FedorIvanov37)                   |  
 
 ## Support
@@ -35,7 +35,7 @@ The project needs help
 <details>
  <summary>️❤️Support the project</summary>
  <p align="left">
-  <img src="../../images/support_qr_code.png" alt="BTC wallet" width="200"/>
+  <img src="/images/support_qr_code.png" alt="BTC wallet" width="200"/>
 
 ```
 bc1qs2jaqpnse9qgzz9y9wyns50km0f5x4wxe8cggs
