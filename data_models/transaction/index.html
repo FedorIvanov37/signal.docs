@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#transaction-format" class="md-skip">
+        <a href="#transaction" class="md-skip">
           Skip to content
         </a>
       
@@ -1532,6 +1532,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -1574,6 +1576,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1582,10 +1586,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#transaction-format" class="md-nav__link">
+  <a href="#transaction-data" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Transaction format
+        Transaction data
       
     </span>
   </a>
@@ -1593,10 +1597,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-examples" class="md-nav__link">
+  <a href="#transaction-format" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Data examples
+        Transaction format
       
     </span>
   </a>
@@ -1620,6 +1624,28 @@
     <span class="md-ellipsis">
       
         JSON
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DUMP
       
     </span>
   </a>
@@ -1747,6 +1773,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1755,10 +1783,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#transaction-format" class="md-nav__link">
+  <a href="#transaction-data" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Transaction format
+        Transaction data
       
     </span>
   </a>
@@ -1766,10 +1794,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-examples" class="md-nav__link">
+  <a href="#transaction-format" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Data examples
+        Transaction format
       
     </span>
   </a>
@@ -1793,6 +1821,28 @@
     <span class="md-ellipsis">
       
         JSON
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DUMP
       
     </span>
   </a>
@@ -1827,8 +1877,12 @@
 
 
 
-  <h1>Transaction</h1>
-
+<h1 id="transaction">Transaction</h1>
+<h2 id="transaction-data">Transaction data</h2>
+<p>Transaction data is an incoming Signal dataset, containing payment transaction data</p>
+<p>In GUI mode you can put this data to some file, e.g. <code>transaction.json</code> and parse this file. Use hotkey <code>Ctrl + O</code>, 
+button <code>Open File</code> or drop file to the MainWindow on Signal GUI to open the incoming transaction file</p>
+<p>See <a href="/data_models">here</a> how to read the transaction data in any Signal run mode</p>
 <h2 id="transaction-format">Transaction format</h2>
 <p>The signal supports three transaction data formats</p>
 <table>
@@ -1864,12 +1918,62 @@
 <p>In case when the Signal GUI incoming transaction file cannot be recognized by the incoming file extension the Signal 
 will try to parse the transaction as every known format. See details in <a href="/gui/features/data_exchange">data exchange</a> 
 chapter</p>
-<h2 id="data-examples">Data examples</h2>
-<p>Incoming transaction data examples. You can put this data to some file, e.g. <code>transaction.json</code> and parse this file. 
-Use hotkey <code>Ctrl + O</code>, button <code>Open File</code> or drop file to the MainWindow on Signal GUI to open the incoming transaction 
-file </p>
+<h2 id="transaction-data-model">Transaction data model</h2>
+<h3 id="json">JSON</h3>
+<p>JSON-like transaction data fields representation  </p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default value</th>
+<th>Contains</th>
+<th>Validation</th>
+<th>Valid example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message_type</td>
+<td>str[int]</td>
+<td>Yes</td>
+<td>-</td>
+<td>Transaction Message Type Identifier</td>
+<td>Lenght is exact 4<br>Digits only<br>Field exists in Specification</td>
+<td>0200</td>
+</tr>
+<tr>
+<td>max_amount</td>
+<td>str[int]</td>
+<td>No</td>
+<td>100</td>
+<td>Maximum generated transaction amoun</td>
+<td>Digits only</td>
+<td>100</td>
+</tr>
+<tr>
+<td>generate_fields</td>
+<td>list[str[int]]</td>
+<td>No</td>
+<td>[ ]</td>
+<td>Field numbers to generate</td>
+<td>Digits only</td>
+<td>["4", "11", "37"]</td>
+</tr>
+<tr>
+<td>data_fields</td>
+<td>dict[str, str | dict]</td>
+<td>yes</td>
+<td>-</td>
+<td>JSON-like transaction data fields representation</td>
+<td>According to the field specification</td>
+<td>{"3": "000000", "11" :"145787"}</td>
+</tr>
+</tbody>
+</table>
 <details class="example">
-<summary>JSON</summary>
+<summary>JSON transaction example</summary>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nt">&quot;message_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0200&quot;</span><span class="p">,</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;max_amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;100&quot;</span><span class="p">,</span>
@@ -1881,7 +1985,7 @@ file </p>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="s2">&quot;37&quot;</span>
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="p">],</span>
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">&quot;data_fields&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="nt">&quot;2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5486736712458564&quot;</span><span class="p">,</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="nt">&quot;2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4000000000000000&quot;</span><span class="p">,</span>
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="nt">&quot;3&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;000000&quot;</span><span class="p">,</span>
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="nt">&quot;4&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;000000004679&quot;</span><span class="p">,</span>
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="nt">&quot;7&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0727142832&quot;</span><span class="p">,</span>
@@ -1919,67 +2023,152 @@ file </p>
 </span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="p">}</span>
 </span></code></pre></div>
 </details>
+<h3 id="ini">INI</h3>
+<p>INI transaction fields representation. See more about INI format <a href="https://en.wikipedia.org/wiki/INI_file">here</a></p>
+<p>INI format contains the following parts: sections, options, and option values. </p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[SECTION]</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">OPTION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[VALUE]</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">ANOTHER_OPTION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[ANOTHER_VALUE]</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">[ANOTHER_SECTION]</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="na">OPTION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[VALUE]</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="na">ANOTHER_OPTION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[ANOTHER_VALUE]</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1">;...</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1">;...</span>
+</span></code></pre></div>
+<p>All the options values should be put in square brackets like [this]</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[MESSAGE]</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">F002</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[4000000000000000]</span><span class="w">  </span><span class="c1">; Correct</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">F003</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">000000</span><span class="w">              </span><span class="c1">; Incorrect</span>
+</span></code></pre></div>
+<p>All the fields numbers in the section [MESSAGE] must start from F. E.g. F002</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[MESSAGE]</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">F002</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[4000000000000000]</span><span class="w">  </span><span class="c1">; Correct</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="na">3</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s">[000000]</span><span class="w">            </span><span class="c1">; Incorrect</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Option</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default value</th>
+<th>Contains</th>
+<th>Validation</th>
+<th>Valid example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[MTI]</td>
+<td>MTI</td>
+<td>str[int]</td>
+<td>Yes</td>
+<td>-</td>
+<td>Transaction Message Type Identifier</td>
+<td>lenght is 4, digits only, exists in Specification</td>
+<td>[0200]</td>
+</tr>
+<tr>
+<td>[CONFIG]</td>
+<td>MAX_AMOUNT</td>
+<td>str[int]</td>
+<td>No</td>
+<td>100</td>
+<td>Maximum generated transaction amoun</td>
+<td>Digits only</td>
+<td>100</td>
+</tr>
+<tr>
+<td>[CONFIG]</td>
+<td>GENERATE_FIELDS</td>
+<td>list[int]</td>
+<td>No</td>
+<td>[ ]</td>
+<td>Field numbers to generate</td>
+<td>Digits only</td>
+<td>[4, 11, 37]</td>
+</tr>
+<tr>
+<td>[MESSAGE]</td>
+<td>FNNN where NNN is field number</td>
+<td>str</td>
+<td>yes</td>
+<td>-</td>
+<td>Transaction data fields</td>
+<td>According to the field specification</td>
+<td>F002 = [4000000000000000] <br> F003 = [000000] <br>;...<br>;...</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition danger">
+<p class="admonition-title">% Substitution</p>
+<p>Due to ConfigParser library restrictions the sign <code>%</code> in options values must be written as double percent, <code>%%</code> only</p>
+<p>Refer to the <a href="https://docs.python.org/3/library/configparser.html">ConfigParser</a> for details </p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[MESSSAGE]</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">VALUE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[100%% Complete]</span><span class="w">  </span><span class="c1">; Correct, will desplay &quot;100% Complete&quot;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="na">VALUE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[100% Complete]</span><span class="w">   </span><span class="c1">; Incorrect, will lead to parsing error</span>
+</span></code></pre></div>
+</div>
 <details class="example">
-<summary>INI</summary>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[CONFIG]</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">MAX_AMOUNT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[100]</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">GENERATE_FIELDS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[4, 7, 12, 37]</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">[MTI]</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="na">MTI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[0200]</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">[MESSAGE]</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="na">F002</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[5486736712458555]</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="na">F003</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[100000]</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="na">F004</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[000000004157]</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="na">F007</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[1029122153]</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="na">F011</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[475469]</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="na">F012</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[221029122153]</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="na">F014</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[3504]</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="na">F018</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[8999]</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="na">F022</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[810]</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="na">F037</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[974998127151]</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="na">F041</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[70000826]</span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="na">F042</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[000000010000866]</span>
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="na">F043</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[PSP*merch.com               &gt;Limassol&gt;CY]</span>
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="na">F047</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[03808101110000023962603150000000100003960408Limassol0504310706031960709merch.com0803PSP033001502704030303030433032445531325350334c48474b564c02804000000308254236854496634394423610b892eb6a0300012]</span>
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="na">F048</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[5108SOME ONE9611415481%%81645411HOW ARE YOU7608100000014202019203000]</span>
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="na">F049</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[978]</span>
+<summary>INI transaction example</summary>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">[CONFIG]</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">MAX_AMOUNT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[100]</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="na">GENERATE_FIELDS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[4, 7, 12, 37]</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">[MTI]</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="na">MTI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[0200]</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">[MESSAGE]</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="na">F002</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[40000000000000000]</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="na">F003</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[100000]</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="na">F004</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[000000004157]</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="na">F007</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[1029122153]</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="na">F011</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[475469]</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="na">F012</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[221029122153]</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="na">F014</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[3504]</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="na">F018</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[8999]</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="na">F022</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[810]</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="na">F037</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[974998127151]</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="na">F041</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[70000826]</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="na">F042</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[000000010000866]</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="na">F043</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[PSP*merch.com               &gt;Limassol&gt;CY]</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="na">F047</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[03808101110000023962603150000000100003960408Limassol0504310706031960709merch.com0803PSP033001502704030303030433032445531325350334c48474b564c02804000000308254236854496634394423610b892eb6a0300012]</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="na">F048</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[5108SOME ONE9611415481%%81645411HOW ARE YOU7608100000014202019203000]</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="na">F049</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[978]</span>
 </span></code></pre></div>
 </details>
+<h3 id="dump">DUMP</h3>
 <details class="example">
-<summary>DUMP</summary>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>30.32.30.30.72.34.44.00.08.E3.80.00.31.36.35.34    0200........1654
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>38.36.37.33.36.37.31.32.34.35.38.35.36.34.30.30    8673671245856400
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>30.30.30.30.30.30.30.30.30.30.30.30.36.35.39.31    0000000000006591
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>30.36.30.35.32.32.30.36.32.31.39.34.34.31.36.34    0605220621944164
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>32.32.30.36.30.35.32.32.30.36.32.31.32.35.30.34    2206052206212504
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>38.39.39.39.38.31.30.35.35.36.30.35.36.31.34.37    8999810556056147
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>32.35.34.37.30.30.30.30.30.31.34.46.41.43.49.4C    25470000014FACIL
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>30.31.20.20.20.20.20.20.20.20.50.53.50.2A.6D.65    01        PSP*me
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>72.63.68.2E.63.6F.6D.20.20.20.20.20.20.20.20.20    rch.com
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>20.20.20.20.20.20.3E.4C.69.6D.61.73.73.6F.6C.3E          &gt;Limassol&gt;
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>43.59.31.39.33.30.33.38.30.38.31.30.31.31.31.30    CY19303808101110
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>30.30.30.30.32.33.39.36.32.36.30.33.31.35.30.30    0000239626031500
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>30.30.30.30.30.31.30.30.30.30.33.39.36.30.34.30    0000010000396040
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>38.4C.69.6D.61.73.73.6F.6C.30.35.30.34.33.31.30    8Limassol0504310
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>37.30.36.30.33.31.39.36.30.37.30.39.6D.65.72.63    706031960709merc
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>68.2E.63.6F.6D.30.38.30.33.50.53.50.30.33.33.30    h.com0803PSP0330
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>30.31.35.30.32.37.30.34.30.33.30.33.30.33.30.33    0150270403030303
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>30.34.33.33.30.33.32.34.34.35.35.33.31.33.32.35    0433032445531325
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>33.35.30.33.33.34.63.34.38.34.37.34.62.35.36.34    350334c48474b564
-</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>63.30.32.38.30.34.30.30.30.30.30.30.33.30.38.32    c028040000003082
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>35.34.32.33.36.38.35.34.34.39.36.36.33.34.33.39    5423685449663439
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>34.34.32.33.36.31.30.62.38.39.32.65.62.36.61.30    4423610b892eb6a0
-</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>33.30.30.30.31.32.30.36.37.35.31.30.38.53.4F.4D    3000120675108SOM
-</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>45.20.4F.4E.45.39.36.31.31.34.31.35.34.38.31.25    E ONE9611415481%
-</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>38.31.36.34.35.34.31.31.48.4F.57.20.41.52.45.20    81645411HOW ARE
-</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>59.4F.55.37.36.30.38.31.30.30.30.30.30.30.31.34    YOU7608100000014
-</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>32.30.32.30.31.39.32.30.33.30.30.30.39.37.38       202019203000978
+<summary>DUMP transaction example</summary>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>30.32.30.30.72.34.44.00.08.E3.80.00.31.36.35.34    0200........1654
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>38.36.37.33.36.37.31.32.34.35.38.35.36.34.30.30    8673671245856400
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>30.30.30.30.30.30.30.30.30.30.30.30.36.35.39.31    0000000000006591
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>30.36.30.35.32.32.30.36.32.31.39.34.34.31.36.34    0605220621944164
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>32.32.30.36.30.35.32.32.30.36.32.31.32.35.30.34    2206052206212504
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>38.39.39.39.38.31.30.35.35.36.30.35.36.31.34.37    8999810556056147
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>32.35.34.37.30.30.30.30.30.31.34.46.41.43.49.4C    25470000014FACIL
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>30.31.20.20.20.20.20.20.20.20.50.53.50.2A.6D.65    01        PSP*me
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>72.63.68.2E.63.6F.6D.20.20.20.20.20.20.20.20.20    rch.com
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>20.20.20.20.20.20.3E.4C.69.6D.61.73.73.6F.6C.3E          &gt;Limassol&gt;
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>43.59.31.39.33.30.33.38.30.38.31.30.31.31.31.30    CY19303808101110
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>30.30.30.30.32.33.39.36.32.36.30.33.31.35.30.30    0000239626031500
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>30.30.30.30.30.31.30.30.30.30.33.39.36.30.34.30    0000010000396040
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>38.4C.69.6D.61.73.73.6F.6C.30.35.30.34.33.31.30    8Limassol0504310
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>37.30.36.30.33.31.39.36.30.37.30.39.6D.65.72.63    706031960709merc
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>68.2E.63.6F.6D.30.38.30.33.50.53.50.30.33.33.30    h.com0803PSP0330
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>30.31.35.30.32.37.30.34.30.33.30.33.30.33.30.33    0150270403030303
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>30.34.33.33.30.33.32.34.34.35.35.33.31.33.32.35    0433032445531325
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>33.35.30.33.33.34.63.34.38.34.37.34.62.35.36.34    350334c48474b564
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>63.30.32.38.30.34.30.30.30.30.30.30.33.30.38.32    c028040000003082
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>35.34.32.33.36.38.35.34.34.39.36.36.33.34.33.39    5423685449663439
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>34.34.32.33.36.31.30.62.38.39.32.65.62.36.61.30    4423610b892eb6a0
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>33.30.30.30.31.32.30.36.37.35.31.30.38.53.4F.4D    3000120675108SOM
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>45.20.4F.4E.45.39.36.31.31.34.31.35.34.38.31.25    E ONE9611415481%
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>38.31.36.34.35.34.31.31.48.4F.57.20.41.52.45.20    81645411HOW ARE
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>59.4F.55.37.36.30.38.31.30.30.30.30.30.30.31.34    YOU7608100000014
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>32.30.32.30.31.39.32.30.33.30.30.30.39.37.38       202019203000978
 </span></code></pre></div>
 </details>
-<p>All the examples are ready to use</p>
-<p>How to read the transaction data in any mode see <a href="/data_models">here</a></p>
-<h2 id="transaction-data-model">Transaction data model</h2>
-<h3 id="json">JSON</h3>
 
 
 
