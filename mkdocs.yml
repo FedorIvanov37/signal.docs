@@ -18,6 +18,7 @@ nav:
     - general/index.md
     - Overview: general/overview.md
     - Release info: general/release-info.md
+    - Author: general/author.md
   - Desktop:
     - gui/index.md
     - Features:
