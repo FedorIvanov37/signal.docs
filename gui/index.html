@@ -25,7 +25,7 @@
     
     
       
-        <title>GUI - Signal</title>
+        <title>Desktop - Signal</title>
       
     
     
@@ -51,6 +51,8 @@
       
     
     
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gui" class="md-skip">
+        <a href="#desktop" class="md-skip">
           Skip to content
         </a>
       
@@ -107,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GUI
+              Desktop
             
           </span>
         </div>
@@ -234,6 +236,28 @@
 
       </a>
     </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../data_models/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Data models
+
+        </a>
+      </li>
+    
   
 
       
@@ -1430,6 +1454,168 @@
   
   
   
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../data_models/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data models
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_models/transaction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transaction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_models/specification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_models/config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../downloads/" class="md-nav__link">
         
@@ -1471,6 +1657,25 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#graphic-user-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Graphic User Interface
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1492,7 +1697,20 @@
 
 
 
-<h1 id="gui">GUI</h1>
+<h1 id="desktop">Desktop</h1>
+<h2 id="graphic-user-interface">Graphic User Interface</h2>
+<p><img alt="image" src="/images/main_window.png" /></p>
+<p>Signal GUI is a friendly interface, based on the Signal library. Since v0.15, the Signal GUI has been released as a .exe 
+binary. No dependencies are required to run the Signal; it is ready to use out of the box. No installation or 
+configuration is required to run SIGNAL GUI on a Windows machine. Run the signal.exe executable file to start the Signal</p>
+<p>Check the parameters opened by the <strong>Tools</strong> → <strong>Settings</strong> button to make your settings</p>
+<p>The MainWidow is a generic user interaction point. The main purpose is transaction data representation, data 
+validations, and generators, access to the transaction processing tools, sending and receiving transactions</p>
+<div class="admonition danger">
+<p class="admonition-title">GUI Restriction</p>
+<p>Only Windows x64 build exists. Use the source code to run Signal on another platform. Tests were done on Windows 
+10-11 only</p>
+</div>
 
 
 
