@@ -14,9 +14,12 @@ chapter
 
 ## Data examples
 
-Incoming transaction data examples. You can put this data to some file, e.g. `transaction.json` and parse this file. 
-Use hotkey `Ctrl + O`, button `Open File` or drop file to the MainWindow on Signal GUI to open the incoming transaction 
-file 
+Incoming transaction data examples
+
+In UI mode you can put this data to some file, e.g. `transaction.json` and parse this file. Use hotkey `Ctrl + O`, 
+button `Open File` or drop file to the MainWindow on Signal GUI to open the incoming transaction file
+
+See [here](/data_models) how to read the transaction data in any Signal run mode
 
 ??? example "JSON"
     ```json
@@ -34,8 +37,6 @@ file
     ```
 
 All the examples are ready to use
-
-How to read the transaction data in any mode see [here](/data_models)
 
 ## Transaction data model
 

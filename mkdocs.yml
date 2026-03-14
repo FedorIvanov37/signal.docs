@@ -5,6 +5,8 @@ site_url: https://signal.iso8583.tech
 extra_css:
   - stylesheets/extra.css
 
+#docs_dir: docs/pages
+
 markdown_extensions:
   - admonition
   - pymdownx.details
