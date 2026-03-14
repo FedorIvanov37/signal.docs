@@ -31,6 +31,9 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
       
 
 
@@ -57,7 +60,12 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -106,8 +114,8 @@
       </div>
     </div>
     
+      
     
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
@@ -341,6 +349,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -504,6 +516,62 @@
     
   
     Release info
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bugs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bugs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licence
   
 
     
@@ -1565,18 +1633,18 @@
 useful visual and program interface. It uses the ISO 8583 E-pay protocol for transaction sending</p>
 <p>Signal can be used during the Payment Systems certification test, for checking and setting up the system on the test 
 environment, during the application development process, and so on</p>
-<p>The Signal has three interfaces that lead to the single core: </p>
+<p>The Signal has three interfaces that lead to the single core</p>
 <ul>
 <li><a href="/gui">Graphic User Interface</a></li>
-<li><a href="/api">HTTP Application Programming Interface (API)</a> </li>
-<li><a href="/cli">Command-line interface (CLI)</a></li>
+<li><a href="/cli">Command-Line Interface</a></li>
+<li><a href="/api">HTTP Application Programming Interface</a> </li>
 </ul>
 <p>Generally speaking, they do the same things but use different points of interaction with their own specific features</p>
 <p>Also, the Signal builds like a kit of weakly connected modules, like a Parser, Connector, Queue, etc. It allows to 
 reuse or extend the Signal's functionality, making emulators, loaders, parsers, converters, application interfaces, 
-and many other things based on <a href="/lib">Signal modules</a> </p>
-<p>In case of any questions about the Signal <a href="/general/author">contact the author</a>. Your feedback and suggestions are general 
-drivers of the Signal evolution</p>
+and many other things based on <a href="/lib">Signal library</a> </p>
+<p>In case of any questions about the Signal <a href="/general/author">contact the author</a>. Your feedback and suggestions are 
+general drivers of the Signal evolution</p>
 <h2 id="restrictions">Restrictions</h2>
 <ul>
 <li>Allowed usage on test environment only. Signal only implements basic security checks</li>
