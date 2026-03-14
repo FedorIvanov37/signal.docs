@@ -1,4 +1,6 @@
 ## Signal general overview
+
+
 ![image](/images/main_window.png)
 
 The Signal simplifies the sending of banking card e-commerce transactions to banking card processing systems using a 
@@ -6,6 +8,12 @@ useful visual and program interface. It uses the ISO 8583 E-pay protocol for tra
 
 Signal can be used during the Payment Systems certification test, for checking and setting up the system on the test 
 environment, during the application development process, and so on
+
+!!! danger "Restrictions" 
+    * Allowed usage on test environment only. Signal only implements basic security checks
+    * At the moment Signal doesn't support byte-fields
+    * Graphic User Interface mode tests were made on Windows 10/11 x64 only
+    * The application and the document are currently under construction
 
 ## Interfaces
 

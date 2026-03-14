@@ -32,13 +32,7 @@ The project needs help
 * Testing, especially auto-tests, unit-tests
 * Financial support to BTC wallet
 
-<details>
- <summary>️❤️Support the project</summary>
- <p align="left">
-  <img src="/images/support_qr_code.png" alt="BTC wallet" width="200"/>
+??? "❤️Support the project"
+    ![image](/images/support_qr_code.png){width="200"}
 
-```
-bc1qs2jaqpnse9qgzz9y9wyns50km0f5x4wxe8cggs
-```
-</p>
-</details>
+    `bc1qs2jaqpnse9qgzz9y9wyns50km0f5x4wxe8cggs`

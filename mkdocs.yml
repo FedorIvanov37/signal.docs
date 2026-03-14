@@ -2,10 +2,22 @@ site_name: Signal
 
 site_url: https://signal.iso8583.tech
 
+extra_css:
+  - stylesheets/extra.css
+
 markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.snippets
+  - pymdownx.inlinehilite
+  - attr_list
+  - pymdownx.snippets:
+        base_path: docs
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
 
 theme:
   name: material
@@ -59,4 +71,9 @@ nav:
   - Command Line: todo1.md
   - HTTP API: todo.md
   - Python library: todo2.md
+  - Data models:
+      - data_models/index.md
+      - Transaction: data_models/transaction.md
+      - Specification: data_models/specification.md
+      - Config: data_models/config.md
   - Download: downloads.md

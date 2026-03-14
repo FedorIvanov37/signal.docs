@@ -1,5 +1,3 @@
-:root  > * {
-  --md-primary-fg-color:        #012E4F;
-  --md-primary-fg-color--light: #012E4F;
-  --md-primary-fg-color--dark:  #012E4F;
+.md-typeset table {
+    white-space: nowrap;
 }
