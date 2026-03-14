@@ -7,20 +7,20 @@ useful visual and program interface. It uses the ISO 8583 E-pay protocol for tra
 Signal can be used during the Payment Systems certification test, for checking and setting up the system on the test 
 environment, during the application development process, and so on
 
-The Signal has three interfaces that lead to the single core: 
+The Signal has three interfaces that lead to the single core
 
 * [Graphic User Interface](/gui)
-* [HTTP Application Programming Interface (API)](/api) 
-* [Command-line interface (CLI)](/cli)
+* [Command-Line Interface](/cli)
+* [HTTP Application Programming Interface](/api) 
 
 Generally speaking, they do the same things but use different points of interaction with their own specific features
 
 Also, the Signal builds like a kit of weakly connected modules, like a Parser, Connector, Queue, etc. It allows to 
 reuse or extend the Signal's functionality, making emulators, loaders, parsers, converters, application interfaces, 
-and many other things based on [Signal modules](/lib) 
+and many other things based on [Signal library](/lib) 
 
-In case of any questions about the Signal [contact the author](/general/author). Your feedback and suggestions are general 
-drivers of the Signal evolution
+In case of any questions about the Signal [contact the author](/general/author). Your feedback and suggestions are 
+general drivers of the Signal evolution
 
 ## Restrictions
 

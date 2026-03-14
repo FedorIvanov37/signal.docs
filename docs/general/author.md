@@ -1,8 +1,16 @@
 ## Author
 
-Designed and developed by [Fedor Ivanov](https://www.linkedin.com/in/fedor-ivanov-4529b738b/)   
+Designed and developed by **Fedor Ivanov**, fintech engineer   
 
-In case of any question feel free to [contract author](mailto:fedornivanov@gmail.com?subject=SIGNAL%27s%20user%20request&body=Dear%20Fedor%2C%0A%0A%0A%3E%20Put%20your%20request%20here%20%3C%20%0A%0A%0A%0AMy%20SIGNAL%20version%20is%20v0.20%20%7C%20Released%20in%20October%202025%0A) directly
+In case of any question feel free to [contract author](/general/author/#contacts) directly
+
+## Contacts
+
+| Channel  | Link                                                                |
+|----------|---------------------------------------------------------------------|
+| LinkedIn | [Fedor Ivanov](https://www.linkedin.com/in/fedor-ivanov-4529b738b/) |
+| Main     | [fedornivanov@gmail.com](mailto:fedornivanov@gmail.com)             |
+| Github   | [FedorIvanov37](https://github.com/FedorIvanov37)                   |  
 
 ## Support
 
@@ -12,9 +20,9 @@ Signal is free, always, and for everyone, not depending on usage. All the licens
 to protect usage for free 
 
 However, the project needs your support. If you want to support the project you can spend your time, working on it or 
-make a voluntary donation directly to the author. 
+make a voluntary donation directly to the author
 
-⚠️ Any donation can be voluntary only
+⚠️ **Any donation can be voluntary only**
 
 The project needs help
 

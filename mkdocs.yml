@@ -6,6 +6,8 @@ theme:
   name: material
   logo: images/logo_triangle.ico
   favicon: images/logo_triangle.ico
+  palette:
+    primary: blue grey
   features:
     - navigation.instant
     - navigation.tabs
@@ -18,6 +20,8 @@ nav:
     - general/index.md
     - Overview: general/overview.md
     - Release info: general/release-info.md
+    - Bugs: general/bugs.md
+    - Licence: general/license.md
     - Author: general/author.md
   - Desktop:
     - gui/index.md
