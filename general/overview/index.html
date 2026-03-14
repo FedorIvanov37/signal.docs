@@ -442,10 +442,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#restrictions" class="md-nav__link">
+  <a href="#interfaces" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Restrictions
+        Interfaces
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python library
       
     </span>
   </a>
@@ -1552,10 +1563,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#restrictions" class="md-nav__link">
+  <a href="#interfaces" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Restrictions
+        Interfaces
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python library
       
     </span>
   </a>
@@ -1588,11 +1610,12 @@
   <h1>Overview</h1>
 
 <h2 id="signal-general-overview">Signal general overview</h2>
-<p><img alt="image" src="../../images/main_window.png" /></p>
+<p><img alt="image" src="/images/main_window.png" /></p>
 <p>The Signal simplifies the sending of banking card e-commerce transactions to banking card processing systems using a 
 useful visual and program interface. It uses the ISO 8583 E-pay protocol for transaction sending</p>
 <p>Signal can be used during the Payment Systems certification test, for checking and setting up the system on the test 
 environment, during the application development process, and so on</p>
+<h2 id="interfaces">Interfaces</h2>
 <p>The Signal has three interfaces that lead to the single core</p>
 <ul>
 <li><a href="/gui">Graphic User Interface</a></li>
@@ -1600,18 +1623,12 @@ environment, during the application development process, and so on</p>
 <li><a href="/api">HTTP Application Programming Interface</a> </li>
 </ul>
 <p>Generally speaking, they do the same things but use different points of interaction with their own specific features</p>
-<p>Also, the Signal builds like a kit of weakly connected modules, like a Parser, Connector, Queue, etc. It allows to 
+<h2 id="python-library">Python library</h2>
+<p>The Signal builds like a kit of weakly connected modules, like a Parser, Connector, Queue, etc. It allows to 
 reuse or extend the Signal's functionality, making emulators, loaders, parsers, converters, application interfaces, 
 and many other things based on <a href="/lib">Signal library</a> </p>
 <p>In case of any questions about the Signal <a href="/general/author">contact the author</a>. Your feedback and suggestions are 
 general drivers of the Signal evolution</p>
-<h2 id="restrictions">Restrictions</h2>
-<ul>
-<li>Allowed usage on test environment only. Signal only implements basic security checks</li>
-<li>At the moment Signal doesn't support byte-fields</li>
-<li>Graphic User Interface mode tests were made on Windows 10/11 x64 only</li>
-<li>The application and the document are currently under construction</li>
-</ul>
 
 
 
