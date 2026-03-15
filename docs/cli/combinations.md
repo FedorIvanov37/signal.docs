@@ -16,8 +16,10 @@ this is not all the list
 !!! warning "Keys joining is not supported"
     Each key should be entered separately, with no joining them together
     
-    ```cmd linenums="1"
+    ```text
+
     signal.exe -c -r -i 10 --default  # Correct, will send default message with repeat
 
-    signal.exe -cri 10 --default`     # Incorrect, will not work as expected because keys -c -r -i were joined
+    signal.exe -cri 10 --default`     # Incorrect, will not work as expected
+
     ```

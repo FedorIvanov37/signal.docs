@@ -101,3 +101,9 @@ pre.signal-console {
 .signal-console td.linenos pre span:last-child {
     display: none;
 }
+
+
+.md-typeset table td:nth-child(4),
+.md-typeset table th:nth-child(4) {
+    white-space: nowrap;
+}
