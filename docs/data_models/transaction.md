@@ -160,7 +160,7 @@ The sections should be filled according to the data model
     
     ```ini linenums="1"
     [MESSSAGE]
-    F002 = [415481%%0001]  ; Correct, will desplay "415481%0001"
+    F002 = [415481%%0001]  ; Correct, will display "415481%0001"
     F002 = [415481%0001]   ; Incorrect, will lead to parsing error
     ```
 

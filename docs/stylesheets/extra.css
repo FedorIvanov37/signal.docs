@@ -1,3 +1,63 @@
 .md-typeset table {
     white-space: nowrap;
 }
+
+.md-typeset .signal-console,
+.md-typeset .signal-console div,
+.md-typeset .signal-console pre,
+.md-typeset .signal-console code,
+.md-typeset .signal-console table,
+.md-typeset .signal-console tbody,
+.md-typeset .signal-console tr,
+.md-typeset .signal-console td,
+.md-typeset .signal-console span {
+    background: #012E4F !important;
+}
+
+.md-typeset .signal-console pre,
+.md-typeset .signal-console code,
+.md-typeset .signal-console span {
+    color: #e6edf3 !important;
+}
+
+.md-typeset .signal-console pre {
+    white-space: pre !important;
+    overflow-x: auto;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+}
+
+.md-typeset .signal-console code,
+.md-typeset .signal-console span {
+    white-space: inherit !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+}
+
+.md-typeset .signal-console .linenos,
+.md-typeset .signal-console .linenodiv,
+.md-typeset .signal-console .linenos pre,
+.md-typeset .signal-console .linenodiv pre {
+    color: #7fb3d5 !important;
+}
+
+.md-typeset .signal-console .linenos,
+.md-typeset .signal-console .linenodiv {
+    display: block !important;
+    background: #012E4F !important;
+}
+
+.md-typeset .signal-console .linenos pre,
+.md-typeset .signal-console .linenodiv pre {
+    color: #7fb3d5 !important;
+    background: #012E4F !important;
+    white-space: pre !important;
+}
+
+.md-typeset .signal-console .highlighttable {
+    display: table !important;
+}
+
+.md-typeset .signal-console .highlighttable td {
+    background: #012E4F !important;
+}

@@ -14,26 +14,26 @@ The Specification has the following parts
 | fields | dics[str, [IsoField](/data_models/specification/#isofield)]                          | No       | { }                          | IsoField set                          | 
 
 ## IsoField
-| Property            | Type                                               | Description                                           | Example             |
-|---------------------|----------------------------------------------------|-------------------------------------------------------|---------------------|
-| Validators          | [Validators](/data_models/validations/#validators) | Field validation rules set                            |                     |
-| field_number        | str[int]                                           | Field number                                          | "4"                 |
-| field_path          | list[str[int]]                                     | Field hierarhy path                                   | ["47", "227", "01"] |
-| min_length          | int                                                | Minimal field length                                  | 16                  |
-| max_length          | int                                                | Maximum field length                                  | 19                  |
-| var_length          | int                                                | Field onw variable length                             | 2                   |
-| tag_length          | int                                                | Field subtag length                                   | 3                   |
-| generate            | bool                                               | Generate field value possible                         | true                |
-| reversal            | bool                                               | Take field value from orginal when process a reversal | false               |
-| matching            | bool                                               | Field is transactions matching participant            | true                |
-| alpha               | bool                                               | Field can content letters                             | true                |
-| numeric             | bool                                               | Field can content numbers                             | true                |
-| special             | bool                                               | Field can content special symbols %, ^, and so on     | true                |
-| reserved_for_future | bool                                               | Field reserver for future                             | true                |
-| description         | str                                                | Field name or description                             | true                |
-| is_secret           | bool                                               | Field content sensetive data                          | true                |
-| is_utrnno           | bool                                               | Field content transaction ID                          | true                |
-| fields              | dict[str, IsoField]                                | Subfields set                                         |                     |
+| Property            | Type                                                        | Description                                           | Example             |
+|---------------------|-------------------------------------------------------------|-------------------------------------------------------|---------------------|
+| Validators          | [Validators](/data_models/validations/#validators)          | Field validation rules set                            |                     |
+| field_number        | str[int]                                                    | Field number                                          | "4"                 |
+| field_path          | list[str[int]]                                              | Field hierarhy path                                   | ["47", "227", "01"] |
+| min_length          | int                                                         | Minimal field length                                  | 16                  |
+| max_length          | int                                                         | Maximum field length                                  | 19                  |
+| var_length          | int                                                         | Field onw variable length                             | 2                   |
+| tag_length          | int                                                         | Field subtag length                                   | 3                   |
+| generate            | bool                                                        | Generate field value possible                         | true                |
+| reversal            | bool                                                        | Take field value from orginal when process a reversal | false               |
+| matching            | bool                                                        | Field is transactions matching participant            | true                |
+| alpha               | bool                                                        | Field can content letters                             | true                |
+| numeric             | bool                                                        | Field can content numbers                             | true                |
+| special             | bool                                                        | Field can content special symbols %, ^, and so on     | true                |
+| reserved_for_future | bool                                                        | Field reserver for future                             | true                |
+| description         | str                                                         | Field name or description                             | true                |
+| is_secret           | bool                                                        | Field content sensetive data                          | true                |
+| is_utrnno           | bool                                                        | Field content transaction ID                          | true                |
+| fields              | dict[str, [IsoField](/data_models/specification/#isofield)] | Subfields set                                         |                     |
 
 
 ## Message Type Indicators

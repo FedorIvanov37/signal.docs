@@ -70,7 +70,11 @@ nav:
       - Fields: gui/settings/fields.md
       - Specification: gui/settings/specification.md
       - API: gui/settings/api.md
-  - Command Line: todo1.md
+  - Command Line:
+      - cli/index.md
+      - Commands: cli/commands.md
+      - Combinations: cli/combinations.md
+      - Command line API: cli/cli_api.md
   - HTTP API: todo.md
   - Python library: todo2.md
   - Data models:
