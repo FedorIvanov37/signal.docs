@@ -32,27 +32,27 @@ This property refers that the field contents one of the dictionaries value
 
 Field properties set, which shows validations, applicable to the field and those validations parameters
 
-| Validator              | Type                                                             | Check                                                    | Example                | Comment                           |
-|------------------------|------------------------------------------------------------------|----------------------------------------------------------|------------------------|-----------------------------------|
-| field_type             | [FieldTypes](/data_models/dictionaries/#field-types)             | Field contains valid field type                          | MERCHANT CATEGORY CODE |                                   |
-| date_format            | str                                                              | Field contains data in defined format                    | %Y%M%D                 | Python-datetime style             |
-| min_value              | int                                                              | Mininun field value                                      | 100                    | Applicable for digit fields only  |
-| max_value              | int                                                              | Maximum field value                                      | 100                    | Applicable for digit fields only  |
-| must_not_contain       | list[str]                                                        | Field does not content value from list                   | ["some", "values"]     |                                   |
-| possible_values        | list[str]                                                        | Field content one of the value from list                 | ["some", "values"]     |                                   |
-| must_start_with        | list[str]                                                        | Field content starts with one of the value from list     | ["some", "values"]     |                                   |
-| must_end_with          | list[str]                                                        | Field content ends with one of the value from list       | ["some", "values"]     |                                   |
-| must_contain           | list[str]                                                        | Field content value from list                            | ["some", "values"]     |                                   |
-| valid_values           | list[str]                                                        | Field content value from list only                       | ["some", "values"]     |                                   |
-| invalid_values         | list[str]                                                        | Field content value not from list only                   | ["some", "values"]     |                                   |
-| must_contain_only      | list[str]                                                        | Field content value from list                            | ["some", "values"]     |                                   |
-| must_not_end_with      | list[str]                                                        | Field content not ends with one of the value from list   | ["some", "values"]     |                                   |
-| must_not_start_with    | list[str]                                                        | Field content not starts with one of the value from list | ["some", "values"]     |                                   |
-| must_not_contain_only  | list[str]                                                        | Field not content value not from list only               | ["some", "values"]     |                                   |
-| justification          | [Justification](/data_models/validators/#justification)          | Fill field data side                                     | "RIGHT"                |                                   |
-| justification_element  | str                                                              | Data fo fill field data side                             | "0"                    |                                   |
-| justification_length   | int                                                              | Fill field data side up to length                        | 16                     |                                   |
-| field_type_validators  | [LogicalValidators](/data_models/validators/#logical-validators) | Validate field on some dictionary includement            | ["some", "values"]     |                                   |
+| Validator              | Type                                                              | Check                                                    | Example                | Comment                           |
+|------------------------|-------------------------------------------------------------------|----------------------------------------------------------|------------------------|-----------------------------------|
+| field_type             | [FieldTypes](/data_models/dictionaries/#field-types)              | Field contains valid field type                          | MERCHANT CATEGORY CODE |                                   |
+| date_format            | str                                                               | Field contains data in defined format                    | %Y%M%D                 | Python-datetime style             |
+| min_value              | int                                                               | Mininun field value                                      | 100                    | Applicable for digit fields only  |
+| max_value              | int                                                               | Maximum field value                                      | 100                    | Applicable for digit fields only  |
+| must_not_contain       | list[str]                                                         | Field does not content value from list                   | ["some", "values"]     |                                   |
+| possible_values        | list[str]                                                         | Field content one of the value from list                 | ["some", "values"]     |                                   |
+| must_start_with        | list[str]                                                         | Field content starts with one of the value from list     | ["some", "values"]     |                                   |
+| must_end_with          | list[str]                                                         | Field content ends with one of the value from list       | ["some", "values"]     |                                   |
+| must_contain           | list[str]                                                         | Field content value from list                            | ["some", "values"]     |                                   |
+| valid_values           | list[str]                                                         | Field content value from list only                       | ["some", "values"]     |                                   |
+| invalid_values         | list[str]                                                         | Field content value not from list only                   | ["some", "values"]     |                                   |
+| must_contain_only      | list[str]                                                         | Field content value from list                            | ["some", "values"]     |                                   |
+| must_not_end_with      | list[str]                                                         | Field content not ends with one of the value from list   | ["some", "values"]     |                                   |
+| must_not_start_with    | list[str]                                                         | Field content not starts with one of the value from list | ["some", "values"]     |                                   |
+| must_not_contain_only  | list[str]                                                         | Field not content value not from list only               | ["some", "values"]     |                                   |
+| justification          | [Justification](/data_models/validations/#justification)          | Fill field data side                                     | "RIGHT"                |                                   |
+| justification_element  | str                                                               | Data fo fill field data side                             | "0"                    |                                   |
+| justification_length   | int                                                               | Fill field data side up to length                        | 16                     |                                   |
+| field_type_validators  | [LogicalValidators](/data_models/validations/#logical-validators) | Validate field on some dictionary includement            | ["some", "values"]     |                                   |
 
 
 ## Justification
