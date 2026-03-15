@@ -78,5 +78,6 @@ nav:
       - Transaction: data_models/transaction.md
       - Specification: data_models/specification.md
       - Config: data_models/config.md
+      - Validations: data_models/validations.md
       - Dictionaries: data_models/dictionaries.md
   - Download: downloads.md

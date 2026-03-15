@@ -2,484 +2,1467 @@
 
 ## Signal dictionaries
 
-This chapter describes predefined constant values for use in the Signal environment
+This chapter contains predefined constant values for use in the Signal environment
 
 ## Log level
 
 The Signal log writing level 
 
-| Level    | Write log messages level                    | When writes                                                       | Comment          |
-|----------|---------------------------------------------|-------------------------------------------------------------------|------------------|
-| NOTSET   | Do not write log at all                     | -                                                                 |                  |
-| CRITICAL | `CRITICAL`                                  | Critical usually system errors                                    |                  |
-| ERROR    | `CRITICAL` `ERROR`                          | The Signal cannot process user's request                          |                  |
-| WARNING  | `CRITICAL` `ERROR` `WARNING`                | The Signal cannot process user's request as is, need some changes |                  |
-| INFO     | `CRITICAL` `ERROR` `WARNING` `INFO`         | Regular Signal events                                             | Recommended mode |
-| DEBUG    | `CRITICAL` `ERROR` `WARNING` `INFO` `DEBUG` | Write maximum information to log                                  | Writes raw dumps |
+??? example "Log levels"
+    | Level    | Write log messages level                    | When writes                                                       | Comment          |
+    |----------|---------------------------------------------|-------------------------------------------------------------------|------------------|
+    | NOTSET   | Do not write log at all                     | -                                                                 |                  |
+    | CRITICAL | `CRITICAL`                                  | Critical usually system errors                                    |                  |
+    | ERROR    | `CRITICAL` `ERROR`                          | The Signal cannot process user's request                          |                  |
+    | WARNING  | `CRITICAL` `ERROR` `WARNING`                | The Signal cannot process user's request as is, need some changes |                  |
+    | INFO     | `CRITICAL` `ERROR` `WARNING` `INFO`         | Regular Signal events                                             | Recommended mode |
+    | DEBUG    | `CRITICAL` `ERROR` `WARNING` `INFO` `DEBUG` | Write maximum information to log                                  | Writes raw dumps |
 
 ## Field Types
 
-Fields predefined types
-
-| Field Type             | Field should contain               |
-|------------------------|------------------------------------|
-| COUNTRY CODE           | Valid country code                 |
-| CURRENCY CODE          | Valid currency code                |
-| MERCHANT CATEGORY CODE | Valid Merchant Category Code (MCC) |
-| DATE                   | Date or date and time              |
-| OTHER                  | Other value, not from listing      |
-
-
+??? example "Fields predefined types"
+    | Field Type             | Field should contain               |
+    |------------------------|------------------------------------|
+    | COUNTRY CODE           | Valid country code                 |
+    | CURRENCY CODE          | Valid currency code                |
+    | MERCHANT CATEGORY CODE | Valid Merchant Category Code (MCC) |
+    | DATE                   | Date or date and time              |
+    | OTHER                  | Other value, not from listing      |
 
 
 ## Validation Mode
 
-Transaction data validation violation processing mode
-
-| Mode     | Reaction                                                                                                         |
-|----------|------------------------------------------------------------------------------------------------------------------|
-| WARNING  | Set warning and process transaction                                                                              |
-| ERROR    | Set error and stop transaction processing                                                                        |
-| FLEXIBLE | Combined approach. Set error and stop on critical violation, set warning and process transaction on non-critical |
+??? example "Transaction data validation violation processing mode"
+    | Mode     | Reaction                                                                                                         |
+    |----------|------------------------------------------------------------------------------------------------------------------|
+    | WARNING  | Set warning and process transaction                                                                              |
+    | ERROR    | Set error and stop transaction processing                                                                        |
+    | FLEXIBLE | Combined approach. Set error and stop on critical violation, set warning and process transaction on non-critical |
 
 
 ## Countries list
-Countries list for data fields validation
-
-| Name                                                 | Code N3  | Code A2 | Code A3 |
-|------------------------------------------------------|----------|---------|---------|
-| Afghanistan                                          | 004      | AF      | AFG     |
-| Aland Islands                                        | 248      | AX      | ALA     |
-| Albania                                              | 008      | AL      | ALB     |
-| Algeria                                              | 012      | DZ      | DZA     |
-| American Samoa                                       | 016      | AS      | ASM     |
-| Andorra                                              | 020      | AD      | AND     |
-| Angola                                               | 024      | AO      | AGO     |
-| Anguilla                                             | 660      | AI      | AIA     |
-| Antarctica                                           | 010      | AQ      | ATA     |
-| Antigua and Barbuda                                  | 028      | AG      | ATG     |
-| Argentina                                            | 032      | AR      | ARG     |
-| Armenia                                              | 051      | AM      | ARM     |
-| Aruba                                                | 533      | AW      | ABW     |
-| Australia                                            | 036      | AU      | AUS     |
-| Austria                                              | 040      | AT      | AUT     |
-| Azerbaijan                                           | 031      | AZ      | AZE     |
-| Bahamas                                              | 044      | BS      | BHS     |
-| Bahrain                                              | 048      | BH      | BHR     |
-| Bangladesh                                           | 050      | BD      | BGD     |
-| Barbados                                             | 052      | BB      | BRB     |
-| Belarus                                              | 112      | BY      | BLR     |
-| Belgium                                              | 056      | BE      | BEL     |
-| Belize                                               | 084      | BZ      | BLZ     |
-| Benin                                                | 204      | BJ      | BEN     |
-| Bermuda                                              | 060      | BM      | BMU     |
-| Bhutan                                               | 064      | BT      | BTN     |
-| Bolivia (Plurinational State of)                     | 068      | BO      | BOL     |
-| Bonaire, Sint Eustatius and Saba                     | 535      | BQ      | BES     |
-| Bosnia and Herzegovina                               | 070      | BA      | BIH     |
-| Botswana                                             | 072      | BW      | BWA     |
-| Bouvet Island                                        | 074      | BV      | BVT     |
-| Brazil                                               | 076      | BR      | BRA     |
-| British Indian Ocean Territory                       | 086      | IO      | IOT     |
-| Brunei Darussalam                                    | 096      | BN      | BRN     |
-| Bulgaria                                             | 100      | BG      | BGR     |
-| Burkina Faso                                         | 854      | BF      | BFA     |
-| Burundi                                              | 108      | BI      | BDI     |
-| Cabo Verde                                           | 132      | CV      | CPV     |
-| Cambodia                                             | 116      | KH      | KHM     |
-| Cameroon                                             | 120      | CM      | CMR     |
-| Canada                                               | 124      | CA      | CAN     |
-| Cayman Islands                                       | 136      | KY      | CYM     |
-| Central African Republic                             | 140      | CF      | CAF     |
-| Chad                                                 | 148      | TD      | TCD     |
-| Chile                                                | 152      | CL      | CHL     |
-| China                                                | 156      | CN      | CHN     |
-| Christmas Island                                     | 162      | CX      | CXR     |
-| Cocos (Keeling) Islands                              | 166      | CC      | CCK     |
-| Colombia                                             | 170      | CO      | COL     |
-| Comoros                                              | 174      | KM      | COM     |
-| Congo                                                | 178      | CG      | COG     |
-| Congo, Democratic Republic of the                    | 180      | CD      | COD     |
-| Cook Islands                                         | 184      | CK      | COK     |
-| Costa Rica                                           | 188      | CR      | CRI     |
-| Cote dIvoire                                         | 384      | CI      | CIV     |
-| Croatia                                              | 191      | HR      | HRV     |
-| Cuba                                                 | 192      | CU      | CUB     |
-| Curacao                                              | 531      | CW      | CUW     |
-| Cyprus                                               | 196      | CY      | CYP     |
-| Czechia                                              | 203      | CZ      | CZE     |
-| Denmark                                              | 208      | DK      | DNK     |
-| Djibouti                                             | 262      | DJ      | DJI     |
-| Dominica                                             | 212      | DM      | DMA     |
-| Dominican Republic                                   | 214      | DO      | DOM     |
-| Ecuador                                              | 218      | EC      | ECU     |
-| Egypt                                                | 818      | EG      | EGY     |
-| El Salvador                                          | 222      | SV      | SLV     |
-| Equatorial Guinea                                    | 226      | GQ      | GNQ     |
-| Eritrea                                              | 232      | ER      | ERI     |
-| Estonia                                              | 233      | EE      | EST     |
-| Eswatini                                             | 748      | SZ      | SWZ     |
-| Ethiopia                                             | 231      | ET      | ETH     |
-| Falkland Islands (Malvinas)                          | 238      | FK      | FLK     |
-| Faroe Islands                                        | 234      | FO      | FRO     |
-| Fiji                                                 | 242      | FJ      | FJI     |
-| Finland                                              | 246      | FI      | FIN     |
-| France                                               | 250      | FR      | FRA     |
-| French Guiana                                        | 254      | GF      | GUF     |
-| French Polynesia                                     | 258      | PF      | PYF     |
-| French Southern Territories                          | 260      | TF      | ATF     |
-| Gabon                                                | 266      | GA      | GAB     |
-| Gambia                                               | 270      | GM      | GMB     |
-| Georgia                                              | 268      | GE      | GEO     |
-| Germany                                              | 276      | DE      | DEU     |
-| Ghana                                                | 288      | GH      | GHA     |
-| Gibraltar                                            | 292      | GI      | GIB     |
-| Greece                                               | 300      | GR      | GRC     |
-| Greenland                                            | 304      | GL      | GRL     |
-| Grenada                                              | 308      | GD      | GRD     |
-| Guadeloupe                                           | 312      | GP      | GLP     |
-| Guam                                                 | 316      | GU      | GUM     |
-| Guatemala                                            | 320      | GT      | GTM     |
-| Guernsey                                             | 831      | GG      | GGY     |
-| Guinea                                               | 324      | GN      | GIN     |
-| Guinea-Bissau                                        | 624      | GW      | GNB     |
-| Guyana                                               | 328      | GY      | GUY     |
-| Haiti                                                | 332      | HT      | HTI     |
-| Heard Island and McDonald Islands                    | 334      | HM      | HMD     |
-| Holy See                                             | 336      | VA      | VAT     |
-| Honduras                                             | 340      | HN      | HND     |
-| Hong Kong                                            | 344      | HK      | HKG     |
-| Hungary                                              | 348      | HU      | HUN     |
-| Iceland                                              | 352      | IS      | ISL     |
-| India                                                | 356      | IN      | IND     |
-| Indonesia                                            | 360      | ID      | IDN     |
-| Iran (Islamic Republic of)                           | 364      | IR      | IRN     |
-| Iraq                                                 | 368      | IQ      | IRQ     |
-| Ireland                                              | 372      | IE      | IRL     |
-| Isle of Man                                          | 833      | IM      | IMN     |
-| Israel                                               | 376      | IL      | ISR     |
-| Italy                                                | 380      | IT      | ITA     |
-| Jamaica                                              | 388      | JM      | JAM     |
-| Japan                                                | 392      | JP      | JPN     |
-| Jersey                                               | 832      | JE      | JEY     |
-| Jordan                                               | 400      | JO      | JOR     |
-| Kazakhstan                                           | 398      | KZ      | KAZ     |
-| Kenya                                                | 404      | KE      | KEN     |
-| Kiribati                                             | 296      | KI      | KIR     |
-| Korea (Democratic Peoples Republic of)               | 408      | KP      | PRK     |
-| Korea, Republic of                                   | 410      | KR      | KOR     |
-| Kuwait                                               | 414      | KW      | KWT     |
-| Kyrgyzstan                                           | 417      | KG      | KGZ     |
-| Lao Peoples Democratic Republic                      | 418      | LA      | LAO     |
-| Latvia                                               | 428      | LV      | LVA     |
-| Lebanon                                              | 422      | LB      | LBN     |
-| Lesotho                                              | 426      | LS      | LSO     |
-| Liberia                                              | 430      | LR      | LBR     |
-| Libya                                                | 434      | LY      | LBY     |
-| Liechtenstein                                        | 438      | LI      | LIE     |
-| Lithuania                                            | 440      | LT      | LTU     |
-| Luxembourg                                           | 442      | LU      | LUX     |
-| Macao                                                | 446      | MO      | MAC     |
-| Madagascar                                           | 450      | MG      | MDG     |
-| Malawi                                               | 454      | MW      | MWI     |
-| Malaysia                                             | 458      | MY      | MYS     |
-| Maldives                                             | 462      | MV      | MDV     |
-| Mali                                                 | 466      | ML      | MLI     |
-| Malta                                                | 470      | MT      | MLT     |
-| Marshall Islands                                     | 584      | MH      | MHL     |
-| Martinique                                           | 474      | MQ      | MTQ     |
-| Mauritania                                           | 478      | MR      | MRT     |
-| Mauritius                                            | 480      | MU      | MUS     |
-| Mayotte                                              | 175      | YT      | MYT     |
-| Mexico                                               | 484      | MX      | MEX     |
-| Micronesia (Federated States of)                     | 583      | FM      | FSM     |
-| Moldova, Republic of                                 | 498      | MD      | MDA     |
-| Monaco                                               | 492      | MC      | MCO     |
-| Mongolia                                             | 496      | MN      | MNG     |
-| Montenegro                                           | 499      | ME      | MNE     |
-| Montserrat                                           | 500      | MS      | MSR     |
-| Morocco                                              | 504      | MA      | MAR     |
-| Mozambique                                           | 508      | MZ      | MOZ     |
-| Myanmar                                              | 104      | MM      | MMR     |
-| Namibia                                              | 516      | NA      | NAM     |
-| Nauru                                                | 520      | NR      | NRU     |
-| Nepal                                                | 524      | NP      | NPL     |
-| Netherlands                                          | 528      | NL      | NLD     |
-| New Caledonia                                        | 540      | NC      | NCL     |
-| New Zealand                                          | 554      | NZ      | NZL     |
-| Nicaragua                                            | 558      | NI      | NIC     |
-| Niger                                                | 562      | NE      | NER     |
-| Nigeria                                              | 566      | NG      | NGA     |
-| Niue                                                 | 570      | NU      | NIU     |
-| Norfolk Island                                       | 574      | NF      | NFK     |
-| North Macedonia                                      | 807      | MK      | MKD     |
-| Northern Mariana Islands                             | 580      | MP      | MNP     |
-| Norway                                               | 578      | NO      | NOR     |
-| Oman                                                 | 512      | OM      | OMN     |
-| Pakistan                                             | 586      | PK      | PAK     |
-| Palau                                                | 585      | PW      | PLW     |
-| Palestine, State of                                  | 275      | PS      | PSE     |
-| Panama                                               | 591      | PA      | PAN     |
-| Papua New Guinea                                     | 598      | PG      | PNG     |
-| Paraguay                                             | 600      | PY      | PRY     |
-| Peru                                                 | 604      | PE      | PER     |
-| Philippines                                          | 608      | PH      | PHL     |
-| Pitcairn                                             | 612      | PN      | PCN     |
-| Poland                                               | 616      | PL      | POL     |
-| Portugal                                             | 620      | PT      | PRT     |
-| Puerto Rico                                          | 630      | PR      | PRI     |
-| Qatar                                                | 634      | QA      | QAT     |
-| Reunion                                              | 638      | RE      | REU     |
-| Romania                                              | 642      | RO      | ROU     |
-| Russian Federation                                   | 643      | RU      | RUS     |
-| Rwanda                                               | 646      | RW      | RWA     |
-| Saint Barthelemy                                     | 652      | BL      | BLM     |
-| Saint Helena, Ascension and Tristan da Cunha         | 654      | SH      | SHN     |
-| Saint Kitts and Nevis                                | 659      | KN      | KNA     |
-| Saint Lucia                                          | 662      | LC      | LCA     |
-| Saint Martin (French part)                           | 663      | MF      | MAF     |
-| Saint Pierre and Miquelon                            | 666      | PM      | SPM     |
-| Saint Vincent and the Grenadines                     | 670      | VC      | VCT     |
-| Samoa                                                | 882      | WS      | WSM     |
-| San Marino                                           | 674      | SM      | SMR     |
-| Sao Tome and Principe                                | 678      | ST      | STP     |
-| Saudi Arabia                                         | 682      | SA      | SAU     |
-| Senegal                                              | 686      | SN      | SEN     |
-| Serbia                                               | 688      | RS      | SRB     |
-| Seychelles                                           | 690      | SC      | SYC     |
-| Sierra Leone                                         | 694      | SL      | SLE     |
-| Singapore                                            | 702      | SG      | SGP     |
-| Sint Maarten (Dutch part)                            | 534      | SX      | SXM     |
-| Slovakia                                             | 703      | SK      | SVK     |
-| Slovenia                                             | 705      | SI      | SVN     |
-| Solomon Islands                                      | 090      | SB      | SLB     |
-| Somalia                                              | 706      | SO      | SOM     |
-| South Africa                                         | 710      | ZA      | ZAF     |
-| South Georgia and the South Sandwich Islands         | 239      | GS      | SGS     |
-| South Sudan                                          | 728      | SS      | SSD     |
-| Spain                                                | 724      | ES      | ESP     |
-| Sri Lanka                                            | 144      | LK      | LKA     |
-| Sudan                                                | 729      | SD      | SDN     |
-| Suriname                                             | 740      | SR      | SUR     |
-| Svalbard and Jan Mayen                               | 744      | SJ      | SJM     |
-| Sweden                                               | 752      | SE      | SWE     |
-| Switzerland                                          | 756      | CH      | CHE     |
-| Syrian Arab Republic                                 | 760      | SY      | SYR     |
-| Taiwan, Province of China                            | 158      | TW      | TWN     |
-| Tajikistan                                           | 762      | TJ      | TJK     |
-| Tanzania, United Republic of                         | 834      | TZ      | TZA     |
-| Thailand                                             | 764      | TH      | THA     |
-| Timor-Leste                                          | 626      | TL      | TLS     |
-| Togo                                                 | 768      | TG      | TGO     |
-| Tokelau                                              | 772      | TK      | TKL     |
-| Tonga                                                | 776      | TO      | TON     |
-| Trinidad and Tobago                                  | 780      | TT      | TTO     |
-| Tunisia                                              | 788      | TN      | TUN     |
-| Turkey                                               | 792      | TR      | TUR     |
-| Turkmenistan                                         | 795      | TM      | TKM     |
-| Turks and Caicos Islands                             | 796      | TC      | TCA     |
-| Tuvalu                                               | 798      | TV      | TUV     |
-| Uganda                                               | 800      | UG      | UGA     |
-| Ukraine                                              | 804      | UA      | UKR     |
-| United Arab Emirates                                 | 784      | AE      | ARE     |
-| United Kingdom of Great Britain and Northern Ireland | 826      | GB      | GBR     |
-| United States of America                             | 840      | US      | USA     |
-| United States Minor Outlying Islands                 | 581      | UM      | UMI     |
-| Uruguay                                              | 858      | UY      | URY     |
-| Uzbekistan                                           | 860      | UZ      | UZB     |
-| Vanuatu                                              | 548      | VU      | VUT     |
-| Venezuela (Bolivarian Republic of)                   | 862      | VE      | VEN     |
-| Viet Nam                                             | 704      | VN      | VNM     |
-| Virgin Islands (British)                             | 092      | VG      | VGB     |
-| Virgin Islands (U.S.)                                | 850      | VI      | VIR     |
-| Wallis and Futuna                                    | 876      | WF      | WLF     |
-| Western Sahara                                       | 732      | EH      | ESH     |
-| Yemen                                                | 887      | YE      | YEM     |
-| Zambia                                               | 894      | ZM      | ZMB     |
-| Zimbabwe                                             | 716      | ZW      | ZWE     |
+??? example "Countries list for data fields validation"
+    | Name                                                 | Code N3  | Code A2 | Code A3 |
+    |------------------------------------------------------|----------|---------|---------|
+    | Afghanistan                                          | 004      | AF      | AFG     |
+    | Aland Islands                                        | 248      | AX      | ALA     |
+    | Albania                                              | 008      | AL      | ALB     |
+    | Algeria                                              | 012      | DZ      | DZA     |
+    | American Samoa                                       | 016      | AS      | ASM     |
+    | Andorra                                              | 020      | AD      | AND     |
+    | Angola                                               | 024      | AO      | AGO     |
+    | Anguilla                                             | 660      | AI      | AIA     |
+    | Antarctica                                           | 010      | AQ      | ATA     |
+    | Antigua and Barbuda                                  | 028      | AG      | ATG     |
+    | Argentina                                            | 032      | AR      | ARG     |
+    | Armenia                                              | 051      | AM      | ARM     |
+    | Aruba                                                | 533      | AW      | ABW     |
+    | Australia                                            | 036      | AU      | AUS     |
+    | Austria                                              | 040      | AT      | AUT     |
+    | Azerbaijan                                           | 031      | AZ      | AZE     |
+    | Bahamas                                              | 044      | BS      | BHS     |
+    | Bahrain                                              | 048      | BH      | BHR     |
+    | Bangladesh                                           | 050      | BD      | BGD     |
+    | Barbados                                             | 052      | BB      | BRB     |
+    | Belarus                                              | 112      | BY      | BLR     |
+    | Belgium                                              | 056      | BE      | BEL     |
+    | Belize                                               | 084      | BZ      | BLZ     |
+    | Benin                                                | 204      | BJ      | BEN     |
+    | Bermuda                                              | 060      | BM      | BMU     |
+    | Bhutan                                               | 064      | BT      | BTN     |
+    | Bolivia (Plurinational State of)                     | 068      | BO      | BOL     |
+    | Bonaire, Sint Eustatius and Saba                     | 535      | BQ      | BES     |
+    | Bosnia and Herzegovina                               | 070      | BA      | BIH     |
+    | Botswana                                             | 072      | BW      | BWA     |
+    | Bouvet Island                                        | 074      | BV      | BVT     |
+    | Brazil                                               | 076      | BR      | BRA     |
+    | British Indian Ocean Territory                       | 086      | IO      | IOT     |
+    | Brunei Darussalam                                    | 096      | BN      | BRN     |
+    | Bulgaria                                             | 100      | BG      | BGR     |
+    | Burkina Faso                                         | 854      | BF      | BFA     |
+    | Burundi                                              | 108      | BI      | BDI     |
+    | Cabo Verde                                           | 132      | CV      | CPV     |
+    | Cambodia                                             | 116      | KH      | KHM     |
+    | Cameroon                                             | 120      | CM      | CMR     |
+    | Canada                                               | 124      | CA      | CAN     |
+    | Cayman Islands                                       | 136      | KY      | CYM     |
+    | Central African Republic                             | 140      | CF      | CAF     |
+    | Chad                                                 | 148      | TD      | TCD     |
+    | Chile                                                | 152      | CL      | CHL     |
+    | China                                                | 156      | CN      | CHN     |
+    | Christmas Island                                     | 162      | CX      | CXR     |
+    | Cocos (Keeling) Islands                              | 166      | CC      | CCK     |
+    | Colombia                                             | 170      | CO      | COL     |
+    | Comoros                                              | 174      | KM      | COM     |
+    | Congo                                                | 178      | CG      | COG     |
+    | Congo, Democratic Republic of the                    | 180      | CD      | COD     |
+    | Cook Islands                                         | 184      | CK      | COK     |
+    | Costa Rica                                           | 188      | CR      | CRI     |
+    | Cote dIvoire                                         | 384      | CI      | CIV     |
+    | Croatia                                              | 191      | HR      | HRV     |
+    | Cuba                                                 | 192      | CU      | CUB     |
+    | Curacao                                              | 531      | CW      | CUW     |
+    | Cyprus                                               | 196      | CY      | CYP     |
+    | Czechia                                              | 203      | CZ      | CZE     |
+    | Denmark                                              | 208      | DK      | DNK     |
+    | Djibouti                                             | 262      | DJ      | DJI     |
+    | Dominica                                             | 212      | DM      | DMA     |
+    | Dominican Republic                                   | 214      | DO      | DOM     |
+    | Ecuador                                              | 218      | EC      | ECU     |
+    | Egypt                                                | 818      | EG      | EGY     |
+    | El Salvador                                          | 222      | SV      | SLV     |
+    | Equatorial Guinea                                    | 226      | GQ      | GNQ     |
+    | Eritrea                                              | 232      | ER      | ERI     |
+    | Estonia                                              | 233      | EE      | EST     |
+    | Eswatini                                             | 748      | SZ      | SWZ     |
+    | Ethiopia                                             | 231      | ET      | ETH     |
+    | Falkland Islands (Malvinas)                          | 238      | FK      | FLK     |
+    | Faroe Islands                                        | 234      | FO      | FRO     |
+    | Fiji                                                 | 242      | FJ      | FJI     |
+    | Finland                                              | 246      | FI      | FIN     |
+    | France                                               | 250      | FR      | FRA     |
+    | French Guiana                                        | 254      | GF      | GUF     |
+    | French Polynesia                                     | 258      | PF      | PYF     |
+    | French Southern Territories                          | 260      | TF      | ATF     |
+    | Gabon                                                | 266      | GA      | GAB     |
+    | Gambia                                               | 270      | GM      | GMB     |
+    | Georgia                                              | 268      | GE      | GEO     |
+    | Germany                                              | 276      | DE      | DEU     |
+    | Ghana                                                | 288      | GH      | GHA     |
+    | Gibraltar                                            | 292      | GI      | GIB     |
+    | Greece                                               | 300      | GR      | GRC     |
+    | Greenland                                            | 304      | GL      | GRL     |
+    | Grenada                                              | 308      | GD      | GRD     |
+    | Guadeloupe                                           | 312      | GP      | GLP     |
+    | Guam                                                 | 316      | GU      | GUM     |
+    | Guatemala                                            | 320      | GT      | GTM     |
+    | Guernsey                                             | 831      | GG      | GGY     |
+    | Guinea                                               | 324      | GN      | GIN     |
+    | Guinea-Bissau                                        | 624      | GW      | GNB     |
+    | Guyana                                               | 328      | GY      | GUY     |
+    | Haiti                                                | 332      | HT      | HTI     |
+    | Heard Island and McDonald Islands                    | 334      | HM      | HMD     |
+    | Holy See                                             | 336      | VA      | VAT     |
+    | Honduras                                             | 340      | HN      | HND     |
+    | Hong Kong                                            | 344      | HK      | HKG     |
+    | Hungary                                              | 348      | HU      | HUN     |
+    | Iceland                                              | 352      | IS      | ISL     |
+    | India                                                | 356      | IN      | IND     |
+    | Indonesia                                            | 360      | ID      | IDN     |
+    | Iran (Islamic Republic of)                           | 364      | IR      | IRN     |
+    | Iraq                                                 | 368      | IQ      | IRQ     |
+    | Ireland                                              | 372      | IE      | IRL     |
+    | Isle of Man                                          | 833      | IM      | IMN     |
+    | Israel                                               | 376      | IL      | ISR     |
+    | Italy                                                | 380      | IT      | ITA     |
+    | Jamaica                                              | 388      | JM      | JAM     |
+    | Japan                                                | 392      | JP      | JPN     |
+    | Jersey                                               | 832      | JE      | JEY     |
+    | Jordan                                               | 400      | JO      | JOR     |
+    | Kazakhstan                                           | 398      | KZ      | KAZ     |
+    | Kenya                                                | 404      | KE      | KEN     |
+    | Kiribati                                             | 296      | KI      | KIR     |
+    | Korea (Democratic Peoples Republic of)               | 408      | KP      | PRK     |
+    | Korea, Republic of                                   | 410      | KR      | KOR     |
+    | Kuwait                                               | 414      | KW      | KWT     |
+    | Kyrgyzstan                                           | 417      | KG      | KGZ     |
+    | Lao Peoples Democratic Republic                      | 418      | LA      | LAO     |
+    | Latvia                                               | 428      | LV      | LVA     |
+    | Lebanon                                              | 422      | LB      | LBN     |
+    | Lesotho                                              | 426      | LS      | LSO     |
+    | Liberia                                              | 430      | LR      | LBR     |
+    | Libya                                                | 434      | LY      | LBY     |
+    | Liechtenstein                                        | 438      | LI      | LIE     |
+    | Lithuania                                            | 440      | LT      | LTU     |
+    | Luxembourg                                           | 442      | LU      | LUX     |
+    | Macao                                                | 446      | MO      | MAC     |
+    | Madagascar                                           | 450      | MG      | MDG     |
+    | Malawi                                               | 454      | MW      | MWI     |
+    | Malaysia                                             | 458      | MY      | MYS     |
+    | Maldives                                             | 462      | MV      | MDV     |
+    | Mali                                                 | 466      | ML      | MLI     |
+    | Malta                                                | 470      | MT      | MLT     |
+    | Marshall Islands                                     | 584      | MH      | MHL     |
+    | Martinique                                           | 474      | MQ      | MTQ     |
+    | Mauritania                                           | 478      | MR      | MRT     |
+    | Mauritius                                            | 480      | MU      | MUS     |
+    | Mayotte                                              | 175      | YT      | MYT     |
+    | Mexico                                               | 484      | MX      | MEX     |
+    | Micronesia (Federated States of)                     | 583      | FM      | FSM     |
+    | Moldova, Republic of                                 | 498      | MD      | MDA     |
+    | Monaco                                               | 492      | MC      | MCO     |
+    | Mongolia                                             | 496      | MN      | MNG     |
+    | Montenegro                                           | 499      | ME      | MNE     |
+    | Montserrat                                           | 500      | MS      | MSR     |
+    | Morocco                                              | 504      | MA      | MAR     |
+    | Mozambique                                           | 508      | MZ      | MOZ     |
+    | Myanmar                                              | 104      | MM      | MMR     |
+    | Namibia                                              | 516      | NA      | NAM     |
+    | Nauru                                                | 520      | NR      | NRU     |
+    | Nepal                                                | 524      | NP      | NPL     |
+    | Netherlands                                          | 528      | NL      | NLD     |
+    | New Caledonia                                        | 540      | NC      | NCL     |
+    | New Zealand                                          | 554      | NZ      | NZL     |
+    | Nicaragua                                            | 558      | NI      | NIC     |
+    | Niger                                                | 562      | NE      | NER     |
+    | Nigeria                                              | 566      | NG      | NGA     |
+    | Niue                                                 | 570      | NU      | NIU     |
+    | Norfolk Island                                       | 574      | NF      | NFK     |
+    | North Macedonia                                      | 807      | MK      | MKD     |
+    | Northern Mariana Islands                             | 580      | MP      | MNP     |
+    | Norway                                               | 578      | NO      | NOR     |
+    | Oman                                                 | 512      | OM      | OMN     |
+    | Pakistan                                             | 586      | PK      | PAK     |
+    | Palau                                                | 585      | PW      | PLW     |
+    | Palestine, State of                                  | 275      | PS      | PSE     |
+    | Panama                                               | 591      | PA      | PAN     |
+    | Papua New Guinea                                     | 598      | PG      | PNG     |
+    | Paraguay                                             | 600      | PY      | PRY     |
+    | Peru                                                 | 604      | PE      | PER     |
+    | Philippines                                          | 608      | PH      | PHL     |
+    | Pitcairn                                             | 612      | PN      | PCN     |
+    | Poland                                               | 616      | PL      | POL     |
+    | Portugal                                             | 620      | PT      | PRT     |
+    | Puerto Rico                                          | 630      | PR      | PRI     |
+    | Qatar                                                | 634      | QA      | QAT     |
+    | Reunion                                              | 638      | RE      | REU     |
+    | Romania                                              | 642      | RO      | ROU     |
+    | Russian Federation                                   | 643      | RU      | RUS     |
+    | Rwanda                                               | 646      | RW      | RWA     |
+    | Saint Barthelemy                                     | 652      | BL      | BLM     |
+    | Saint Helena, Ascension and Tristan da Cunha         | 654      | SH      | SHN     |
+    | Saint Kitts and Nevis                                | 659      | KN      | KNA     |
+    | Saint Lucia                                          | 662      | LC      | LCA     |
+    | Saint Martin (French part)                           | 663      | MF      | MAF     |
+    | Saint Pierre and Miquelon                            | 666      | PM      | SPM     |
+    | Saint Vincent and the Grenadines                     | 670      | VC      | VCT     |
+    | Samoa                                                | 882      | WS      | WSM     |
+    | San Marino                                           | 674      | SM      | SMR     |
+    | Sao Tome and Principe                                | 678      | ST      | STP     |
+    | Saudi Arabia                                         | 682      | SA      | SAU     |
+    | Senegal                                              | 686      | SN      | SEN     |
+    | Serbia                                               | 688      | RS      | SRB     |
+    | Seychelles                                           | 690      | SC      | SYC     |
+    | Sierra Leone                                         | 694      | SL      | SLE     |
+    | Singapore                                            | 702      | SG      | SGP     |
+    | Sint Maarten (Dutch part)                            | 534      | SX      | SXM     |
+    | Slovakia                                             | 703      | SK      | SVK     |
+    | Slovenia                                             | 705      | SI      | SVN     |
+    | Solomon Islands                                      | 090      | SB      | SLB     |
+    | Somalia                                              | 706      | SO      | SOM     |
+    | South Africa                                         | 710      | ZA      | ZAF     |
+    | South Georgia and the South Sandwich Islands         | 239      | GS      | SGS     |
+    | South Sudan                                          | 728      | SS      | SSD     |
+    | Spain                                                | 724      | ES      | ESP     |
+    | Sri Lanka                                            | 144      | LK      | LKA     |
+    | Sudan                                                | 729      | SD      | SDN     |
+    | Suriname                                             | 740      | SR      | SUR     |
+    | Svalbard and Jan Mayen                               | 744      | SJ      | SJM     |
+    | Sweden                                               | 752      | SE      | SWE     |
+    | Switzerland                                          | 756      | CH      | CHE     |
+    | Syrian Arab Republic                                 | 760      | SY      | SYR     |
+    | Taiwan, Province of China                            | 158      | TW      | TWN     |
+    | Tajikistan                                           | 762      | TJ      | TJK     |
+    | Tanzania, United Republic of                         | 834      | TZ      | TZA     |
+    | Thailand                                             | 764      | TH      | THA     |
+    | Timor-Leste                                          | 626      | TL      | TLS     |
+    | Togo                                                 | 768      | TG      | TGO     |
+    | Tokelau                                              | 772      | TK      | TKL     |
+    | Tonga                                                | 776      | TO      | TON     |
+    | Trinidad and Tobago                                  | 780      | TT      | TTO     |
+    | Tunisia                                              | 788      | TN      | TUN     |
+    | Turkey                                               | 792      | TR      | TUR     |
+    | Turkmenistan                                         | 795      | TM      | TKM     |
+    | Turks and Caicos Islands                             | 796      | TC      | TCA     |
+    | Tuvalu                                               | 798      | TV      | TUV     |
+    | Uganda                                               | 800      | UG      | UGA     |
+    | Ukraine                                              | 804      | UA      | UKR     |
+    | United Arab Emirates                                 | 784      | AE      | ARE     |
+    | United Kingdom of Great Britain and Northern Ireland | 826      | GB      | GBR     |
+    | United States of America                             | 840      | US      | USA     |
+    | United States Minor Outlying Islands                 | 581      | UM      | UMI     |
+    | Uruguay                                              | 858      | UY      | URY     |
+    | Uzbekistan                                           | 860      | UZ      | UZB     |
+    | Vanuatu                                              | 548      | VU      | VUT     |
+    | Venezuela (Bolivarian Republic of)                   | 862      | VE      | VEN     |
+    | Viet Nam                                             | 704      | VN      | VNM     |
+    | Virgin Islands (British)                             | 092      | VG      | VGB     |
+    | Virgin Islands (U.S.)                                | 850      | VI      | VIR     |
+    | Wallis and Futuna                                    | 876      | WF      | WLF     |
+    | Western Sahara                                       | 732      | EH      | ESH     |
+    | Yemen                                                | 887      | YE      | YEM     |
+    | Zambia                                               | 894      | ZM      | ZMB     |
+    | Zimbabwe                                             | 716      | ZW      | ZWE     |
 
 
 
 ## Currencies list
 
-Currencies list for data fields validation
+??? example "Currencies list for data fields validation"
+    | Code A3 | Exponent | Name                                                       | Code N3 |
+    |---------|----------|------------------------------------------------------------|---------|
+    | AED     | 2        | United Arab Emirates dirham                                | 784     |
+    | AFN     | 2        | Afghan afghani                                             | 971     |
+    | ALL     | 2        | Albanian lek                                               | 008     |
+    | AMD     | 2        | Armenian dram                                              | 051     |
+    | ANG     | 2        | Netherlands Antillean guilder                              | 532     |
+    | AOA     | 2        | Angolan kwanza                                             | 973     |
+    | ARS     | 2        | Argentine peso                                             | 032     |
+    | AUD     | 2        | Australian dollar                                          | 036     |
+    | AWG     | 2        | Aruban florin                                              | 533     |
+    | AZN     | 2        | Azerbaijani manat                                          | 944     |
+    | BAM     | 2        | Bosnia and Herzegovina convertible mark                    | 977     |
+    | BBD     | 2        | Barbados dollar                                            | 052     |
+    | BDT     | 2        | Bangladeshi taka                                           | 050     |
+    | BGN     | 2        | Bulgarian lev                                              | 975     |
+    | BHD     | 3        | Bahraini dinar                                             | 048     |
+    | BIF     | 0        | Burundian franc                                            | 108     |
+    | BMD     | 2        | Bermudian dollar (customarily known as Bermuda dollar)     | 060     |
+    | BND     | 2        | Brunei dollar                                              | 096     |
+    | BOB     | 2        | Boliviano                                                  | 068     |
+    | BOV     | 2        | Bolivian Mvdol                                             | 984     |
+    | BRL     | 2        | Brazilian real                                             | 986     |
+    | BSD     | 2        | Bahamian dollar                                            | 044     |
+    | BTN     | 2        | Bhutanese ngultrum                                         | 064     |
+    | BWP     | 2        | Botswana pula                                              | 072     |
+    | BYR     | 0        | Belarusian ruble                                           | 974     |
+    | BZD     | 2        | Belize dollar                                              | 084     |
+    | CAD     | 2        | Canadian dollar                                            | 124     |
+    | CDF     | 2        | Congolese franc                                            | 976     |
+    | CHE     | 2        | WIR Euro (complementary currency)                          | 947     |
+    | CHF     | 2        | Swiss franc                                                | 756     |
+    | CHW     | 2        | WIR Franc (complementary currency)                         | 948     |
+    | CLF     | 0        | Unidad de Fomento                                          | 990     |
+    | CLP     | 0        | Chilean peso                                               | 152     |
+    | CNY     | 2        | Chinese yuan                                               | 156     |
+    | COP     | 2        | Colombian peso                                             | 170     |
+    | COU     | 2        | Unidad de Valor Real                                       | 970     |
+    | CRC     | 2        | Costa Rican colon                                          | 188     |
+    | CUC     | 2        | Cuban convertible peso                                     | 931     |
+    | CUP     | 2        | Cuban peso                                                 | 192     |
+    | CVE     | 0        | Cape Verde escudo                                          | 132     |
+    | CZK     | 2        | Czech koruna                                               | 203     |
+    | DJF     | 0        | Djiboutian franc                                           | 262     |
+    | DKK     | 2        | Danish krone                                               | 208     |
+    | DOP     | 2        | Dominican peso                                             | 214     |
+    | DZD     | 2        | Algerian dinar                                             | 012     |
+    | EGP     | 2        | Egyptian pound                                             | 818     |
+    | ERN     | 2        | Eritrean nakfa                                             | 232     |
+    | ETB     | 2        | Ethiopian birr                                             | 230     |
+    | EUR     | 2        | Euro                                                       | 978     |
+    | FJD     | 2        | Fiji dollar                                                | 242     |
+    | FKP     | 2        | Falkland Islands pound                                     | 238     |
+    | GBP     | 2        | Pound sterling                                             | 826     |
+    | GEL     | 2        | Georgian lari                                              | 981     |
+    | GHS     | 2        | Ghanaian cedi                                              | 936     |
+    | GIP     | 2        | Gibraltar pound                                            | 292     |
+    | GMD     | 2        | Gambian dalasi                                             | 270     |
+    | GNF     | 0        | Guinean franc                                              | 324     |
+    | GTQ     | 2        | Guatemalan quetzal                                         | 320     |
+    | GYD     | 2        | Guyanese dollar                                            | 328     |
+    | HKD     | 2        | Hong Kong dollar                                           | 344     |
+    | HNL     | 2        | Honduran lempira                                           | 340     |
+    | HRK     | 2        | Croatian kuna                                              | 191     |
+    | HTG     | 2        | Haitian gourde                                             | 332     |
+    | HUF     | 2        | Hungarian forint                                           | 348     |
+    | IDR     | 2        | Indonesian rupiah                                          | 360     |
+    | ILS     | 2        | Israeli new shekel                                         | 376     |
+    | INR     | 2        | Indian rupee                                               | 356     |
+    | IQD     | 3        | Iraqi dinar                                                | 368     |
+    | IRR     | 0        | Iranian rial                                               | 364     |
+    | ISK     | 0        | Icelandic króna                                            | 352     |
+    | JMD     | 2        | Jamaican dollar                                            | 388     |
+    | JOD     | 3        | Jordanian dinar                                            | 400     |
+    | JPY     | 0        | Japanese yen                                               | 392     |
+    | KES     | 2        | Kenyan shilling                                            | 404     |
+    | KGS     | 2        | Kyrgyzstani som                                            | 417     |
+    | KHR     | 2        | Cambodian riel                                             | 116     |
+    | KMF     | 0        | Comoro franc                                               | 174     |
+    | KPW     | 0        | North Korean won                                           | 408     |
+    | KRW     | 0        | South Korean won                                           | 410     |
+    | KWD     | 3        | Kuwaiti dinar                                              | 414     |
+    | KYD     | 2        | Cayman Islands dollar                                      | 136     |
+    | KZT     | 2        | Kazakhstani tenge                                          | 398     |
+    | LAK     | 0        | Lao kip                                                    | 418     |
+    | LBP     | 0        | Lebanese pound                                             | 422     |
+    | LKR     | 2        | Sri Lankan rupee                                           | 144     |
+    | LRD     | 2        | Liberian dollar                                            | 430     |
+    | LSL     | 2        | Lesotho loti                                               | 426     |
+    | LTL     | 2        | Lithuanian litas                                           | 440     |
+    | LVL     | 2        | Latvian lats                                               | 428     |
+    | LYD     | 3        | Libyan dinar                                               | 434     |
+    | MAD     | 2        | Moroccan dirham                                            | 504     |
+    | MDL     | 2        | Moldovan leu                                               | 498     |
+    | MGA     | 0        | Malagasy ariary                                            | 969     |
+    | MKD     | 0        | Macedonian denar                                           | 807     |
+    | MMK     | 0        | Myanma kyat                                                | 104     |
+    | MNT     | 2        | Mongolian tugrik                                           | 496     |
+    | MOP     | 2        | Macanese pataca                                            | 446     |
+    | MRO     | 0        | Mauritanian ouguiya                                        | 478     |
+    | MUR     | 2        | Mauritian rupee                                            | 480     |
+    | MVR     | 2        | Maldivian rufiyaa                                          | 462     |
+    | MWK     | 2        | Malawian kwacha                                            | 454     |
+    | MXN     | 2        | Mexican peso                                               | 484     |
+    | MXV     | 2        | Mexican Unidad de Inversion (UDI)                          | 979     |
+    | MYR     | 2        | Malaysian ringgit                                          | 458     |
+    | MZN     | 2        | Mozambican metical                                         | 943     |
+    | NAD     | 2        | Namibian dollar                                            | 516     |
+    | NGN     | 2        | Nigerian naira                                             | 566     |
+    | NIO     | 2        | Nicaraguan córdoba                                         | 558     |
+    | NOK     | 2        | Norwegian krone                                            | 578     |
+    | NPR     | 2        | Nepalese rupee                                             | 524     |
+    | NZD     | 2        | New Zealand dollar                                         | 554     |
+    | OMR     | 3        | Omani rial                                                 | 512     |
+    | PAB     | 2        | Panamanian balboa                                          | 590     |
+    | PEN     | 2        | Peruvian nuevo sol                                         | 604     |
+    | PGK     | 2        | Papua New Guinean kina                                     | 598     |
+    | PHP     | 2        | Philippine peso                                            | 608     |
+    | PKR     | 2        | Pakistani rupee                                            | 586     |
+    | PLN     | 2        | Polish złoty                                               | 985     |
+    | PYG     | 0        | Paraguayan guaraní                                         | 600     |
+    | QAR     | 2        | Qatari riyal                                               | 634     |
+    | RON     | 2        | Romanian new leu                                           | 946     |
+    | RSD     | 2        | Serbian dinar                                              | 941     |
+    | RUB     | 2        | Russian rouble                                             | 643     |
+    | RWF     | 0        | Rwandan franc                                              | 646     |
+    | SAR     | 2        | Saudi riyal                                                | 682     |
+    | SBD     | 2        | Solomon Islands dollar                                     | 090     |
+    | SCR     | 2        | Seychelles rupee                                           | 690     |
+    | SDG     | 2        | Sudanese pound                                             | 938     |
+    | SEK     | 2        | Swedish krona/kronor                                       | 752     |
+    | SGD     | 2        | Singapore dollar                                           | 702     |
+    | SHP     | 2        | Saint Helena pound                                         | 654     |
+    | SLL     | 0        | Sierra Leonean leone                                       | 694     |
+    | SOS     | 2        | Somali shilling                                            | 706     |
+    | SRD     | 2        | Surinamese dollar                                          | 968     |
+    | SSP     | 2        | South Sudanese pound                                       | 728     |
+    | STD     | 0        | São Tomé and Príncipe dobra                                | 678     |
+    | SYP     | 2        | Syrian pound                                               | 760     |
+    | SZL     | 2        | Swazi lilangeni                                            | 748     |
+    | THB     | 2        | Thai baht                                                  | 764     |
+    | TJS     | 2        | Tajikistani somoni                                         | 972     |
+    | TMT     | 2        | Turkmenistani manat                                        | 934     |
+    | TND     | 3        | Tunisian dinar                                             | 788     |
+    | TOP     | 2        | Tongan paʻanga                                             | 776     |
+    | TRY     | 2        | Turkish lira                                               | 949     |
+    | TTD     | 2        | Trinidad and Tobago dollar                                 | 780     |
+    | TWD     | 2        | New Taiwan dollar                                          | 901     |
+    | TZS     | 2        | Tanzanian shilling                                         | 834     |
+    | UAH     | 2        | Ukrainian hryvnia                                          | 980     |
+    | UGX     | 2        | Ugandan shilling                                           | 800     |
+    | USD     | 2        | United States dollar                                       | 840     |
+    | USN     | 2        | United States dollar (next day)                            | 997     |
+    | USS     | 2        | United States dollar                                       | 998     |
+    | UYI     | 0        | Uruguay Peso en Unidades Indexadas (URUIURUI)              | 940     |
+    | UYU     | 2        | Uruguayan peso                                             | 858     |
+    | UZS     | 2        | Uzbekistan som                                             | 860     |
+    | VEF     | 2        | Venezuelan bolívar fuerte                                  | 937     |
+    | VND     | 0        | Vietnamese dong                                            | 704     |
+    | VUV     | 0        | Vanuatu vatu                                               | 548     |
+    | WST     | 2        | Samoan tala                                                | 882     |
+    | XAF     | 0        | CFA franc BEAC                                             | 950     |
+    | XAG     | 0        | Silver (one troy ounce)                                    | 961     |
+    | XAU     | 0        | Gold (one troy ounce)                                      | 959     |
+    | XBA     | 0        | European Composite Unit (EURCO) (bond market unit)         | 955     |
+    | XBB     | 0        | European Monetary Unit (E.M.U.-6) (bond market unit)       | 956     |
+    | XBC     | 0        | European Unit of Account 9 (E.U.A.-9) (bond market unit)   | 957     |
+    | XBD     | 0        | European Unit of Account 17 (E.U.A.-17) (bond market unit) | 958     |
+    | XCD     | 2        | East Caribbean dollar                                      | 951     |
+    | XDR     | 0        | Special drawing rights                                     | 960     |
+    | XOF     | 0        | CFA franc BCEAO                                            | 952     |
+    | XPD     | 0        | Palladium (one troy ounce)                                 | 964     |
+    | XPF     | 0        | CFP franc                                                  | 953     |
+    | XPT     | 0        | Platinum (one troy ounce)                                  | 962     |
+    | XTS     | 0        | code_a3 reserved for testing purposes                      | 963     |
+    | XXX     | 0        | No currency                                                | 999     |
+    | YER     | 2        | Yemeni rial                                                | 886     |
+    | ZAR     | 2        | South African rand                                         | 710     |
+    | ZMW     | 2        | Zambian kwacha                                             | 967     |
 
-| Code A3 | Exponent | Name                                                       | Code N3 |
-|---------|----------|------------------------------------------------------------|---------|
-| AED     | 2        | United Arab Emirates dirham                                | 784     |
-| AFN     | 2        | Afghan afghani                                             | 971     |
-| ALL     | 2        | Albanian lek                                               | 008     |
-| AMD     | 2        | Armenian dram                                              | 051     |
-| ANG     | 2        | Netherlands Antillean guilder                              | 532     |
-| AOA     | 2        | Angolan kwanza                                             | 973     |
-| ARS     | 2        | Argentine peso                                             | 032     |
-| AUD     | 2        | Australian dollar                                          | 036     |
-| AWG     | 2        | Aruban florin                                              | 533     |
-| AZN     | 2        | Azerbaijani manat                                          | 944     |
-| BAM     | 2        | Bosnia and Herzegovina convertible mark                    | 977     |
-| BBD     | 2        | Barbados dollar                                            | 052     |
-| BDT     | 2        | Bangladeshi taka                                           | 050     |
-| BGN     | 2        | Bulgarian lev                                              | 975     |
-| BHD     | 3        | Bahraini dinar                                             | 048     |
-| BIF     | 0        | Burundian franc                                            | 108     |
-| BMD     | 2        | Bermudian dollar (customarily known as Bermuda dollar)     | 060     |
-| BND     | 2        | Brunei dollar                                              | 096     |
-| BOB     | 2        | Boliviano                                                  | 068     |
-| BOV     | 2        | Bolivian Mvdol                                             | 984     |
-| BRL     | 2        | Brazilian real                                             | 986     |
-| BSD     | 2        | Bahamian dollar                                            | 044     |
-| BTN     | 2        | Bhutanese ngultrum                                         | 064     |
-| BWP     | 2        | Botswana pula                                              | 072     |
-| BYR     | 0        | Belarusian ruble                                           | 974     |
-| BZD     | 2        | Belize dollar                                              | 084     |
-| CAD     | 2        | Canadian dollar                                            | 124     |
-| CDF     | 2        | Congolese franc                                            | 976     |
-| CHE     | 2        | WIR Euro (complementary currency)                          | 947     |
-| CHF     | 2        | Swiss franc                                                | 756     |
-| CHW     | 2        | WIR Franc (complementary currency)                         | 948     |
-| CLF     | 0        | Unidad de Fomento                                          | 990     |
-| CLP     | 0        | Chilean peso                                               | 152     |
-| CNY     | 2        | Chinese yuan                                               | 156     |
-| COP     | 2        | Colombian peso                                             | 170     |
-| COU     | 2        | Unidad de Valor Real                                       | 970     |
-| CRC     | 2        | Costa Rican colon                                          | 188     |
-| CUC     | 2        | Cuban convertible peso                                     | 931     |
-| CUP     | 2        | Cuban peso                                                 | 192     |
-| CVE     | 0        | Cape Verde escudo                                          | 132     |
-| CZK     | 2        | Czech koruna                                               | 203     |
-| DJF     | 0        | Djiboutian franc                                           | 262     |
-| DKK     | 2        | Danish krone                                               | 208     |
-| DOP     | 2        | Dominican peso                                             | 214     |
-| DZD     | 2        | Algerian dinar                                             | 012     |
-| EGP     | 2        | Egyptian pound                                             | 818     |
-| ERN     | 2        | Eritrean nakfa                                             | 232     |
-| ETB     | 2        | Ethiopian birr                                             | 230     |
-| EUR     | 2        | Euro                                                       | 978     |
-| FJD     | 2        | Fiji dollar                                                | 242     |
-| FKP     | 2        | Falkland Islands pound                                     | 238     |
-| GBP     | 2        | Pound sterling                                             | 826     |
-| GEL     | 2        | Georgian lari                                              | 981     |
-| GHS     | 2        | Ghanaian cedi                                              | 936     |
-| GIP     | 2        | Gibraltar pound                                            | 292     |
-| GMD     | 2        | Gambian dalasi                                             | 270     |
-| GNF     | 0        | Guinean franc                                              | 324     |
-| GTQ     | 2        | Guatemalan quetzal                                         | 320     |
-| GYD     | 2        | Guyanese dollar                                            | 328     |
-| HKD     | 2        | Hong Kong dollar                                           | 344     |
-| HNL     | 2        | Honduran lempira                                           | 340     |
-| HRK     | 2        | Croatian kuna                                              | 191     |
-| HTG     | 2        | Haitian gourde                                             | 332     |
-| HUF     | 2        | Hungarian forint                                           | 348     |
-| IDR     | 2        | Indonesian rupiah                                          | 360     |
-| ILS     | 2        | Israeli new shekel                                         | 376     |
-| INR     | 2        | Indian rupee                                               | 356     |
-| IQD     | 3        | Iraqi dinar                                                | 368     |
-| IRR     | 0        | Iranian rial                                               | 364     |
-| ISK     | 0        | Icelandic króna                                            | 352     |
-| JMD     | 2        | Jamaican dollar                                            | 388     |
-| JOD     | 3        | Jordanian dinar                                            | 400     |
-| JPY     | 0        | Japanese yen                                               | 392     |
-| KES     | 2        | Kenyan shilling                                            | 404     |
-| KGS     | 2        | Kyrgyzstani som                                            | 417     |
-| KHR     | 2        | Cambodian riel                                             | 116     |
-| KMF     | 0        | Comoro franc                                               | 174     |
-| KPW     | 0        | North Korean won                                           | 408     |
-| KRW     | 0        | South Korean won                                           | 410     |
-| KWD     | 3        | Kuwaiti dinar                                              | 414     |
-| KYD     | 2        | Cayman Islands dollar                                      | 136     |
-| KZT     | 2        | Kazakhstani tenge                                          | 398     |
-| LAK     | 0        | Lao kip                                                    | 418     |
-| LBP     | 0        | Lebanese pound                                             | 422     |
-| LKR     | 2        | Sri Lankan rupee                                           | 144     |
-| LRD     | 2        | Liberian dollar                                            | 430     |
-| LSL     | 2        | Lesotho loti                                               | 426     |
-| LTL     | 2        | Lithuanian litas                                           | 440     |
-| LVL     | 2        | Latvian lats                                               | 428     |
-| LYD     | 3        | Libyan dinar                                               | 434     |
-| MAD     | 2        | Moroccan dirham                                            | 504     |
-| MDL     | 2        | Moldovan leu                                               | 498     |
-| MGA     | 0        | Malagasy ariary                                            | 969     |
-| MKD     | 0        | Macedonian denar                                           | 807     |
-| MMK     | 0        | Myanma kyat                                                | 104     |
-| MNT     | 2        | Mongolian tugrik                                           | 496     |
-| MOP     | 2        | Macanese pataca                                            | 446     |
-| MRO     | 0        | Mauritanian ouguiya                                        | 478     |
-| MUR     | 2        | Mauritian rupee                                            | 480     |
-| MVR     | 2        | Maldivian rufiyaa                                          | 462     |
-| MWK     | 2        | Malawian kwacha                                            | 454     |
-| MXN     | 2        | Mexican peso                                               | 484     |
-| MXV     | 2        | Mexican Unidad de Inversion (UDI)                          | 979     |
-| MYR     | 2        | Malaysian ringgit                                          | 458     |
-| MZN     | 2        | Mozambican metical                                         | 943     |
-| NAD     | 2        | Namibian dollar                                            | 516     |
-| NGN     | 2        | Nigerian naira                                             | 566     |
-| NIO     | 2        | Nicaraguan córdoba                                         | 558     |
-| NOK     | 2        | Norwegian krone                                            | 578     |
-| NPR     | 2        | Nepalese rupee                                             | 524     |
-| NZD     | 2        | New Zealand dollar                                         | 554     |
-| OMR     | 3        | Omani rial                                                 | 512     |
-| PAB     | 2        | Panamanian balboa                                          | 590     |
-| PEN     | 2        | Peruvian nuevo sol                                         | 604     |
-| PGK     | 2        | Papua New Guinean kina                                     | 598     |
-| PHP     | 2        | Philippine peso                                            | 608     |
-| PKR     | 2        | Pakistani rupee                                            | 586     |
-| PLN     | 2        | Polish złoty                                               | 985     |
-| PYG     | 0        | Paraguayan guaraní                                         | 600     |
-| QAR     | 2        | Qatari riyal                                               | 634     |
-| RON     | 2        | Romanian new leu                                           | 946     |
-| RSD     | 2        | Serbian dinar                                              | 941     |
-| RUB     | 2        | Russian rouble                                             | 643     |
-| RWF     | 0        | Rwandan franc                                              | 646     |
-| SAR     | 2        | Saudi riyal                                                | 682     |
-| SBD     | 2        | Solomon Islands dollar                                     | 090     |
-| SCR     | 2        | Seychelles rupee                                           | 690     |
-| SDG     | 2        | Sudanese pound                                             | 938     |
-| SEK     | 2        | Swedish krona/kronor                                       | 752     |
-| SGD     | 2        | Singapore dollar                                           | 702     |
-| SHP     | 2        | Saint Helena pound                                         | 654     |
-| SLL     | 0        | Sierra Leonean leone                                       | 694     |
-| SOS     | 2        | Somali shilling                                            | 706     |
-| SRD     | 2        | Surinamese dollar                                          | 968     |
-| SSP     | 2        | South Sudanese pound                                       | 728     |
-| STD     | 0        | São Tomé and Príncipe dobra                                | 678     |
-| SYP     | 2        | Syrian pound                                               | 760     |
-| SZL     | 2        | Swazi lilangeni                                            | 748     |
-| THB     | 2        | Thai baht                                                  | 764     |
-| TJS     | 2        | Tajikistani somoni                                         | 972     |
-| TMT     | 2        | Turkmenistani manat                                        | 934     |
-| TND     | 3        | Tunisian dinar                                             | 788     |
-| TOP     | 2        | Tongan paʻanga                                             | 776     |
-| TRY     | 2        | Turkish lira                                               | 949     |
-| TTD     | 2        | Trinidad and Tobago dollar                                 | 780     |
-| TWD     | 2        | New Taiwan dollar                                          | 901     |
-| TZS     | 2        | Tanzanian shilling                                         | 834     |
-| UAH     | 2        | Ukrainian hryvnia                                          | 980     |
-| UGX     | 2        | Ugandan shilling                                           | 800     |
-| USD     | 2        | United States dollar                                       | 840     |
-| USN     | 2        | United States dollar (next day)                            | 997     |
-| USS     | 2        | United States dollar                                       | 998     |
-| UYI     | 0        | Uruguay Peso en Unidades Indexadas (URUIURUI)              | 940     |
-| UYU     | 2        | Uruguayan peso                                             | 858     |
-| UZS     | 2        | Uzbekistan som                                             | 860     |
-| VEF     | 2        | Venezuelan bolívar fuerte                                  | 937     |
-| VND     | 0        | Vietnamese dong                                            | 704     |
-| VUV     | 0        | Vanuatu vatu                                               | 548     |
-| WST     | 2        | Samoan tala                                                | 882     |
-| XAF     | 0        | CFA franc BEAC                                             | 950     |
-| XAG     | 0        | Silver (one troy ounce)                                    | 961     |
-| XAU     | 0        | Gold (one troy ounce)                                      | 959     |
-| XBA     | 0        | European Composite Unit (EURCO) (bond market unit)         | 955     |
-| XBB     | 0        | European Monetary Unit (E.M.U.-6) (bond market unit)       | 956     |
-| XBC     | 0        | European Unit of Account 9 (E.U.A.-9) (bond market unit)   | 957     |
-| XBD     | 0        | European Unit of Account 17 (E.U.A.-17) (bond market unit) | 958     |
-| XCD     | 2        | East Caribbean dollar                                      | 951     |
-| XDR     | 0        | Special drawing rights                                     | 960     |
-| XOF     | 0        | CFA franc BCEAO                                            | 952     |
-| XPD     | 0        | Palladium (one troy ounce)                                 | 964     |
-| XPF     | 0        | CFP franc                                                  | 953     |
-| XPT     | 0        | Platinum (one troy ounce)                                  | 962     |
-| XTS     | 0        | code_a3 reserved for testing purposes                      | 963     |
-| XXX     | 0        | No currency                                                | 999     |
-| YER     | 2        | Yemeni rial                                                | 886     |
-| ZAR     | 2        | South African rand                                         | 710     |
-| ZMW     | 2        | Zambian kwacha                                             | 967     |
+## Merchant Category Codes 
+
+??? example "Merchant Category Codes"
+    | Code   | Description                                                                                                                                  |
+    |--------|----------------------------------------------------------------------------------------------------------------------------------------------|
+    | 0742   | Veterinary Services                                                                                                                          |
+    | 0763   | Agricultural Co-Operatives                                                                                                                   |
+    | 0780   | Horticultural Services, Landscaping Services                                                                                                 |
+    | 1520   | General Contractors-Rescodeential And Commercial                                                                                             |
+    | 1711   | Air Conditioning Contractors Sales And Installation, Heating Contractors Sales, Service, Installation                                        |
+    | 1731   | Electrical Contractors                                                                                                                       |
+    | 1740   | Insulation Contractors, Masonry, Stonework Contractors, Plastering Contractors, Stonework And Masonry Contractors, Tile Settings Contractors |
+    | 1750   | Carpentry Contractors                                                                                                                        |
+    | 1761   | Roofing Contractors, Sheet Metal Work Contractors, Scodeing Contractors                                                                      |
+    | 1771   | Contractors Concrete Work                                                                                                                    |
+    | 1799   | Contractors Special Trade, Not Elsewhere Classified                                                                                          |
+    | 2741   | Miscellaneous Publishing And Printing                                                                                                        |
+    | 2791   | Typesetting, Plate Making, & Related Services                                                                                                |
+    | 2842   | Specialty Cleaning, Polishing, And Sanitation Preparations                                                                                   |
+    | 3000   | United Airlines                                                                                                                              |
+    | 3001   | American Airlines                                                                                                                            |
+    | 3002   | Pan American                                                                                                                                 |
+    | 3003   | Airlines                                                                                                                                     |
+    | 3004   | Trans World Airlines                                                                                                                         |
+    | 3005   | British Airways                                                                                                                              |
+    | 3006   | Japan Airlines                                                                                                                               |
+    | 3007   | Air France                                                                                                                                   |
+    | 3008   | Lufthansa                                                                                                                                    |
+    | 3009   | Air Canada                                                                                                                                   |
+    | 3010   | Klm (Royal Dutch Airlines)                                                                                                                   |
+    | 3011   | Aeorflot                                                                                                                                     |
+    | 3012   | Quantas                                                                                                                                      |
+    | 3013   | Alitalia                                                                                                                                     |
+    | 3014   | Saudia Arabian Airlines                                                                                                                      |
+    | 3015   | Swissair                                                                                                                                     |
+    | 3016   | Sas                                                                                                                                          |
+    | 3017   | South African Airways                                                                                                                        |
+    | 3018   | Varig (Brazil)                                                                                                                               |
+    | 3019   | Airlines                                                                                                                                     |
+    | 3020   | Air-India                                                                                                                                    |
+    | 3021   | Air Algerie                                                                                                                                  |
+    | 3022   | Philippine Airlines                                                                                                                          |
+    | 3023   | Mexicana                                                                                                                                     |
+    | 3024   | Pakistan International                                                                                                                       |
+    | 3025   | Air New Zealand                                                                                                                              |
+    | 3026   | Airlines                                                                                                                                     |
+    | 3027   | Uta/interair                                                                                                                                 |
+    | 3028   | Air Malta                                                                                                                                    |
+    | 3029   | Sabena                                                                                                                                       |
+    | 3030   | Aerolineas Argentinas                                                                                                                        |
+    | 3031   | Olympic Airways                                                                                                                              |
+    | 3032   | El Al                                                                                                                                        |
+    | 3033   | Ansett Airlines                                                                                                                              |
+    | 3034   | Austrainlian Airlines                                                                                                                        |
+    | 3035   | Tap (Portugal)                                                                                                                               |
+    | 3036   | Vasp (Brazil)                                                                                                                                |
+    | 3037   | Egyptair                                                                                                                                     |
+    | 3038   | Kuwait Airlines                                                                                                                              |
+    | 3039   | Avianca                                                                                                                                      |
+    | 3040   | Gulf Air (Bahrain)                                                                                                                           |
+    | 3041   | Balkan-Bulgarian Airlines                                                                                                                    |
+    | 3042   | Finnair                                                                                                                                      |
+    | 3043   | Aer Lingus                                                                                                                                   |
+    | 3044   | Air Lanka                                                                                                                                    |
+    | 3045   | Nigeria Airways                                                                                                                              |
+    | 3046   | Cruzeiro Do Sul (Brazij)                                                                                                                     |
+    | 3047   | Thy (Turkey)                                                                                                                                 |
+    | 3048   | Royal Air Maroc                                                                                                                              |
+    | 3049   | Tunis Air                                                                                                                                    |
+    | 3050   | Icelandair                                                                                                                                   |
+    | 3051   | Austrian Airlines                                                                                                                            |
+    | 3052   | Lanchile                                                                                                                                     |
+    | 3053   | Aviaco (Spain)                                                                                                                               |
+    | 3054   | Ladeco (Chile)                                                                                                                               |
+    | 3055   | Lab (Bolivia)                                                                                                                                |
+    | 3056   | Quebecaire                                                                                                                                   |
+    | 3057   | Eastwest Airlines (Australia)                                                                                                                |
+    | 3058   | Delta                                                                                                                                        |
+    | 3059   | Airlines                                                                                                                                     |
+    | 3060   | Northwest                                                                                                                                    |
+    | 3061   | Continental                                                                                                                                  |
+    | 3062   | Western                                                                                                                                      |
+    | 3063   | Us Air                                                                                                                                       |
+    | 3064   | Airlines                                                                                                                                     |
+    | 3065   | Airinter                                                                                                                                     |
+    | 3066   | Southwest                                                                                                                                    |
+    | 3067   | Airlines                                                                                                                                     |
+    | 3068   | Airlines                                                                                                                                     |
+    | 3069   | Airlines                                                                                                                                     |
+    | 3070   | Airlines                                                                                                                                     |
+    | 3071   | Air British Colubia                                                                                                                          |
+    | 3072   | Airlines                                                                                                                                     |
+    | 3073   | Airlines                                                                                                                                     |
+    | 3074   | Airlines                                                                                                                                     |
+    | 3075   | Singapore Airlines                                                                                                                           |
+    | 3076   | Aeromexico                                                                                                                                   |
+    | 3077   | Thai Airways                                                                                                                                 |
+    | 3078   | China Airlines                                                                                                                               |
+    | 3079   | Airlines                                                                                                                                     |
+    | 3080   | Airlines                                                                                                                                     |
+    | 3081   | Nordair                                                                                                                                      |
+    | 3082   | Korean Airlines                                                                                                                              |
+    | 3083   | Air Afrigue                                                                                                                                  |
+    | 3084   | Eva Airlines                                                                                                                                 |
+    | 3085   | Mcodewest Express Airlines, Inc.                                                                                                             |
+    | 3086   | Airlines                                                                                                                                     |
+    | 3087   | Metro Airlines                                                                                                                               |
+    | 3088   | Croatia Airlines                                                                                                                             |
+    | 3089   | Transaero                                                                                                                                    |
+    | 3090   | Airlines                                                                                                                                     |
+    | 3091   | Airlines                                                                                                                                     |
+    | 3092   | Airlines                                                                                                                                     |
+    | 3093   | Airlines                                                                                                                                     |
+    | 3094   | Zambia Airways                                                                                                                               |
+    | 3095   | Airlines                                                                                                                                     |
+    | 3096   | Air Zimbabwe                                                                                                                                 |
+    | 3097   | Airlines                                                                                                                                     |
+    | 3098   | Airlines                                                                                                                                     |
+    | 3099   | Cathay Pacific                                                                                                                               |
+    | 3100   | Malaysian Airline System                                                                                                                     |
+    | 3101   | Airlines                                                                                                                                     |
+    | 3102   | Iberia                                                                                                                                       |
+    | 3103   | Garuda (Indonesia)                                                                                                                           |
+    | 3104   | Airlines                                                                                                                                     |
+    | 3105   | Airlines                                                                                                                                     |
+    | 3106   | Braathens S.a.f.e. (Norway)                                                                                                                  |
+    | 3107   | Airlines                                                                                                                                     |
+    | 3108   | Airlines                                                                                                                                     |
+    | 3109   | Airlines                                                                                                                                     |
+    | 3110   | Wings Airways                                                                                                                                |
+    | 3111   | British Mcodeland                                                                                                                            |
+    | 3112   | Windward Island                                                                                                                              |
+    | 3113   | Airlines                                                                                                                                     |
+    | 3114   | Airlines                                                                                                                                     |
+    | 3115   | Airlines                                                                                                                                     |
+    | 3116   | Airlines                                                                                                                                     |
+    | 3117   | Viasa                                                                                                                                        |
+    | 3118   | Valley Airlines                                                                                                                              |
+    | 3119   | Airlines                                                                                                                                     |
+    | 3120   | Airlines                                                                                                                                     |
+    | 3121   | Airlines                                                                                                                                     |
+    | 3122   | Airlines                                                                                                                                     |
+    | 3123   | Airlines                                                                                                                                     |
+    | 3124   | Airlines                                                                                                                                     |
+    | 3125   | Tan                                                                                                                                          |
+    | 3126   | Talair                                                                                                                                       |
+    | 3127   | Taca International                                                                                                                           |
+    | 3128   | Airlines                                                                                                                                     |
+    | 3129   | Surinam Airways                                                                                                                              |
+    | 3130   | Sun World International                                                                                                                      |
+    | 3131   | Airlines                                                                                                                                     |
+    | 3132   | Airlines                                                                                                                                     |
+    | 3133   | Sunbelt Airlines                                                                                                                             |
+    | 3134   | Airlines                                                                                                                                     |
+    | 3135   | Sudan Airways                                                                                                                                |
+    | 3136   | Airlines                                                                                                                                     |
+    | 3137   | Singleton                                                                                                                                    |
+    | 3138   | Simmons Airlines                                                                                                                             |
+    | 3139   | Airlines                                                                                                                                     |
+    | 3140   | Airlines                                                                                                                                     |
+    | 3141   | Airlines                                                                                                                                     |
+    | 3142   | Airlines                                                                                                                                     |
+    | 3143   | Scenic Airlines                                                                                                                              |
+    | 3144   | Virgin Atlantic                                                                                                                              |
+    | 3145   | San Juan Airlines                                                                                                                            |
+    | 3146   | Luxair                                                                                                                                       |
+    | 3147   | Airlines                                                                                                                                     |
+    | 3148   | Airlines                                                                                                                                     |
+    | 3149   | Airlines                                                                                                                                     |
+    | 3150   | Airlines                                                                                                                                     |
+    | 3151   | Air Zaire                                                                                                                                    |
+    | 3152   | Airlines                                                                                                                                     |
+    | 3153   | Airlines                                                                                                                                     |
+    | 3154   | Princeville                                                                                                                                  |
+    | 3155   | Airlines                                                                                                                                     |
+    | 3156   | Airlines                                                                                                                                     |
+    | 3157   | Airlines                                                                                                                                     |
+    | 3158   | Airlines                                                                                                                                     |
+    | 3159   | Pba                                                                                                                                          |
+    | 3160   | Airlines                                                                                                                                     |
+    | 3161   | All Nippon Airways                                                                                                                           |
+    | 3162   | Airlines                                                                                                                                     |
+    | 3163   | Airlines                                                                                                                                     |
+    | 3164   | Norontair                                                                                                                                    |
+    | 3165   | New York Helicopter                                                                                                                          |
+    | 3166   | Airlines                                                                                                                                     |
+    | 3167   | Airlines                                                                                                                                     |
+    | 3168   | Airlines                                                                                                                                     |
+    | 3169   | Airlines                                                                                                                                     |
+    | 3170   | Nount Cook                                                                                                                                   |
+    | 3171   | Canadian Airlines International                                                                                                              |
+    | 3172   | Nationair                                                                                                                                    |
+    | 3173   | Airlines                                                                                                                                     |
+    | 3174   | Airlines                                                                                                                                     |
+    | 3175   | Airlines                                                                                                                                     |
+    | 3176   | Metroflight Airlines                                                                                                                         |
+    | 3177   | Airlines                                                                                                                                     |
+    | 3178   | Mesa Air                                                                                                                                     |
+    | 3179   | Airlines                                                                                                                                     |
+    | 3180   | Airlines                                                                                                                                     |
+    | 3181   | Malev                                                                                                                                        |
+    | 3182   | Lot (Poland)                                                                                                                                 |
+    | 3183   | Airlines                                                                                                                                     |
+    | 3184   | Liat                                                                                                                                         |
+    | 3185   | Lav (Venezuela)                                                                                                                              |
+    | 3186   | Lap (Paraguay)                                                                                                                               |
+    | 3187   | Lacsa (Costa Rica)                                                                                                                           |
+    | 3188   | Airlines                                                                                                                                     |
+    | 3189   | Airlines                                                                                                                                     |
+    | 3190   | Jugoslav Air                                                                                                                                 |
+    | 3191   | Island Airlines                                                                                                                              |
+    | 3192   | Iran Air                                                                                                                                     |
+    | 3193   | Indian Airlines                                                                                                                              |
+    | 3194   | Airlines                                                                                                                                     |
+    | 3195   | Airlines                                                                                                                                     |
+    | 3196   | Hawaiian Air                                                                                                                                 |
+    | 3197   | Havasu Airlines                                                                                                                              |
+    | 3198   | Airlines                                                                                                                                     |
+    | 3199   | Airlines                                                                                                                                     |
+    | 3200   | Fuyana Airways                                                                                                                               |
+    | 3201   | Airlines                                                                                                                                     |
+    | 3202   | Airlines                                                                                                                                     |
+    | 3203   | Golden Pacific Air                                                                                                                           |
+    | 3204   | Freedom Air                                                                                                                                  |
+    | 3205   | Airlines                                                                                                                                     |
+    | 3206   | Airlines                                                                                                                                     |
+    | 3207   | Airlines                                                                                                                                     |
+    | 3208   | Airlines                                                                                                                                     |
+    | 3209   | Airlines                                                                                                                                     |
+    | 3210   | Airlines                                                                                                                                     |
+    | 3211   | Airlines                                                                                                                                     |
+    | 3212   | Dominicana                                                                                                                                   |
+    | 3213   | Airlines                                                                                                                                     |
+    | 3214   | Airlines                                                                                                                                     |
+    | 3215   | Dan Air Services                                                                                                                             |
+    | 3216   | Cumberland Airlines                                                                                                                          |
+    | 3217   | Csa                                                                                                                                          |
+    | 3218   | Crown Air                                                                                                                                    |
+    | 3219   | Copa                                                                                                                                         |
+    | 3220   | Compania Faucett                                                                                                                             |
+    | 3221   | Transportes Aeros Militares Eccuatoranos                                                                                                     |
+    | 3222   | Command Airways                                                                                                                              |
+    | 3223   | Comair                                                                                                                                       |
+    | 3224   | Airlines                                                                                                                                     |
+    | 3225   | Airlines                                                                                                                                     |
+    | 3226   | Airlines                                                                                                                                     |
+    | 3227   | Airlines                                                                                                                                     |
+    | 3228   | Cayman Airways                                                                                                                               |
+    | 3229   | Saeta Sociaedad Ecuatorianos De Transportes Aereos                                                                                           |
+    | 3230   | Airlines                                                                                                                                     |
+    | 3231   | Sasha Servicio Aero De Honduras                                                                                                              |
+    | 3232   | Airlines                                                                                                                                     |
+    | 3233   | Capitol Air                                                                                                                                  |
+    | 3234   | Bwia                                                                                                                                         |
+    | 3235   | Brokway Air                                                                                                                                  |
+    | 3236   | Airlines                                                                                                                                     |
+    | 3237   | Airlines                                                                                                                                     |
+    | 3238   | Bemcodeji Airlines                                                                                                                           |
+    | 3239   | Bar Harbor Airlines                                                                                                                          |
+    | 3240   | Bahamasair                                                                                                                                   |
+    | 3241   | Aviateca (Guatemala)                                                                                                                         |
+    | 3242   | Avensa                                                                                                                                       |
+    | 3243   | Austrian Air Service                                                                                                                         |
+    | 3244   | Airlines                                                                                                                                     |
+    | 3245   | Airlines                                                                                                                                     |
+    | 3246   | Airlines                                                                                                                                     |
+    | 3247   | Airlines                                                                                                                                     |
+    | 3248   | Airlines                                                                                                                                     |
+    | 3249   | Airlines                                                                                                                                     |
+    | 3250   | Airlines                                                                                                                                     |
+    | 3251   | Aloha Airlines                                                                                                                               |
+    | 3252   | Alm                                                                                                                                          |
+    | 3253   | America West                                                                                                                                 |
+    | 3254   | Trump Airline                                                                                                                                |
+    | 3255   | Airlines                                                                                                                                     |
+    | 3256   | Alaska Airlines                                                                                                                              |
+    | 3257   | Airlines                                                                                                                                     |
+    | 3258   | Airlines                                                                                                                                     |
+    | 3259   | American Trans Air                                                                                                                           |
+    | 3260   | Airlines                                                                                                                                     |
+    | 3261   | Air China                                                                                                                                    |
+    | 3262   | Reno Air, Inc.                                                                                                                               |
+    | 3263   | Airlines                                                                                                                                     |
+    | 3264   | Airlines                                                                                                                                     |
+    | 3265   | Airlines                                                                                                                                     |
+    | 3266   | Air Seychelles                                                                                                                               |
+    | 3267   | Air Panama                                                                                                                                   |
+    | 3268   | Airlines                                                                                                                                     |
+    | 3269   | Airlines                                                                                                                                     |
+    | 3270   | Airlines                                                                                                                                     |
+    | 3271   | Airlines                                                                                                                                     |
+    | 3272   | Airlines                                                                                                                                     |
+    | 3273   | Airlines                                                                                                                                     |
+    | 3274   | Airlines                                                                                                                                     |
+    | 3275   | Airlines                                                                                                                                     |
+    | 3276   | Airlines                                                                                                                                     |
+    | 3277   | Airlines                                                                                                                                     |
+    | 3278   | Airlines                                                                                                                                     |
+    | 3279   | Airlines                                                                                                                                     |
+    | 3280   | Air Jamaica                                                                                                                                  |
+    | 3281   | Airlines                                                                                                                                     |
+    | 3282   | Air Djibouti                                                                                                                                 |
+    | 3283   | Airlines                                                                                                                                     |
+    | 3284   | Aero Virgin Islands                                                                                                                          |
+    | 3285   | Aero Peru                                                                                                                                    |
+    | 3286   | Aerolineas Nicaraguensis                                                                                                                     |
+    | 3287   | Aero Coach Avaiation                                                                                                                         |
+    | 3288   | Airlines                                                                                                                                     |
+    | 3289   | Airlines                                                                                                                                     |
+    | 3290   | Airlines                                                                                                                                     |
+    | 3291   | Ariana Afghan                                                                                                                                |
+    | 3292   | Cyprus Airways                                                                                                                               |
+    | 3293   | Ecuatoriana                                                                                                                                  |
+    | 3294   | Ethiopian Airlines                                                                                                                           |
+    | 3295   | Kenya Airlines                                                                                                                               |
+    | 3296   | Airlines                                                                                                                                     |
+    | 3297   | Airlines                                                                                                                                     |
+    | 3298   | Air Mauritius                                                                                                                                |
+    | 3299   | Wcodeero’S Flyveselskap                                                                                                                      |
+    | 3300   | Azul Air                                                                                                                                     |
+    | 3351   | Affiliated Auto Rental                                                                                                                       |
+    | 3352   | American Intl Rent-A-Car                                                                                                                     |
+    | 3353   | Brooks Rent-A-Car                                                                                                                            |
+    | 3354   | Action Auto Rental                                                                                                                           |
+    | 3355   | Car Rental                                                                                                                                   |
+    | 3356   | Car Rental                                                                                                                                   |
+    | 3357   | Hertz Rent-A-Car                                                                                                                             |
+    | 3358   | Car Rental                                                                                                                                   |
+    | 3359   | Payless Car Rental                                                                                                                           |
+    | 3360   | Snappy Car Rental                                                                                                                            |
+    | 3361   | Airways Rent-A-Car                                                                                                                           |
+    | 3362   | Altra Auto Rental                                                                                                                            |
+    | 3363   | Car Rental                                                                                                                                   |
+    | 3364   | Agency Rent-A-Car                                                                                                                            |
+    | 3365   | Car Rental                                                                                                                                   |
+    | 3366   | Budget Rent-A-Car                                                                                                                            |
+    | 3367   | Car Rental                                                                                                                                   |
+    | 3368   | Holcodeay Rent-A-Wreck                                                                                                                       |
+    | 3369   | Car Rental                                                                                                                                   |
+    | 3370   | Rent-A-Wreck                                                                                                                                 |
+    | 3371   | Car Rental                                                                                                                                   |
+    | 3372   | Car Rental                                                                                                                                   |
+    | 3373   | Car Rental                                                                                                                                   |
+    | 3374   | Car Rental                                                                                                                                   |
+    | 3375   | Car Rental                                                                                                                                   |
+    | 3376   | Ajax Rent-A-Car                                                                                                                              |
+    | 3377   | Car Rental                                                                                                                                   |
+    | 3378   | Car Rental                                                                                                                                   |
+    | 3379   | Car Rental                                                                                                                                   |
+    | 3380   | Car Rental                                                                                                                                   |
+    | 3381   | Europ Car                                                                                                                                    |
+    | 3382   | Car Rental                                                                                                                                   |
+    | 3383   | Car Rental                                                                                                                                   |
+    | 3384   | Car Rental                                                                                                                                   |
+    | 3385   | Tropical Rent-A-Car                                                                                                                          |
+    | 3386   | Showcase Rental Cars                                                                                                                         |
+    | 3387   | Alamo Rent-A-Car                                                                                                                             |
+    | 3388   | Car Rental                                                                                                                                   |
+    | 3389   | Avis Rent-A-Car                                                                                                                              |
+    | 3390   | Dollar Rent-A-Car                                                                                                                            |
+    | 3391   | Europe By Car                                                                                                                                |
+    | 3392   | Car Rental                                                                                                                                   |
+    | 3393   | National Car Rental                                                                                                                          |
+    | 3394   | Kemwell Group Rent-A-Car                                                                                                                     |
+    | 3395   | Thrifty Rent-A-Car                                                                                                                           |
+    | 3396   | Tilden Tent-A-Car                                                                                                                            |
+    | 3397   | Car Rental                                                                                                                                   |
+    | 3398   | Econo-Car Rent-A-Car                                                                                                                         |
+    | 3399   | Car Rental                                                                                                                                   |
+    | 3400   | Auto Host Cost Car Rentals                                                                                                                   |
+    | 3401   | Car Rental                                                                                                                                   |
+    | 3402   | Car Rental                                                                                                                                   |
+    | 3403   | Car Rental                                                                                                                                   |
+    | 3404   | Car Rental                                                                                                                                   |
+    | 3405   | Enterprise Rent-A-Car                                                                                                                        |
+    | 3406   | Car Rental                                                                                                                                   |
+    | 3407   | Car Rental                                                                                                                                   |
+    | 3408   | Car Rental                                                                                                                                   |
+    | 3409   | General Rent-A-Car                                                                                                                           |
+    | 3410   | Car Rental                                                                                                                                   |
+    | 3411   | Car Rental                                                                                                                                   |
+    | 3412   | A-1 Rent-A-Car                                                                                                                               |
+    | 3413   | Car Rental                                                                                                                                   |
+    | 3414   | Godfrey Natl Rent-A-Car                                                                                                                      |
+    | 3415   | Car Rental                                                                                                                                   |
+    | 3416   | Car Rental                                                                                                                                   |
+    | 3417   | Car Rental                                                                                                                                   |
+    | 3418   | Car Rental                                                                                                                                   |
+    | 3419   | Alpha Rent-A-Car                                                                                                                             |
+    | 3420   | Ansa Intl Rent-A-Car                                                                                                                         |
+    | 3421   | Allstae Rent-A-Car                                                                                                                           |
+    | 3422   | Car Rental                                                                                                                                   |
+    | 3423   | Avcar Rent-A-Car                                                                                                                             |
+    | 3424   | Car Rental                                                                                                                                   |
+    | 3425   | Automate Rent-A-Car                                                                                                                          |
+    | 3426   | Car Rental                                                                                                                                   |
+    | 3427   | Avon Rent-A-Car                                                                                                                              |
+    | 3428   | Carey Rent-A-Car                                                                                                                             |
+    | 3429   | Insurance Rent-A-Car                                                                                                                         |
+    | 3430   | Major Rent-A-Car                                                                                                                             |
+    | 3431   | Replacement Rent-A-Car                                                                                                                       |
+    | 3432   | Reserve Rent-A-Car                                                                                                                           |
+    | 3433   | Ugly Duckling Rent-A-Car                                                                                                                     |
+    | 3434   | Usa Rent-A-Car                                                                                                                               |
+    | 3435   | Value Rent-A-Car                                                                                                                             |
+    | 3436   | Autohansa Rent-A-Car                                                                                                                         |
+    | 3437   | Cite Rent-A-Car                                                                                                                              |
+    | 3438   | Interent Rent-A-Car                                                                                                                          |
+    | 3439   | Milleville Rent-A-Car                                                                                                                        |
+    | 3440   | Via Route Rent-A-Car                                                                                                                         |
+    | 3441   | Car Rental                                                                                                                                   |
+    | 3501   | Holcodeay Inns, Holcodeay Inn Express                                                                                                        |
+    | 3502   | Best Western Hotels                                                                                                                          |
+    | 3503   | Sheraton Hotels                                                                                                                              |
+    | 3504   | Hilton Hotels                                                                                                                                |
+    | 3505   | Forte Hotels                                                                                                                                 |
+    | 3506   | Golden Tulip Hotels                                                                                                                          |
+    | 3507   | Friendship Inns                                                                                                                              |
+    | 3508   | Quality Inns, Quality Suites                                                                                                                 |
+    | 3509   | Marriott Hotels                                                                                                                              |
+    | 3510   | Days Inn, Daystop                                                                                                                            |
+    | 3511   | Arabella Hotels                                                                                                                              |
+    | 3512   | Inter-Continental Hotels                                                                                                                     |
+    | 3513   | Westin Hotels                                                                                                                                |
+    | 3514   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3515   | Rodeway Inns                                                                                                                                 |
+    | 3516   | La Quinta Motor Inns                                                                                                                         |
+    | 3517   | Americana Hotels                                                                                                                             |
+    | 3518   | Sol Hotels                                                                                                                                   |
+    | 3519   | Pullman International Hotels                                                                                                                 |
+    | 3520   | Mercodeien Hotels                                                                                                                            |
+    | 3521   | Crest Hotels (See Forte Hotels)                                                                                                              |
+    | 3522   | Tokyo Hotel                                                                                                                                  |
+    | 3523   | Pennsula Hotel                                                                                                                               |
+    | 3524   | Welcomgroup Hotels                                                                                                                           |
+    | 3525   | Dunfey Hotels                                                                                                                                |
+    | 3526   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3527   | Downtowner-Passport Hotel                                                                                                                    |
+    | 3528   | Red Lion Hotels, Red Lion Inns                                                                                                               |
+    | 3529   | Cp Hotels                                                                                                                                    |
+    | 3530   | Renaissance Hotels, Stouffer Hotels                                                                                                          |
+    | 3531   | Astir Hotels                                                                                                                                 |
+    | 3532   | Sun Route Hotels                                                                                                                             |
+    | 3533   | Hotel Ibis                                                                                                                                   |
+    | 3534   | Southern Pacific Hotels                                                                                                                      |
+    | 3535   | Hilton International                                                                                                                         |
+    | 3536   | Amfac Hotels                                                                                                                                 |
+    | 3537   | Ana Hotel                                                                                                                                    |
+    | 3538   | Concorde Hotels                                                                                                                              |
+    | 3539   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3540   | Iberotel Hotels                                                                                                                              |
+    | 3541   | Hotel Okura                                                                                                                                  |
+    | 3542   | Royal Hotels                                                                                                                                 |
+    | 3543   | Four Seasons Hotels                                                                                                                          |
+    | 3544   | Ciga Hotels                                                                                                                                  |
+    | 3545   | Shangri-La International                                                                                                                     |
+    | 3546   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3547   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3548   | Hoteles Melia                                                                                                                                |
+    | 3549   | Auberge Des Governeurs                                                                                                                       |
+    | 3550   | Regal 8 Inns                                                                                                                                 |
+    | 3551   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3552   | Coast Hotels                                                                                                                                 |
+    | 3553   | Park Inns International                                                                                                                      |
+    | 3554   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3555   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3556   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3557   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3558   | Jolly Hotels                                                                                                                                 |
+    | 3559   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3560   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3561   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3562   | Comfort Inns                                                                                                                                 |
+    | 3563   | Journey’S End Motls                                                                                                                          |
+    | 3564   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3565   | Relax Inns                                                                                                                                   |
+    | 3566   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3567   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3568   | Ladbroke Hotels                                                                                                                              |
+    | 3569   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3570   | Forum Hotels                                                                                                                                 |
+    | 3571   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3572   | Miyako Hotels                                                                                                                                |
+    | 3573   | Sandman Hotels                                                                                                                               |
+    | 3574   | Venture Inns                                                                                                                                 |
+    | 3575   | Vagabond Hotels                                                                                                                              |
+    | 3576   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3577   | Mandarin Oriental Hotel                                                                                                                      |
+    | 3578   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3579   | Hotel Mercure                                                                                                                                |
+    | 3580   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3581   | Delta Hotel                                                                                                                                  |
+    | 3582   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3583   | Sas Hotels                                                                                                                                   |
+    | 3584   | Princess Hotels International                                                                                                                |
+    | 3585   | Hungar Hotels                                                                                                                                |
+    | 3586   | Sokos Hotels                                                                                                                                 |
+    | 3587   | Doral Hotels                                                                                                                                 |
+    | 3588   | Helmsley Hotels                                                                                                                              |
+    | 3589   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3590   | Fairmont Hotels                                                                                                                              |
+    | 3591   | Sonesta Hotels                                                                                                                               |
+    | 3592   | Omni Hotels                                                                                                                                  |
+    | 3593   | Cunard Hotels                                                                                                                                |
+    | 3594   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3595   | Hospitality International                                                                                                                    |
+    | 3596   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3597   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3598   | Regent International Hotels                                                                                                                  |
+    | 3599   | Pannonia Hotels                                                                                                                              |
+    | 3600   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3601   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3602   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3603   | Noah’S Hotels                                                                                                                                |
+    | 3604   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3605   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3606   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3607   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3608   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3609   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3610   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3611   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3612   | Movenpick Hotels                                                                                                                             |
+    | 3613   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3614   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3615   | Travelodge                                                                                                                                   |
+    | 3616   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3617   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3618   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3619   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3620   | Telford International                                                                                                                        |
+    | 3621   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3622   | Merlin Hotels                                                                                                                                |
+    | 3623   | Dorint Hotels                                                                                                                                |
+    | 3624   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3625   | Hotle Universale                                                                                                                             |
+    | 3626   | Prince Hotels                                                                                                                                |
+    | 3627   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3628   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3629   | Dan Hotels                                                                                                                                   |
+    | 3630   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3631   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3632   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3633   | Rank Hotels                                                                                                                                  |
+    | 3634   | Swissotel                                                                                                                                    |
+    | 3635   | Reso Hotels                                                                                                                                  |
+    | 3636   | Sarova Hotels                                                                                                                                |
+    | 3637   | Ramada Inns, Ramada Limited                                                                                                                  |
+    | 3638   | Ho Jo Inn, Howard Johnson                                                                                                                    |
+    | 3639   | Mount Charlotte Thistle                                                                                                                      |
+    | 3640   | Hyatt Hotel                                                                                                                                  |
+    | 3641   | Sofitel Hotels                                                                                                                               |
+    | 3642   | Novotel Hotels                                                                                                                               |
+    | 3643   | Steigenberger Hotels                                                                                                                         |
+    | 3644   | Econo Lodges                                                                                                                                 |
+    | 3645   | Queens Moat Houses                                                                                                                           |
+    | 3646   | Swallow Hotels                                                                                                                               |
+    | 3647   | Husa Hotels                                                                                                                                  |
+    | 3648   | De Vere Hotels                                                                                                                               |
+    | 3649   | Radisson Hotels                                                                                                                              |
+    | 3650   | Red Rook Inns                                                                                                                                |
+    | 3651   | Imperial London Hotel                                                                                                                        |
+    | 3652   | Embassy Hotels                                                                                                                               |
+    | 3653   | Penta Hotels                                                                                                                                 |
+    | 3654   | Loews Hotels                                                                                                                                 |
+    | 3655   | Scandic Hotels                                                                                                                               |
+    | 3656   | Sara Hotels                                                                                                                                  |
+    | 3657   | Oberoi Hotels                                                                                                                                |
+    | 3658   | Otani Hotels                                                                                                                                 |
+    | 3659   | Taj Hotels International                                                                                                                     |
+    | 3660   | Knights Inns                                                                                                                                 |
+    | 3661   | Metropole Hotels                                                                                                                             |
+    | 3662   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3663   | Hoteles El Prescodeents                                                                                                                      |
+    | 3664   | Flag Inn                                                                                                                                     |
+    | 3665   | Hampton Inns                                                                                                                                 |
+    | 3666   | Stakis Hotels                                                                                                                                |
+    | 3667   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3668   | Maritim Hotels                                                                                                                               |
+    | 3669   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3670   | Arcard Hotels                                                                                                                                |
+    | 3671   | Arctia Hotels                                                                                                                                |
+    | 3672   | Campaniel Hotels                                                                                                                             |
+    | 3673   | Ibusz Hotels                                                                                                                                 |
+    | 3674   | Rantasipi Hotels                                                                                                                             |
+    | 3675   | Interhotel Cedok                                                                                                                             |
+    | 3676   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3677   | Climat De France Hotels                                                                                                                      |
+    | 3678   | Cumulus Hotels                                                                                                                               |
+    | 3679   | Danubius Hotel                                                                                                                               |
+    | 3680   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3681   | Adams Mark Hotels                                                                                                                            |
+    | 3682   | Allstar Inns                                                                                                                                 |
+    | 3683   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3684   | Budget Host Inns                                                                                                                             |
+    | 3685   | Budgetel Hotels                                                                                                                              |
+    | 3686   | Suisse Chalets                                                                                                                               |
+    | 3687   | Clarion Hotels                                                                                                                               |
+    | 3688   | Compri Hotels                                                                                                                                |
+    | 3689   | Consort Hotels                                                                                                                               |
+    | 3690   | Courtyard By Marriott                                                                                                                        |
+    | 3691   | Dillion Inns                                                                                                                                 |
+    | 3692   | Doubletree Hotels                                                                                                                            |
+    | 3693   | Drury Inns                                                                                                                                   |
+    | 3694   | Economy Inns Of America                                                                                                                      |
+    | 3695   | Embassy Suites                                                                                                                               |
+    | 3696   | Exel Inns                                                                                                                                    |
+    | 3697   | Farfield Hotels                                                                                                                              |
+    | 3698   | Harley Hotels                                                                                                                                |
+    | 3699   | Mcodeway Motor Lodge                                                                                                                         |
+    | 3700   | Motel 6                                                                                                                                      |
+    | 3701   | Guest Quarters (Formally Pickett Suite Hotels)                                                                                               |
+    | 3702   | The Registry Hotels                                                                                                                          |
+    | 3703   | Rescodeence Inns                                                                                                                             |
+    | 3704   | Royce Hotels                                                                                                                                 |
+    | 3705   | Sandman Inns                                                                                                                                 |
+    | 3706   | Shilo Inns                                                                                                                                   |
+    | 3707   | Shoney’S Inns                                                                                                                                |
+    | 3708   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3709   | Super8 Motels                                                                                                                                |
+    | 3710   | The Ritz Carlton Hotels                                                                                                                      |
+    | 3711   | Flag Inns (Ausralia)                                                                                                                         |
+    | 3712   | Golden Chain Hotel                                                                                                                           |
+    | 3713   | Quality Pacific Hotel                                                                                                                        |
+    | 3714   | Four Seasons Hotel (Australia)                                                                                                               |
+    | 3715   | Farifield Inn                                                                                                                                |
+    | 3716   | Carlton Hotels                                                                                                                               |
+    | 3717   | City Lodge Hotels                                                                                                                            |
+    | 3718   | Karos Hotels                                                                                                                                 |
+    | 3719   | Protea Hotels                                                                                                                                |
+    | 3720   | Southern Sun Hotels                                                                                                                          |
+    | 3721   | Hilton Conrad                                                                                                                                |
+    | 3722   | Wyndham Hotel And Resorts                                                                                                                    |
+    | 3723   | Rica Hotels                                                                                                                                  |
+    | 3724   | Iner Nor Hotels                                                                                                                              |
+    | 3725   | Seaines Planation                                                                                                                            |
+    | 3726   | Rio Suites                                                                                                                                   |
+    | 3727   | Broadmoor Hotel                                                                                                                              |
+    | 3728   | Bally’S Hotel And Casino                                                                                                                     |
+    | 3729   | John Ascuaga’S Nugget                                                                                                                        |
+    | 3730   | Mgm Grand Hotel                                                                                                                              |
+    | 3731   | Harrah’S Hotels And Casinos                                                                                                                  |
+    | 3732   | Opryland Hotel                                                                                                                               |
+    | 3733   | Boca Raton Resort                                                                                                                            |
+    | 3734   | Harvey/bristol Hotels                                                                                                                        |
+    | 3735   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3736   | Colorado Belle/edgewater Resort                                                                                                              |
+    | 3737   | Riviera Hotel And Casino                                                                                                                     |
+    | 3738   | Tropicana Resort And Casino                                                                                                                  |
+    | 3739   | Woodscodee Hotels And Resorts                                                                                                                |
+    | 3740   | Townplace Suites                                                                                                                             |
+    | 3741   | Millenium Broadway Hotel                                                                                                                     |
+    | 3742   | Club Med                                                                                                                                     |
+    | 3743   | Biltmore Hotel And Suites                                                                                                                    |
+    | 3744   | Carefree Resorts                                                                                                                             |
+    | 3745   | St. Regis Hotel                                                                                                                              |
+    | 3746   | The Eliot Hotel                                                                                                                              |
+    | 3747   | Clubcorp/club Resorts                                                                                                                        |
+    | 3748   | Welesley Inns                                                                                                                                |
+    | 3749   | The Beverly Hills Hotel                                                                                                                      |
+    | 3750   | Crowne Plaza Hotels                                                                                                                          |
+    | 3751   | Homewood Suites                                                                                                                              |
+    | 3752   | Peabody Hotels                                                                                                                               |
+    | 3753   | Greenbriah Resorts                                                                                                                           |
+    | 3754   | Amelia Island Planation                                                                                                                      |
+    | 3755   | The Homestead                                                                                                                                |
+    | 3756   | South Seas Resorts                                                                                                                           |
+    | 3757   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3758   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3759   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3760   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3761   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3762   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3763   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3764   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3765   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3766   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3767   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3768   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3769   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3770   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3771   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3772   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3773   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3774   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3775   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3776   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3777   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3778   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3779   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3780   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3781   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3782   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3783   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3784   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3785   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3786   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3787   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3788   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3789   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3790   | Hotels/motels/inns/resorts                                                                                                                   |
+    | 3835   | * Masters Economy Inns                                                                                                                       |
+    | 4011   | Railroads                                                                                                                                    |
+    | 4111   | Local/suburban Commuter Passenger Transportation Railroads, Feries, Local Water Transportation.                                              |
+    | 4112   | Passenger Railways                                                                                                                           |
+    | 4119   | Ambulance Services                                                                                                                           |
+    | 4121   | Taxicabs And Limousines                                                                                                                      |
+    | 4131   | Bus Lines, Including Charters, Tour Buses                                                                                                    |
+    | 4214   | Motor Freight Carriers, Moving And Storage Companies, Trucking Local/long Distance, Delivery Services Local                                  |
+    | 4215   | Courier Services Air Or Ground, Freight Forwarders                                                                                           |
+    | 4225   | Public Warehousing, Storage                                                                                                                  |
+    | 4411   | Cruise And Steamship Lines                                                                                                                   |
+    | 4457   | Boat Rentals And Leases                                                                                                                      |
+    | 4468   | Marinas, Marine Service, And Supplies                                                                                                        |
+    | 4511   | Airlines, Air Carriers ( Not Listed Elsewhere)                                                                                               |
+    | 4582   | Airports, Airport Terminals, Flying Fields                                                                                                   |
+    | 4722   | Travel Agencies And Tour Operations                                                                                                          |
+    | 4723   | Package Tour Operators (For Use In Germany Only)                                                                                             |
+    | 4784   | Toll And Brcodege Fees                                                                                                                       |
+    | 4789   | Transportation Services, Not Elsewhere Classified)                                                                                           |
+    | 4812   | Telecommunications Equipment Including Telephone Sales                                                                                       |
+    | 4814   | Fax Services, Telecommunication Services                                                                                                     |
+    | 4815   | Visaphone                                                                                                                                    |
+    | 4816   | Computer Network Services                                                                                                                    |
+    | 4821   | Telegraph Services                                                                                                                           |
+    | 4829   | Money Orders Wire Transfer                                                                                                                   |
+    | 4899   | Cable And Other Pay Television (Previously Cable Services)                                                                                   |
+    | 4900   | Electric, Gas, Sanitary And Water Utilities                                                                                                  |
+    | 5013   | Motor Vehicle Supplies And New Parts                                                                                                         |
+    | 5021   | Office And Commercial Furniture                                                                                                              |
+    | 5039   | Construction Materials, Not Elsewhere Classified                                                                                             |
+    | 5044   | Office, Photographic, Photocopy, And Microfilm Equipment                                                                                     |
+    | 5045   | Computers, Computer Peripheral Equipment, Software                                                                                           |
+    | 5046   | Commercial Equipment, Not Elsewhere Classified                                                                                               |
+    | 5047   | Medical, Dental Ophthalmic, Hospital Equipment And Supplies                                                                                  |
+    | 5051   | Metal Service Centers And Offices                                                                                                            |
+    | 5065   | Electrical Parts And Equipment                                                                                                               |
+    | 5072   | Hardware Equipment And Supplies                                                                                                              |
+    | 5074   | Plumbing And Heating Equipment And Supplies                                                                                                  |
+    | 5085   | Industrial Supplies, Not Elsewhere Classified                                                                                                |
+    | 5094   | Precious Stones And Metals, Watches And Jewelry                                                                                              |
+    | 5099   | Durable Goods, Not Elsewhere Classified                                                                                                      |
+    | 5111   | Stationery, Office Supplies, Printing, And Writing Paper                                                                                     |
+    | 5122   | Drugs, Drug Proprietors, And Druggist’S Sundries                                                                                             |
+    | 5131   | Piece Goods, Notions, And Other Dry Goods                                                                                                    |
+    | 5137   | Men’S Women’S And Children’S Uniforms And Commercial Clothing                                                                                |
+    | 5139   | Commercial Footwear                                                                                                                          |
+    | 5169   | Chemicals And Allied Products, Not Elsewhere Classified                                                                                      |
+    | 5172   | Petroleum And Petroleum Products                                                                                                             |
+    | 5192   | Books, Periodicals, And Newspapers                                                                                                           |
+    | 5193   | FloristsSupplies, Nursery Stock And Flowers                                                                                                  |
+    | 5198   | Paints, Varnishes, And Supplies                                                                                                              |
+    | 5199   | Non-Durable Goods, Not Elsewhere Classified                                                                                                  |
+    | 5200   | Home Supply Warehouse Stores                                                                                                                 |
+    | 5211   | Lumber And Building Materials Stores                                                                                                         |
+    | 5231   | Glass, Paint, And Wallpaper Stores                                                                                                           |
+    | 5251   | Hardware Stores                                                                                                                              |
+    | 5261   | Nurseries Lawn And Garden Supply Store                                                                                                       |
+    | 5271   | Mobile Home Dealers                                                                                                                          |
+    | 5300   | Wholesale Clubs                                                                                                                              |
+    | 5309   | Duty Free Store                                                                                                                              |
+    | 5310   | Discount Stores                                                                                                                              |
+    | 5311   | Department Stores                                                                                                                            |
+    | 5331   | Variety Stores                                                                                                                               |
+    | 5399   | Misc. General Merchandise                                                                                                                    |
+    | 5411   | Grocery Stores, Supermarkets                                                                                                                 |
+    | 5422   | Meat Provisioners Freezer And Locker                                                                                                         |
+    | 5441   | Candy, Nut, And Confectionery Stores                                                                                                         |
+    | 5451   | Dairy Products Stores                                                                                                                        |
+    | 5462   | Bakeries                                                                                                                                     |
+    | 5499   | Misc. Food Stores Convenience Stores And Specialty Markets                                                                                   |
+    | 5511   | Car And Truck Dealers (New And Used) Sales, Service, Repairs, Parts, And Leasing                                                             |
+    | 5521   | Automobile And Truck Dealers (Used Only)                                                                                                     |
+    | 5531   | Automobile Supply Stores                                                                                                                     |
+    | 5532   | Automotive Tire Stores                                                                                                                       |
+    | 5533   | Automotive Parts, Accessories Stores                                                                                                         |
+    | 5541   | Service Stations ( With Or Without Ancillary Services)                                                                                       |
+    | 5542   | Automated Fuel Dispensers                                                                                                                    |
+    | 5551   | Boat Dealers                                                                                                                                 |
+    | 5561   | Recreational And Utility Trailers, Camp Dealers                                                                                              |
+    | 5571   | Motorcycle Dealers                                                                                                                           |
+    | 5592   | Motor Home Dealers                                                                                                                           |
+    | 5598   | Snowmobile Dealers                                                                                                                           |
+    | 5599   | Miscellaneous Auto Dealers                                                                                                                   |
+    | 5611   | Men’S And Boy’S Clothing And Accessories Stores                                                                                              |
+    | 5621   | Women’S Ready-To-Wear Stores                                                                                                                 |
+    | 5631   | Women’S Accessory And Specialty Shops                                                                                                        |
+    | 5641   | Children’S And Infant’S Wear Stores                                                                                                          |
+    | 5651   | Family Clothing Stores                                                                                                                       |
+    | 5655   | Sports Apparel, Rcodeing Apparel Stores                                                                                                      |
+    | 5661   | Shoe Stores                                                                                                                                  |
+    | 5681   | Furriers And Fur Shops                                                                                                                       |
+    | 5691   | Men’S And Women’S Clothing Stores                                                                                                            |
+    | 5697   | Tailors, Seamstress, Mending, And Alterations                                                                                                |
+    | 5698   | Wig And Toupee Stores                                                                                                                        |
+    | 5699   | Miscellaneous Apparel And Accessory Shops                                                                                                    |
+    | 5712   | Furniture, Home Furnishings, And Equipment Stores, Exceptappliances                                                                          |
+    | 5713   | Floor Covering Stores                                                                                                                        |
+    | 5714   | Drapery, Window Covering And Upholstery Stores                                                                                               |
+    | 5718   | Fireplace, Fireplace Screens, And Accessories Stores                                                                                         |
+    | 5719   | Miscellaneous Home Furnishing Specialty Stores                                                                                               |
+    | 5722   | Household Appliance Stores                                                                                                                   |
+    | 5732   | Electronic Sales                                                                                                                             |
+    | 5733   | Music Stores, Musical Instruments, Piano Sheet Music                                                                                         |
+    | 5734   | Computer Software Stores                                                                                                                     |
+    | 5735   | Record Shops                                                                                                                                 |
+    | 5811   | Caterers                                                                                                                                     |
+    | 5812   | Eating Places And Restaurants                                                                                                                |
+    | 5813   | Drinking Places (Alcoholic Beverages), Bars, Taverns, Cocktail Lounges, Nightclubs And Discotheques                                          |
+    | 5814   | Fast Food Restaurants                                                                                                                        |
+    | 5815   | Digital Media, Books, Movies, Music                                                                                                          |
+    | 5816   | Digital Games Digital Goods - Games                                                                                                          |
+    | 5817   | Digital Applications Digital Goods - Applications (Excludes Games)                                                                           |
+    | 5818   | Digital Goods - Large Digital Goods Merchant                                                                                                 |
+    | 5832   | Antique Shops Sales, Repairs, And Restoration Services                                                                                       |
+    | 5912   | Drug Stores And Pharmacies                                                                                                                   |
+    | 5921   | Package Stores Beer, Wine, And Liquor                                                                                                        |
+    | 5931   | Used Merchandise And Secondhand Stores                                                                                                       |
+    | 5932   | Antique Shops                                                                                                                                |
+    | 5933   | Pawn Shops And Salvage Yards                                                                                                                 |
+    | 5935   | Wrecking And Salvage Yards                                                                                                                   |
+    | 5937   | Antique Reproductions                                                                                                                        |
+    | 5940   | Bicycle Shops Sales And Service                                                                                                              |
+    | 5941   | Sporting Goods Stores                                                                                                                        |
+    | 5942   | Book Stores                                                                                                                                  |
+    | 5943   | Stationery Stores, Office And School Supply Stores                                                                                           |
+    | 5944   | Watch, Clock, Jewelry, And Silverware Stores                                                                                                 |
+    | 5945   | Hobby, Toy, And Game Shops                                                                                                                   |
+    | 5946   | Camera And Photographic Supply Stores                                                                                                        |
+    | 5947   | Card Shops, Gift, Novelty, And Souvenir Shops                                                                                                |
+    | 5948   | Leather Foods Stores                                                                                                                         |
+    | 5949   | Sewing, Needle, Fabric, And Price Goods Stores                                                                                               |
+    | 5950   | Glassware/crystal Stores                                                                                                                     |
+    | 5960   | Direct Marketing- Insurance Service                                                                                                          |
+    | 5961   | Mail Order Houses Including Catalog Order Stores, Book/record Clubs (No Longer Permitted For U.s. Original Presentments)                     |
+    | 5962   | Direct Marketing Travel Related Arrangements Services                                                                                        |
+    | 5963   | Door-To-Door Sales                                                                                                                           |
+    | 5964   | Direct Marketing Catalog Merchant                                                                                                            |
+    | 5965   | Direct Marketing Catalog And Catalog And Retail Merchant                                                                                     |
+    | 5966   | Direct Marketing- Outbound Telemarketing Merchant                                                                                            |
+    | 5967   | Direct Marketing Inbound Teleservices Merchant                                                                                               |
+    | 5968   | Direct Marketing Continuity/subscription Merchant                                                                                            |
+    | 5969   | Direct Marketing Not Elsewhere Classified                                                                                                    |
+    | 5970   | Artist’S Supply And Craft Shops                                                                                                              |
+    | 5971   | Art Dealers And Galleries                                                                                                                    |
+    | 5972   | Stamp And Coin Stores Philatelic And Numismatic Supplies                                                                                     |
+    | 5973   | Religious Goods Stores                                                                                                                       |
+    | 5975   | Hearing Acodes Sales, Service, And Supply Stores                                                                                             |
+    | 5976   | Orthopedic Goods Prosthetic Devices                                                                                                          |
+    | 5977   | Cosmetic Stores                                                                                                                              |
+    | 5978   | Typewriter Stores Sales, Rental, Service                                                                                                     |
+    | 5983   | Fuel Fuel Oil, Wood, Coal, Liquefied Petroleum                                                                                               |
+    | 5992   | Florists                                                                                                                                     |
+    | 5993   | Cigar Stores And Stands                                                                                                                      |
+    | 5994   | News Dealers And Newsstands                                                                                                                  |
+    | 5995   | Pet Shops, Pet Foods, And Supplies Stores                                                                                                    |
+    | 5996   | Swimming Pools Sales, Service, And Supplies                                                                                                  |
+    | 5997   | Electric Razor Stores Sales And Service                                                                                                      |
+    | 5998   | Tent And Awning Shops                                                                                                                        |
+    | 5999   | Miscellaneous And Specialty Retail Stores                                                                                                    |
+    | 6010   | Financial Institutions Manual Cash Disbursements                                                                                             |
+    | 6011   | Financial Institutions Automated Cash Disbursements                                                                                          |
+    | 6012   | Financial Institutions Merchandise And Services                                                                                              |
+    | 6051   | Non-Financial Institutions Foreign Currency, Money Orders (Not Wire Transfer) And Travelers Cheques                                          |
+    | 6211   | Security Brokers/dealers                                                                                                                     |
+    | 6300   | Insurance Sales, Underwriting, And Premiums                                                                                                  |
+    | 6381   | Insurance Premiums, (No Longer Valcode For First Presentment Work)                                                                           |
+    | 6399   | Insurance, Not Elsewhere Classified ( No Longer Valcode Forfirst Presentment Work)                                                           |
+    | 6513   | Real Estate Agents And Managers - Rentals                                                                                                    |
+    | 6540   | Non-financial Institutions - Stored Value Card Purchase/Load                                                                                 |
+    | 7011   | Lodging Hotels, Motels, Resorts, Central Reservation Services (Not Elsewhere Classified)                                                     |
+    | 7012   | Timeshares                                                                                                                                   |
+    | 7032   | Sporting And Recreational Camps                                                                                                              |
+    | 7033   | Trailer Parks And Camp Grounds                                                                                                               |
+    | 7210   | Laundry, Cleaning, And Garment Services                                                                                                      |
+    | 7211   | Laundry Family And Commercial                                                                                                                |
+    | 7216   | Dry Cleaners                                                                                                                                 |
+    | 7217   | Carpet And Upholstery Cleaning                                                                                                               |
+    | 7221   | Photographic Studios                                                                                                                         |
+    | 7230   | Barber And Beauty Shops                                                                                                                      |
+    | 7251   | Shop Repair Shops And Shoe Shine Parlors, And Hat Cleaning Shops                                                                             |
+    | 7261   | Funeral Service And Crematories                                                                                                              |
+    | 7273   | Dating And Escort Services                                                                                                                   |
+    | 7276   | Tax Preparation Service                                                                                                                      |
+    | 7277   | Counseling Service Debt, Marriage, Personal                                                                                                  |
+    | 7278   | Buying/shopping Services, Clubs                                                                                                              |
+    | 7296   | Clothing Rental Costumes, Formal Wear, Uniforms                                                                                              |
+    | 7297   | Massage Parlors                                                                                                                              |
+    | 7298   | Health And Beauty Shops                                                                                                                      |
+    | 7299   | Miscellaneous Personal Services ( Not Elsewhere Classifies)                                                                                  |
+    | 7311   | Advertising Services                                                                                                                         |
+    | 7321   | Consumer Credit Reporting Agencies                                                                                                           |
+    | 7332   | Blueprinting And Photocopying Services                                                                                                       |
+    | 7333   | Commercial Photography, Art And Graphics                                                                                                     |
+    | 7338   | Quick Copy, Reproduction And Blueprinting Services                                                                                           |
+    | 7339   | Stenographic And Secretarial Support Services                                                                                                |
+    | 7342   | Exterminating And Disinfecting Services                                                                                                      |
+    | 7349   | Cleaning And Maintenance, Janitorial Services                                                                                                |
+    | 7361   | Employment Agencies, Temporary Help Services                                                                                                 |
+    | 7372   | Computer Programming, Integrated Systems Design And Data Processing Services                                                                 |
+    | 7375   | Information Retrieval Services                                                                                                               |
+    | 7379   | Computer Maintenance And Repair Services, Not Elsewhere Classified                                                                           |
+    | 7392   | Management, Consulting, And Public Relations Services                                                                                        |
+    | 7393   | Protective And Security Services Including Armored Cars and Guard Dogs                                                                       |
+    | 7394   | Equipment Rental And Leasing Services, Tool Rental, Furniture Rental, And Appliance Rental                                                   |
+    | 7395   | Photofinishing Laboratories, Photo Developing                                                                                                |
+    | 7399   | Business Services, Not Elsewhere Classified                                                                                                  |
+    | 7511   | Truck Stop                                                                                                                                   |
+    | 7512   | Car Rental Companies ( Not Listed Below)                                                                                                     |
+    | 7513   | Truck And Utility Trailer Rentals                                                                                                            |
+    | 7519   | Motor Home And Recreational Vehicle Rentals                                                                                                  |
+    | 7523   | Automobile Parking Lots And Garages                                                                                                          |
+    | 7531   | Automotive Body Repair Shops                                                                                                                 |
+    | 7534   | Tire Re-Treading And Repair Shops                                                                                                            |
+    | 7535   | Paint Shops Automotive                                                                                                                       |
+    | 7538   | Automotive Service Shops                                                                                                                     |
+    | 7542   | Car Washes                                                                                                                                   |
+    | 7549   | Towing Services                                                                                                                              |
+    | 7622   | Radio Repair Shops                                                                                                                           |
+    | 7623   | Air Conditioning And Refrigeration Repair Shops                                                                                              |
+    | 7629   | Electrical And Small Appliance Repair Shops                                                                                                  |
+    | 7631   | Watch, Clock, And Jewelry Repair                                                                                                             |
+    | 7641   | Furniture, Furniture Repair, And Furniture Refinishing                                                                                       |
+    | 7692   | Welding Repair                                                                                                                               |
+    | 7699   | Repair Shops And Related Services –Miscellaneous                                                                                             |
+    | 7800   | Gambling - Government-Owned Lotteries                                                                                                        |
+    | 7801   | Gambling - Government-Licensed On-Line Casinos                                                                                               |
+    | 7802   | Gambling - Government-Licensed Horse/Dog racing                                                                                              |
+    | 7829   | Motion Pictures And Vcodeeo Tape Production And Distribution                                                                                 |
+    | 7832   | Motion Picture Theaters                                                                                                                      |
+    | 7841   | Vcodeeo Tape Rental Stores                                                                                                                   |
+    | 7911   | Dance Halls, Studios And Schools                                                                                                             |
+    | 7922   | Theatrical Producers (Except Motion Pictures), Ticket Agencies                                                                               |
+    | 7929   | Bands, Orchestras, And Miscellaneous Entertainers (Not Elsewhere Classified)                                                                 |
+    | 7932   | Billiard And Pool Establishments                                                                                                             |
+    | 7933   | Bowling Alleys                                                                                                                               |
+    | 7941   | Commercial Sports, Athletic Fields, Professional Sport Clubs, And Sport Promoters                                                            |
+    | 7991   | Tourist Attractions And Exhibits                                                                                                             |
+    | 7992   | Golf Courses Public                                                                                                                          |
+    | 7993   | Vcodeeo Amusement Game Supplies                                                                                                              |
+    | 7994   | Vcodeeo Game Arcades/establishments                                                                                                          |
+    | 7995   | Betting (Including Lottery Tickets, Casino Gaming Chips, Off-Track Betting And Wagers)                                                       |
+    | 7996   | Amusement Parks, Carnivals, Circuses, Fortune Tellers                                                                                        |
+    | 7997   | Membership Clubs (Sports, Recreation, Athletic), Country Clubs, And Private Golf Courses                                                     |
+    | 7998   | Aquariums, Sea-Aquariums, Dolphinariums                                                                                                      |
+    | 7999   | Recreation Services (Not Elsewhere Classified)                                                                                               |
+    | 8011   | Doctors And Physicians (Not Elsewhere Classified)                                                                                            |
+    | 8021   | Dentists And Orthodontists                                                                                                                   |
+    | 8031   | Osteopaths                                                                                                                                   |
+    | 8041   | Chiropractors                                                                                                                                |
+    | 8042   | Optometrists And Ophthalmologists                                                                                                            |
+    | 8043   | Opticians, Opticians Goods And Eyeglasses                                                                                                    |
+    | 8044   | Opticians, Optical Goods, And Eyeglasses (No Longer Valcode for First Presentments)                                                          |
+    | 8049   | Podiatrists And Chiropodists                                                                                                                 |
+    | 8050   | Nursing And Personal Care Facilities                                                                                                         |
+    | 8062   | Hospitals                                                                                                                                    |
+    | 8071   | Medical And Dental Laboratories                                                                                                              |
+    | 8099   | Medical Services And Health Practitioners (Not Elsewhere Classified)                                                                         |
+    | 8111   | Legal Services And Attorneys                                                                                                                 |
+    | 8211   | Elementary And Secondary Schools                                                                                                             |
+    | 8220   | Colleges, Junior Colleges, Universities, And Professional schools                                                                            |
+    | 8241   | Correspondence Schools                                                                                                                       |
+    | 8244   | Business And Secretarial Schools                                                                                                             |
+    | 8249   | Vocational Schools And Trade Schools                                                                                                         |
+    | 8299   | Schools And Educational Services ( Not Elsewhere Classified)                                                                                 |
+    | 8351   | Child Care Services                                                                                                                          |
+    | 8398   | Charitable And Social Service Organizations                                                                                                  |
+    | 8641   | Civic, Fraternal, And Social Associations                                                                                                    |
+    | 8651   | Political Organizations                                                                                                                      |
+    | 8661   | Religious Organizations                                                                                                                      |
+    | 8675   | Automobile Associations                                                                                                                      |
+    | 8699   | Membership Organizations ( Not Elsewhere Classified)                                                                                         |
+    | 8734   | Testing Laboratories ( Non-Medical)                                                                                                          |
+    | 8911   | Architectural Engineering And Surveying Services                                                                                             |
+    | 8931   | Accounting, Auditing, And Bookkeeping Services                                                                                               |
+    | 8999   | Professional Services ( Not Elsewhere Defined)                                                                                               |
+    | 9211   | Court Costs, Including Alimony And Child Support                                                                                             |
+    | 9222   | Fines                                                                                                                                        |
+    | 9223   | Bail And Bond Payments                                                                                                                       |
+    | 9311   | Tax Payments                                                                                                                                 |
+    | 9399   | Government Services ( Not Elsewhere Classified)                                                                                              |
+    | 9402   | Postal Services Government Only                                                                                                              |
+    | 9405   | Intra Government Transactions                                                                                                                |
+    | 9700   | Automated Referral Service ( For Visa Only)                                                                                                  |
+    | 9701   | Visa Credential Service ( For Visa Only)                                                                                                     |
+    | 9702   | Gcas Emergency Services ( For Visa Only)                                                                                                     |
+    | 9950   | Intra Company Purchases ( For Visa Only)                                                                                                     |
