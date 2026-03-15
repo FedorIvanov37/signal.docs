@@ -2,10 +2,14 @@
 
 ## Transaction data
 
-Transaction data is an incoming Signal dataset, containing payment transaction data
+The Transaction data model is the central dataset used by Signal to represent payment transactions. Each request and 
+response is represented as a separate Transaction object
 
-In GUI mode you can put this data to some file, e.g. `transaction.json` and parse this file. Use hotkey `Ctrl + O`, 
-button `Open File` or drop file to the MainWindow on Signal GUI to open the incoming transaction file
+Signal receives transactions from multiple sources (files, API, TCP sockets, GUI), converts them into the internal 
+Transaction model, processes them in the Signal Core, and routes them to the appropriate destination
+
+After processing, the Transaction can be converted to a target format and returned via various interfaces, such as a 
+GUI, an API response, CLI output, or a TCP connection
 
 See [here](/data_models) how to read the transaction data in any Signal run mode
 
@@ -23,14 +27,12 @@ In case when the Signal GUI incoming transaction file cannot be recognized by th
 will try to parse the transaction as every known format. See details in [data exchange](/gui/features/data_exchange) 
 chapter
 
-
-
 ## Transaction data model
 
 ### JSON
 
-JSON-like transaction data fields representation  
-
+The Transaction data fields representation. The Transaction dataset is the target format of data, so all the others 
+formats, e.g., DUMP or INI, will be converted to Transaction for future data processing
 
 <table>
   <thead>
@@ -171,14 +173,14 @@ The sections should be filled according to the data model
 
 ### DUMP
 
-Dump is hex-encoded transaction message, ready to send to remote host by TCP/IP. It can be set as a single string or 
-multi string value. The right side in ascii representation is optional and the Signal never reads it 
+Dump is a hex-encoded transaction message, ready to be sent to a remote host over TCP/IP. It can be set as a single 
+string or a multi-string value. The right side in ASCII representation is optional, and the Signal never reads it
 
-The transaction data in dump representation can be used in GUI or CLI mode. You can also generate the dump using GUI or 
-API tools
+The transaction data in dump representation can be used in GUI or CLI mode. You can also generate the dump using the GUI 
+or API tools
 
-The dump is raw transaction data, so, there is no any configuration or other additional field. MTI, Bitmap and all the 
-fields value should be pre-calculated
+The dump is raw transaction data, so there is no configuration or any other additional fields. MTI, Bitmap, and all the 
+field values should be pre-calculated
 
 ??? example "DUMP transaction example"
     ```text linenums="1"

@@ -2,8 +2,10 @@
 
 ## Configuration structure
 
-This chapter describes configuration parameters data model. Configuration contains a few group of configurations such as 
-host, validations, actions on startup and so on
+This chapter describes configuration parameters data model
+
+This is the Signal's main configuration data. It can be changed at runtime. Configuration contains a few groups of 
+configurations, such as host, validations, actions on startup, and so on
 
 ## Configuration parameters groups
 

@@ -7,8 +7,8 @@ need
 
 The minimum command to run this mode
 
-``` { .console .signal-console linenums="1" }
-signal.exe --console --api-mode
+```text {.signal-console linenums=1}
+C:\signal>signal.exe --console --api-mode
 
   ::::::::  :::::::::::  ::::::::   ::::    :::      :::      :::
  :+:    :+:     :+:     :+:    :+:  :+:+:   :+:    :+: :+:    :+:
@@ -20,10 +20,10 @@ signal.exe --console --api-mode
 
   Simplified ISO generation algorithm v0.20
 
-15.03.2026 11:14:51 [INFO] Press CTRL+C to exit
-15.03.2026 11:14:51 [INFO]
-15.03.2026 11:14:51 [INFO] ## Begin command line job ID 63e88d3c-15f2-46c5-9a5b-cf8ddeca23ad ##
-15.03.2026 11:14:51 [INFO] Signal API running on port 7777. Process ID: 25832
+15.03.2026 20:13:55 [INFO] Press CTRL+C to exit
+15.03.2026 20:13:55 [INFO]
+15.03.2026 20:13:55 [INFO] ## Begin command line job ID 79085d6c-d0ac-405e-98a6-05c7456ae01d ##
+15.03.2026 20:13:55 [INFO] Signal API running on port 7777. Process ID: 14976
 ```
 
 After this run command there are two ways only to interact with the Signal API 

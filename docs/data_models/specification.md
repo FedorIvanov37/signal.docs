@@ -2,10 +2,10 @@
 
 ## Signal fields Specification
 
-Signal has internal set of constants also known as a Specification. The Specification is JSON set of every field 
-properties such as field data type, field length, fields validators and so os
+Signal has an internal set of constants, also known as a Specification. The Specification is a set of every field's 
+properties, such as field data type, field length, fields validators
 
-The Specification has the following parts
+The Transaction data fields representation
 
 | Part   | Type                                                                                 | Required | Default value                | Description                           |
 |--------|--------------------------------------------------------------------------------------|----------|------------------------------|---------------------------------------|
@@ -14,6 +14,9 @@ The Specification has the following parts
 | fields | dics[str, [IsoField](/data_models/specification/#isofield)]                          | No       | { }                          | IsoField set                          | 
 
 ## IsoField
+
+IsoField is a field property set. This set should be filled for each known field
+
 | Property            | Type                                                        | Description                                           | Example             |
 |---------------------|-------------------------------------------------------------|-------------------------------------------------------|---------------------|
 | Validators          | [Validators](/data_models/validations/#validators)          | Field validation rules set                            |                     |
@@ -36,7 +39,9 @@ The Specification has the following parts
 | fields              | dict[str, [IsoField](/data_models/specification/#isofield)] | Subfields set                                         |                     |
 
 
-## Message Type Indicators
+## Message Type Indicator
+
+Message type indicator is an object that contains the allowed pair request/response MTI and their properties
 
 | Field         | Type      | Description                        |
 |---------------|-----------|------------------------------------|

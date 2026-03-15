@@ -18,6 +18,17 @@ The Signal log writing level
     | INFO     | `CRITICAL` `ERROR` `WARNING` `INFO`         | Regular Signal events                                             | Recommended mode |
     | DEBUG    | `CRITICAL` `ERROR` `WARNING` `INFO` `DEBUG` | Write maximum information to log                                  | Writes raw dumps |
 
+
+## Fields justification
+
+??? example "Fields justification"
+    | Justification | Description            |
+    |---------------|------------------------|
+    | LEFT          | Put data on left side  |
+    | RIGHT         | Put data on right side |
+
+
+
 ## Field Types
 
 ??? example "Fields predefined types"

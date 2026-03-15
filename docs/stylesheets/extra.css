@@ -1,63 +1,103 @@
-.md-typeset table {
-    white-space: nowrap;
+.md-grid {
+  max-width: 1500px;
 }
 
-.md-typeset .signal-console,
-.md-typeset .signal-console div,
-.md-typeset .signal-console pre,
-.md-typeset .signal-console code,
-.md-typeset .signal-console table,
-.md-typeset .signal-console tbody,
-.md-typeset .signal-console tr,
-.md-typeset .signal-console td,
-.md-typeset .signal-console span {
+/* ---------- Signal CLI block ---------- */
+
+.signal-console {
     background: #012E4F !important;
+    color: #E6F3FF !important;
+    border-left: 4px solid #5BC0EB;
+    border-radius: 4px;
 }
 
-.md-typeset .signal-console pre,
-.md-typeset .signal-console code,
-.md-typeset .signal-console span {
-    color: #e6edf3 !important;
-}
-
-.md-typeset .signal-console pre {
-    white-space: pre !important;
+pre.signal-console {
+    background: #012E4F !important;
+    color: #E6F3FF !important;
     overflow-x: auto;
-    word-break: normal !important;
-    overflow-wrap: normal !important;
+    white-space: pre;
 }
 
-.md-typeset .signal-console code,
-.md-typeset .signal-console span {
-    white-space: inherit !important;
-    word-break: normal !important;
-    overflow-wrap: normal !important;
+.signal-console pre {
+    background: #012E4F !important;
+    color: #E6F3FF !important;
+    overflow-x: auto;
+    white-space: pre;
 }
 
-.md-typeset .signal-console .linenos,
-.md-typeset .signal-console .linenodiv,
-.md-typeset .signal-console .linenos pre,
-.md-typeset .signal-console .linenodiv pre {
-    color: #7fb3d5 !important;
+.signal-console code,
+.signal-console span {
+    background: #012E4F !important;
+    color: #E6F3FF !important;
 }
 
-.md-typeset .signal-console .linenos,
-.md-typeset .signal-console .linenodiv {
-    display: block !important;
+.signal-console .highlight,
+.signal-console .highlight pre,
+.signal-console .highlight code,
+.signal-console .highlight span {
+    background: #012E4F !important;
+    color: #E6F3FF !important;
+}
+
+/* ---------- line numbers ---------- */
+
+.signal-console .linenos,
+.signal-console .linenodiv,
+.signal-console .linenodiv pre,
+.signal-console td.linenos,
+.signal-console td.linenos pre {
+    background: #012E4F !important;
+    color: #BFD9EE !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.signal-console td.code,
+.signal-console td.code pre {
+    background: #012E4F !important;
+    color: #E6F3FF !important;
+}
+
+.signal-console table,
+.signal-console tbody,
+.signal-console tr,
+.signal-console td {
     background: #012E4F !important;
 }
 
-.md-typeset .signal-console .linenos pre,
-.md-typeset .signal-console .linenodiv pre {
-    color: #7fb3d5 !important;
-    background: #012E4F !important;
-    white-space: pre !important;
+.signal-console .linenodiv pre,
+.signal-console td.linenos pre,
+.signal-console td.code pre {
+    margin: 0 !important;
 }
 
-.md-typeset .signal-console .highlighttable {
-    display: table !important;
+.signal-console .linenos,
+.signal-console .linenodiv pre {
+    user-select: none;
 }
 
-.md-typeset .signal-console .highlighttable td {
-    background: #012E4F !important;
+
+.signal-console .linenos a {
+    pointer-events: none;
+}
+
+.signal-console .linenos a::after {
+    content: attr(data-linenos);
+}
+
+.signal-console .linenos {
+    color: #8FB9D6 !important;
+}
+
+.signal-console pre,
+.signal-console code {
+    font-size: 0.80em;
+    line-height: 1.35;
+}
+
+.signal-console pre {
+    font-family: "JetBrains Mono", "Fira Code", monospace;
+}
+
+.signal-console td.linenos pre span:last-child {
+    display: none;
 }

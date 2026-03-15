@@ -3,7 +3,7 @@
 
 ## Command Line Interface
 
-``` { .console .signal-console linenums="1" }
+```text {.signal-console linenums=1}
 C:\signal>signal.exe --console --version
 
   ::::::::  :::::::::::  ::::::::   ::::    :::      :::      :::
