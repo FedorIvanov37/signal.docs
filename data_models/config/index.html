@@ -75,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#config" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1583,6 +1588,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Config
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1600,6 +1625,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-parameters-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration parameters groups
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Config example
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1657,6 +1745,60 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-parameters-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration parameters groups
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Config example
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1679,9 +1821,604 @@
 
 
 
-  <h1>Config</h1>
-
-
+<h1 id="config">Config</h1>
+<h2 id="configuration-structure">Configuration structure</h2>
+<p>This chapter describes configuration parameters data model. Configuration contains a few group of configurations such as 
+host, validations, actions on startup and so on</p>
+<h2 id="configuration-parameters-groups">Configuration parameters groups</h2>
+<p>Config contains the following groups</p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>host</td>
+<td>Yes</td>
+<td>Remote host configuration</td>
+</tr>
+<tr>
+<td>terminal</td>
+<td>No</td>
+<td>Startup actions plan</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>No</td>
+<td>Log writting configuration</td>
+</tr>
+<tr>
+<td>validation</td>
+<td>No</td>
+<td>Fields data validation configuration</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>No</td>
+<td>Fields building configuration</td>
+</tr>
+<tr>
+<td>specification</td>
+<td>No</td>
+<td>Specification data parametert</td>
+</tr>
+<tr>
+<td>api</td>
+<td>No</td>
+<td>API configuration</td>
+</tr>
+</tbody>
+</table>
+<h2 id="configuration-parameters">Configuration parameters</h2>
+<p>The groups contain configuration as described below</p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default value</th>
+<th>Description</th>
+<th>Validation</th>
+<th>Valid example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>host</td>
+<td>host</td>
+<td>str</td>
+<td>Yes</td>
+<td>-</td>
+<td>Remote ISO8583 host IP address</td>
+<td>Valid IPv4 address</td>
+<td>172.21.30.5</td>
+</tr>
+<tr>
+<td>host</td>
+<td>port</td>
+<td>int</td>
+<td>Yes</td>
+<td>-</td>
+<td>Remote ISO8583 host port</td>
+<td>Digits only</td>
+<td>16677</td>
+</tr>
+<tr>
+<td>host</td>
+<td>keep_alive_mode</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Send regular keep-alive transactions to host</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>host</td>
+<td>keep_alive_interval</td>
+<td>int</td>
+<td>No</td>
+<td>300</td>
+<td>Keep-alive auto-sending interval. Works when keep_alive_mode is true</td>
+<td>Digits only</td>
+<td>10</td>
+</tr>
+<tr>
+<td>host</td>
+<td>header_length_exists</td>
+<td>bool</td>
+<td>No</td>
+<td>True</td>
+<td>TCP/IP message header length exists</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>host</td>
+<td>header_length</td>
+<td>int</td>
+<td>No</td>
+<td>0</td>
+<td>TCP/IP message header length bytes. Works when header_length_exists is true</td>
+<td>Digits only</td>
+<td>2</td>
+</tr>
+<tr>
+<td>terminal</td>
+<td>process_default_dump</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Parse default transaction file on GUI startup</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>terminal</td>
+<td>connect_on_startup</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Connect to remote TCP/IP host on GUI startup</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>terminal</td>
+<td>load_remote_spec</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Load remote specification data on GUI startup</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>terminal</td>
+<td>show_license_dialog</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Show license dialog on GUI startup</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>terminal</td>
+<td>run_api</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Start API mode on GUI startup</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>level</td>
+<td>log-level</td>
+<td>No</td>
+<td>INFO</td>
+<td>Debug level</td>
+<td>log-level</td>
+<td>WARNING</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>clear_log</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Clear GUI logscreen before send a new message</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>parse_subfields</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Show parsed complex fields data on GUI logscreen</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>print_description</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Show fields descriptions on GUI logscreen</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>backup_storage_depth_exists</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Store old logfiles 10MB each</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>backup_storage_depth</td>
+<td>int</td>
+<td>No</td>
+<td>30</td>
+<td>Logfile backup storage dept. How many last files 10MB each will be stored</td>
+<td>Digits only</td>
+<td>10</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>reduce_keep_alive</td>
+<td>bool</td>
+<td>No</td>
+<td>True</td>
+<td>Hide auto-generated keep-alive messages in logfile and screen</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>validation</td>
+<td>validation_enabled</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Enable GUI fields validation</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>validation</td>
+<td>validate_window</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Validate MainWindow transaction data</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>validation</td>
+<td>validate_incoming</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Validate incoming transactions data</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>validation</td>
+<td>validate_outgoing</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Validate outgoing transactions data</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>validation</td>
+<td>validation_mode</td>
+<td>validation-mode</td>
+<td>No</td>
+<td>WARNING</td>
+<td>Data validation violation processing mode. See [validaions]</td>
+<td>validation-mode</td>
+<td>ERROR</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>max_amount_limited</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Is maximum generated amount limited</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>max_amount</td>
+<td>int</td>
+<td>No</td>
+<td>100</td>
+<td>Maximum generated amount. Works when max_amount_limited is true</td>
+<td>Digits only</td>
+<td>500</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>send_internal_id</td>
+<td>bool</td>
+<td>No</td>
+<td>True</td>
+<td>Sent Signal's transactions ID to the remote host</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>json_mode</td>
+<td>bool</td>
+<td>No</td>
+<td>True</td>
+<td>GUI MainWindow JSON-like fields representation</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>hide_secrets</td>
+<td>bool</td>
+<td>No</td>
+<td>True</td>
+<td>Hide secret fields on the GUI MainWindow</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>build_fld_90</td>
+<td>bool</td>
+<td>No</td>
+<td>True</td>
+<td>Send original data elements in DE90 for reversal transaction</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>specification</td>
+<td>backup_on_startup</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Make Soecification backup on the Signal start</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>specification</td>
+<td>backup_on_shutdown</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Make Soecification backup on the Signal stop</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>specification</td>
+<td>backup_storage</td>
+<td>bool</td>
+<td>No</td>
+<td>True</td>
+<td>Store Soecification backup files</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>specification</td>
+<td>backup_storage_depth</td>
+<td>int</td>
+<td>No</td>
+<td>100</td>
+<td>Soecification backup storage dept. How many last spec files will be stored</td>
+<td>-</td>
+<td>5</td>
+</tr>
+<tr>
+<td>specification</td>
+<td>load_remote_spec</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Load remote Specification on GUI startup</td>
+<td>-</td>
+<td>false</td>
+</tr>
+<tr>
+<td>specification</td>
+<td>remote_spec_url</td>
+<td>str</td>
+<td>No</td>
+<td>""</td>
+<td>Remote Specification service URL</td>
+<td>Valid URL</td>
+<td>http://spec.iso8583.com/spec</td>
+</tr>
+<tr>
+<td>specification</td>
+<td>rewrite_local_spec</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Rewrite locan Specification file by remote one when remote is loaded</td>
+<td>-</td>
+<td>false</td>
+</tr>
+<tr>
+<td>api</td>
+<td>port</td>
+<td>int</td>
+<td>No</td>
+<td>7777</td>
+<td>API local port for incoming requests</td>
+<td>Digits only</td>
+<td>5665</td>
+</tr>
+<tr>
+<td>api</td>
+<td>wait_remote_host_response</td>
+<td>bool</td>
+<td>No</td>
+<td>True</td>
+<td>Wait answer of remote host or timeout before answer to API</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>api</td>
+<td>waiting_timeout_seconds</td>
+<td>int</td>
+<td>No</td>
+<td>10</td>
+<td>Wait answer of remote host seconds before timeout setting</td>
+<td>Digits only</td>
+<td>8</td>
+</tr>
+<tr>
+<td>api</td>
+<td>hide_secrets</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Hide secret fields on the API response</td>
+<td>-</td>
+<td>true</td>
+</tr>
+<tr>
+<td>api</td>
+<td>parse_subfields</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Parse complex fields in API response messages</td>
+<td>-</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+<h2 id="config-example">Config example</h2>
+<details class="example">
+<summary>Config data example</summary>
+<div class="language-json highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#__codelineno-0-34">34</a></span>
+<span class="normal"><a href="#__codelineno-0-35">35</a></span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span>
+<span class="normal"><a href="#__codelineno-0-37">37</a></span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#__codelineno-0-41">41</a></span>
+<span class="normal"><a href="#__codelineno-0-42">42</a></span>
+<span class="normal"><a href="#__codelineno-0-43">43</a></span>
+<span class="normal"><a href="#__codelineno-0-44">44</a></span>
+<span class="normal"><a href="#__codelineno-0-45">45</a></span>
+<span class="normal"><a href="#__codelineno-0-46">46</a></span>
+<span class="normal"><a href="#__codelineno-0-47">47</a></span>
+<span class="normal"><a href="#__codelineno-0-48">48</a></span>
+<span class="normal"><a href="#__codelineno-0-49">49</a></span>
+<span class="normal"><a href="#__codelineno-0-50">50</a></span>
+<span class="normal"><a href="#__codelineno-0-51">51</a></span>
+<span class="normal"><a href="#__codelineno-0-52">52</a></span>
+<span class="normal"><a href="#__codelineno-0-53">53</a></span>
+<span class="normal"><a href="#__codelineno-0-54">54</a></span>
+<span class="normal"><a href="#__codelineno-0-55">55</a></span>
+<span class="normal"><a href="#__codelineno-0-56">56</a></span>
+<span class="normal"><a href="#__codelineno-0-57">57</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="nt">&quot;host&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">        </span><span class="nt">&quot;host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">        </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">16677</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">        </span><span class="nt">&quot;keep_alive_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">        </span><span class="nt">&quot;keep_alive_interval&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">        </span><span class="nt">&quot;header_length&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">        </span><span class="nt">&quot;header_length_exists&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="nt">&quot;terminal&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">        </span><span class="nt">&quot;process_default_dump&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">        </span><span class="nt">&quot;connect_on_startup&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">        </span><span class="nt">&quot;load_remote_spec&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">        </span><span class="nt">&quot;show_license_dialog&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">        </span><span class="nt">&quot;run_api&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">    </span><span class="nt">&quot;debug&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">        </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INFO&quot;</span><span class="p">,</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">        </span><span class="nt">&quot;clear_log&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">        </span><span class="nt">&quot;parse_subfields&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">        </span><span class="nt">&quot;backup_storage_depth_exists&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">        </span><span class="nt">&quot;backup_storage_depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">        </span><span class="nt">&quot;reduce_keep_alive&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">        </span><span class="nt">&quot;print_description&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">    </span><span class="nt">&quot;validation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">        </span><span class="nt">&quot;validation_enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">        </span><span class="nt">&quot;validate_window&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">        </span><span class="nt">&quot;validate_incoming&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="w">        </span><span class="nt">&quot;validate_outgoing&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="w">        </span><span class="nt">&quot;validation_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WARNING&quot;</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">    </span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">        </span><span class="nt">&quot;max_amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="w">        </span><span class="nt">&quot;max_amount_limited&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="w">        </span><span class="nt">&quot;build_fld_90&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="w">        </span><span class="nt">&quot;send_internal_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">        </span><span class="nt">&quot;json_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">        </span><span class="nt">&quot;hide_secrets&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="w">    </span><span class="nt">&quot;specification&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="w">        </span><span class="nt">&quot;rewrite_local_spec&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">        </span><span class="nt">&quot;remote_spec_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="w">        </span><span class="nt">&quot;backup_storage_depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="w">        </span><span class="nt">&quot;backup_storage&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="w">        </span><span class="nt">&quot;backup_on_startup&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="w">        </span><span class="nt">&quot;backup_on_shutdown&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="w">    </span><span class="nt">&quot;api&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="w">        </span><span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span>
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">        </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7777</span><span class="p">,</span>
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="w">        </span><span class="nt">&quot;wait_remote_host_response&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="w">        </span><span class="nt">&quot;waiting_timeout_seconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="w">        </span><span class="nt">&quot;hide_secrets&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="w">        </span><span class="nt">&quot;parse_subfields&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+</details>
 
 
 
