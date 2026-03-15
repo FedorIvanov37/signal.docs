@@ -1464,6 +1464,8 @@
       
         
       
+        
+      
     
     
     
@@ -1722,6 +1724,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dictionaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dictionaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1922,56 +1952,67 @@ chapter</p>
 <h3 id="json">JSON</h3>
 <p>JSON-like transaction data fields representation  </p>
 <table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Required</th>
-<th>Default value</th>
-<th>Contains</th>
-<th>Validation</th>
-<th>Valid example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>message_type</td>
-<td>str[int]</td>
-<td>Yes</td>
-<td>-</td>
-<td>Transaction Message Type Identifier</td>
-<td>Lenght is exact 4<br>Digits only<br>Field exists in Specification</td>
-<td><code>0200</code></td>
-</tr>
-<tr>
-<td>max_amount</td>
-<td>str[int]</td>
-<td>No</td>
-<td>100</td>
-<td>Maximum generated transaction amoun</td>
-<td>Digits only</td>
-<td><code>100</code></td>
-</tr>
-<tr>
-<td>generate_fields</td>
-<td>list[str[int]]</td>
-<td>No</td>
-<td>[ ]</td>
-<td>Field numbers to generate</td>
-<td>Digits only</td>
-<td><code>["4", "11", "37"]</code></td>
-</tr>
-<tr>
-<td>data_fields</td>
-<td>dict[str, str | dict]</td>
-<td>yes</td>
-<td>-</td>
-<td>JSON-like transaction data fields representation</td>
-<td>According to the field specification</td>
-<td><code>{"3": "000000", "11" :"145787", "47": {"227": {"01": "Limassol", "03": "CYP", "04": "3101"}}}</code></td>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Default value</th>
+      <th>Contains</th>
+      <th>Validation</th>
+      <th>Valid example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>message_type</td>
+      <td>str[int]</td>
+      <td>Yes</td>
+      <td>-</td>
+      <td>Transaction Message Type Identifier</td>
+      <td>Length is exact 4<br>Digits only<br>Field exists in Specification</td>
+      <td><code>0200</code></td>
+    </tr>
+    <tr>
+     <td>max_amount</td>
+     <td>str[int]</td>
+     <td>No</td>
+     <td>100</td>
+     <td>Maximum generated transaction amount</td>
+     <td>Digits only</td>
+     <td><code>100</code></td>
+    </tr>
+    <tr>
+     <td>generate_fields</td>
+     <td>list[str[int]]</td>
+     <td>No</td>
+     <td>[ ]</td>
+     <td>Field numbers to generate</td>
+     <td>Digits only</td>
+     <td><code>["4", "11", "37"]</code></td>
+    </tr>
+    <tr>
+     <td>data_fields</td>
+     <td>dict[str, str | dict]</td>
+     <td>Yes</td>
+     <td>-</td>
+     <td>JSON-like transaction data fields representation</td>
+     <td>According to the field specification</td>
+     <td><pre><code class="language-json">{
+ "3": "000000", 
+ "11": "145787",
+ "47": {
+   "227": {
+    "01": "Limassol", 
+    "03": "CYP", 
+    "04": "3101"
+   }
+ }
+}</code></pre></td>
 </tr>
 </tbody>
 </table>
+
 <details class="example">
 <summary>JSON transaction example</summary>
 <div class="language-json highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
@@ -2172,7 +2213,7 @@ chapter</p>
 <td>list[int]</td>
 <td>No</td>
 <td>[ ]</td>
-<td>Field numbers to generate</td>
+<td>Field numbers to generate before send transaction</td>
 <td>Digits only</td>
 <td><code>[4, 11, 37]</code></td>
 </tr>

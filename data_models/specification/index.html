@@ -75,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#specification" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1459,6 +1464,8 @@
       
         
       
+        
+      
     
     
     
@@ -1555,6 +1562,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1572,6 +1599,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#signal-fields-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signal fields Specification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validators
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logical-validators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logical Validators
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#justification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Justification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isofield" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IsoField
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1593,6 +1694,34 @@
     
   
     Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dictionaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dictionaries
   
 
     
@@ -1657,6 +1786,71 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#signal-fields-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signal fields Specification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validators
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logical-validators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logical Validators
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#justification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Justification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isofield" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IsoField
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1679,9 +1873,223 @@
 
 
 
-  <h1>Specification</h1>
-
-
+<h1 id="specification">Specification</h1>
+<h2 id="signal-fields-specification">Signal fields Specification</h2>
+<p>Signal has internal set of constants also known as a Specification. The Specification is JSON set of every field 
+properties such as field data type, field length, fields validators and so os</p>
+<p>The Specification has the following parts</p>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>str</td>
+<td>No</td>
+<td>ISO-8583 E-pay Specification</td>
+<td>Speficication name, any string</td>
+</tr>
+<tr>
+<td>mti</td>
+<td>list[str[int]]</td>
+<td>No</td>
+<td>[ ]</td>
+<td>List of known message type indicators</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>dics[str, IsoField]</td>
+<td>No</td>
+<td>{ }</td>
+<td>IsoField set</td>
+</tr>
+</tbody>
+</table>
+<h2 id="validators">Validators</h2>
+<p>Field properties set, which shows validations, applicable to the field and those validations parameters</p>
+<table>
+<thead>
+<tr>
+<th>Validator</th>
+<th>Type</th>
+<th>Check</th>
+<th>Example</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>field_type</td>
+<td>FieldTypes</td>
+<td>Field contains valid field type</td>
+<td>MERCHANT CATEGORY CODE</td>
+<td></td>
+</tr>
+<tr>
+<td>date_format</td>
+<td>str</td>
+<td>Field contains data in defined format</td>
+<td>%Y%M%D</td>
+<td>Python-datetime style</td>
+</tr>
+<tr>
+<td>min_value</td>
+<td>int</td>
+<td>Mininun field value</td>
+<td>100</td>
+<td>Applicable for digit fields only</td>
+</tr>
+<tr>
+<td>max_value</td>
+<td>int</td>
+<td>Maximum field value</td>
+<td>100</td>
+<td>Applicable for digit fields only</td>
+</tr>
+<tr>
+<td>must_not_contain</td>
+<td>list[str]</td>
+<td>Field does not content value from list</td>
+<td>["some", "values"]</td>
+<td></td>
+</tr>
+<tr>
+<td>possible_values</td>
+<td>list[str]</td>
+<td>Field can content one of the value from list</td>
+<td>["some", "values"]</td>
+<td></td>
+</tr>
+<tr>
+<td>must_start_with</td>
+<td>list[str]</td>
+<td>Field content starts with one of the value from list</td>
+<td>["some", "values"]</td>
+<td></td>
+</tr>
+<tr>
+<td>must_end_with</td>
+<td>list[str]</td>
+<td>Field content ends with one of the value from list</td>
+<td>["some", "values"]</td>
+<td></td>
+</tr>
+<tr>
+<td>must_contain</td>
+<td>list[str]</td>
+<td>Field content value from list</td>
+<td>["some", "values"]</td>
+<td></td>
+</tr>
+<tr>
+<td>valid_values</td>
+<td>list[str]</td>
+<td>Field content value from list only</td>
+<td>["some", "values"]</td>
+<td></td>
+</tr>
+<tr>
+<td>invalid_values</td>
+<td>list[str]</td>
+<td>Field content value not from list only</td>
+<td>["some", "values"]</td>
+<td></td>
+</tr>
+<tr>
+<td>must_contain_only</td>
+<td>list[str]</td>
+<td>Field content value from list</td>
+<td>["some", "values"]</td>
+<td></td>
+</tr>
+<tr>
+<td>must_not_end_with</td>
+<td>list[str]</td>
+<td>Field content not ends with one of the value from list</td>
+<td>["some", "values"]</td>
+<td></td>
+</tr>
+<tr>
+<td>must_not_start_with</td>
+<td>list[str]</td>
+<td>Field content not starts with one of the value from list</td>
+<td>["some", "values"]</td>
+<td></td>
+</tr>
+<tr>
+<td>must_not_contain_only</td>
+<td>list[str]</td>
+<td>Field not content value not from list only</td>
+<td>["some", "values"]</td>
+<td></td>
+</tr>
+<tr>
+<td>justification</td>
+<td>Justification</td>
+<td>Fill field data side</td>
+<td>"RIGHT"</td>
+<td></td>
+</tr>
+<tr>
+<td>justification_element</td>
+<td>str</td>
+<td>Data fo fill field data side</td>
+<td>"0"</td>
+<td></td>
+</tr>
+<tr>
+<td>justification_length</td>
+<td>int</td>
+<td>Fill field data side up to length</td>
+<td>16</td>
+<td></td>
+</tr>
+<tr>
+<td>field_type_validators</td>
+<td>LogicalValidators</td>
+<td>Validate field on some dictionary includement</td>
+<td>["some", "values"]</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>["some", "values"]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="logical-validators">Logical Validators</h2>
+<p>....</p>
+<h2 id="justification">Justification</h2>
+<table>
+<thead>
+<tr>
+<th>Justification</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LEFT</td>
+<td>Put data on left side</td>
+</tr>
+<tr>
+<td>RIGHT</td>
+<td>Put data on right side</td>
+</tr>
+</tbody>
+</table>
+<h2 id="isofield">IsoField</h2>
+<p>The IsoField is fields properties </p>
 
 
 

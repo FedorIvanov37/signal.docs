@@ -1,0 +1,4687 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://signal.iso8583.tech/data_models/dictionaries/">
+      
+      
+        <link rel="prev" href="../config/">
+      
+      
+        <link rel="next" href="../../downloads/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../images/logo_triangle.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Dictionaries - Signal</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dictionaries" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Signal" class="md-header__button md-logo" aria-label="Signal" data-md-component="logo">
+      
+  <img src="../../images/logo_triangle.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Signal
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Dictionaries
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../general/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  General
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../gui/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Desktop
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../todo1/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Command Line
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../todo/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  HTTP API
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../todo2/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Python library
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Data models
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../downloads/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Download
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Signal" class="md-nav__button md-logo" aria-label="Signal" data-md-component="logo">
+      
+  <img src="../../images/logo_triangle.ico" alt="logo">
+
+    </a>
+    Signal
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../general/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    General
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/release-info/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release info
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/bugs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bugs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/author/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Author
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../gui/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Desktop
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Desktop
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gui/features/transactions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transactions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gui/features/data_exchange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data exchange
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gui/features/validations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gui/features/search_line/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Search line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gui/features/hide_secrets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hide secrets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gui/features/hotkeys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hotkeys
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gui/tools/connector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connector
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gui/tools/echo_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Echo-test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gui/tools/keep_alive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Keep alive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gui/tools/repeat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transactions auto-repeat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gui/tools/reversal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reversal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gui/tools/fields_parser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Complex fields parser
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gui/tools/print_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gui/tools/fields_generators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fields generators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gui/tools/secret_features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secret features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Settings
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Settings
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gui/settings/general/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gui/settings/fields/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fields
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gui/settings/specification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gui/settings/api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../todo1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../todo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../todo2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python library
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data models
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transaction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transaction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../specification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dictionaries
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dictionaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#signal-dictionaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signal dictionaries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Log level
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#field-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Field Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation Mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#countries-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Countries list
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#currencies-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Currencies list
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../downloads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Download
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#signal-dictionaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signal dictionaries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Log level
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#field-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Field Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation Mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#countries-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Countries list
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#currencies-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Currencies list
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="dictionaries">Dictionaries</h1>
+<h2 id="signal-dictionaries">Signal dictionaries</h2>
+<p>This chapter describes predefined constant values for use in the Signal environment</p>
+<h2 id="log-level">Log level</h2>
+<p>The Signal log writing level </p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Write log messages level</th>
+<th>When writes</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NOTSET</td>
+<td>Do not write log at all</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>CRITICAL</td>
+<td><code>CRITICAL</code></td>
+<td>Critical usually system errors</td>
+<td></td>
+</tr>
+<tr>
+<td>ERROR</td>
+<td><code>CRITICAL</code> <code>ERROR</code></td>
+<td>The Signal cannot process user's request</td>
+<td></td>
+</tr>
+<tr>
+<td>WARNING</td>
+<td><code>CRITICAL</code> <code>ERROR</code> <code>WARNING</code></td>
+<td>The Signal cannot process user's request as is, need some changes</td>
+<td></td>
+</tr>
+<tr>
+<td>INFO</td>
+<td><code>CRITICAL</code> <code>ERROR</code> <code>WARNING</code> <code>INFO</code></td>
+<td>Regular Signal events</td>
+<td>Recommended mode</td>
+</tr>
+<tr>
+<td>DEBUG</td>
+<td><code>CRITICAL</code> <code>ERROR</code> <code>WARNING</code> <code>INFO</code> <code>DEBUG</code></td>
+<td>Write maximum information to log</td>
+<td>Writes raw dumps</td>
+</tr>
+</tbody>
+</table>
+<h2 id="field-types">Field Types</h2>
+<p>Fields predefined types</p>
+<table>
+<thead>
+<tr>
+<th>Field Type</th>
+<th>Field should contain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>COUNTRY CODE</td>
+<td>Valid country code</td>
+</tr>
+<tr>
+<td>CURRENCY CODE</td>
+<td>Valid currency code</td>
+</tr>
+<tr>
+<td>MERCHANT CATEGORY CODE</td>
+<td>Valid Merchant Category Code (MCC)</td>
+</tr>
+<tr>
+<td>DATE</td>
+<td>Date or date and time</td>
+</tr>
+<tr>
+<td>OTHER</td>
+<td>Other value, not from listing</td>
+</tr>
+</tbody>
+</table>
+<h2 id="validation-mode">Validation Mode</h2>
+<p>Transaction data validation violation processing mode</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Reaction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WARNING</td>
+<td>Set warning and process transaction</td>
+</tr>
+<tr>
+<td>ERROR</td>
+<td>Set error and stop transaction processing</td>
+</tr>
+<tr>
+<td>FLEXIBLE</td>
+<td>Combined approach. Set error and stop on critical violation, set warning and process transaction on non-critical</td>
+</tr>
+</tbody>
+</table>
+<h2 id="countries-list">Countries list</h2>
+<p>Countries list for data fields validation</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Code N3</th>
+<th>Code A2</th>
+<th>Code A3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Afghanistan</td>
+<td>004</td>
+<td>AF</td>
+<td>AFG</td>
+</tr>
+<tr>
+<td>Aland Islands</td>
+<td>248</td>
+<td>AX</td>
+<td>ALA</td>
+</tr>
+<tr>
+<td>Albania</td>
+<td>008</td>
+<td>AL</td>
+<td>ALB</td>
+</tr>
+<tr>
+<td>Algeria</td>
+<td>012</td>
+<td>DZ</td>
+<td>DZA</td>
+</tr>
+<tr>
+<td>American Samoa</td>
+<td>016</td>
+<td>AS</td>
+<td>ASM</td>
+</tr>
+<tr>
+<td>Andorra</td>
+<td>020</td>
+<td>AD</td>
+<td>AND</td>
+</tr>
+<tr>
+<td>Angola</td>
+<td>024</td>
+<td>AO</td>
+<td>AGO</td>
+</tr>
+<tr>
+<td>Anguilla</td>
+<td>660</td>
+<td>AI</td>
+<td>AIA</td>
+</tr>
+<tr>
+<td>Antarctica</td>
+<td>010</td>
+<td>AQ</td>
+<td>ATA</td>
+</tr>
+<tr>
+<td>Antigua and Barbuda</td>
+<td>028</td>
+<td>AG</td>
+<td>ATG</td>
+</tr>
+<tr>
+<td>Argentina</td>
+<td>032</td>
+<td>AR</td>
+<td>ARG</td>
+</tr>
+<tr>
+<td>Armenia</td>
+<td>051</td>
+<td>AM</td>
+<td>ARM</td>
+</tr>
+<tr>
+<td>Aruba</td>
+<td>533</td>
+<td>AW</td>
+<td>ABW</td>
+</tr>
+<tr>
+<td>Australia</td>
+<td>036</td>
+<td>AU</td>
+<td>AUS</td>
+</tr>
+<tr>
+<td>Austria</td>
+<td>040</td>
+<td>AT</td>
+<td>AUT</td>
+</tr>
+<tr>
+<td>Azerbaijan</td>
+<td>031</td>
+<td>AZ</td>
+<td>AZE</td>
+</tr>
+<tr>
+<td>Bahamas</td>
+<td>044</td>
+<td>BS</td>
+<td>BHS</td>
+</tr>
+<tr>
+<td>Bahrain</td>
+<td>048</td>
+<td>BH</td>
+<td>BHR</td>
+</tr>
+<tr>
+<td>Bangladesh</td>
+<td>050</td>
+<td>BD</td>
+<td>BGD</td>
+</tr>
+<tr>
+<td>Barbados</td>
+<td>052</td>
+<td>BB</td>
+<td>BRB</td>
+</tr>
+<tr>
+<td>Belarus</td>
+<td>112</td>
+<td>BY</td>
+<td>BLR</td>
+</tr>
+<tr>
+<td>Belgium</td>
+<td>056</td>
+<td>BE</td>
+<td>BEL</td>
+</tr>
+<tr>
+<td>Belize</td>
+<td>084</td>
+<td>BZ</td>
+<td>BLZ</td>
+</tr>
+<tr>
+<td>Benin</td>
+<td>204</td>
+<td>BJ</td>
+<td>BEN</td>
+</tr>
+<tr>
+<td>Bermuda</td>
+<td>060</td>
+<td>BM</td>
+<td>BMU</td>
+</tr>
+<tr>
+<td>Bhutan</td>
+<td>064</td>
+<td>BT</td>
+<td>BTN</td>
+</tr>
+<tr>
+<td>Bolivia (Plurinational State of)</td>
+<td>068</td>
+<td>BO</td>
+<td>BOL</td>
+</tr>
+<tr>
+<td>Bonaire, Sint Eustatius and Saba</td>
+<td>535</td>
+<td>BQ</td>
+<td>BES</td>
+</tr>
+<tr>
+<td>Bosnia and Herzegovina</td>
+<td>070</td>
+<td>BA</td>
+<td>BIH</td>
+</tr>
+<tr>
+<td>Botswana</td>
+<td>072</td>
+<td>BW</td>
+<td>BWA</td>
+</tr>
+<tr>
+<td>Bouvet Island</td>
+<td>074</td>
+<td>BV</td>
+<td>BVT</td>
+</tr>
+<tr>
+<td>Brazil</td>
+<td>076</td>
+<td>BR</td>
+<td>BRA</td>
+</tr>
+<tr>
+<td>British Indian Ocean Territory</td>
+<td>086</td>
+<td>IO</td>
+<td>IOT</td>
+</tr>
+<tr>
+<td>Brunei Darussalam</td>
+<td>096</td>
+<td>BN</td>
+<td>BRN</td>
+</tr>
+<tr>
+<td>Bulgaria</td>
+<td>100</td>
+<td>BG</td>
+<td>BGR</td>
+</tr>
+<tr>
+<td>Burkina Faso</td>
+<td>854</td>
+<td>BF</td>
+<td>BFA</td>
+</tr>
+<tr>
+<td>Burundi</td>
+<td>108</td>
+<td>BI</td>
+<td>BDI</td>
+</tr>
+<tr>
+<td>Cabo Verde</td>
+<td>132</td>
+<td>CV</td>
+<td>CPV</td>
+</tr>
+<tr>
+<td>Cambodia</td>
+<td>116</td>
+<td>KH</td>
+<td>KHM</td>
+</tr>
+<tr>
+<td>Cameroon</td>
+<td>120</td>
+<td>CM</td>
+<td>CMR</td>
+</tr>
+<tr>
+<td>Canada</td>
+<td>124</td>
+<td>CA</td>
+<td>CAN</td>
+</tr>
+<tr>
+<td>Cayman Islands</td>
+<td>136</td>
+<td>KY</td>
+<td>CYM</td>
+</tr>
+<tr>
+<td>Central African Republic</td>
+<td>140</td>
+<td>CF</td>
+<td>CAF</td>
+</tr>
+<tr>
+<td>Chad</td>
+<td>148</td>
+<td>TD</td>
+<td>TCD</td>
+</tr>
+<tr>
+<td>Chile</td>
+<td>152</td>
+<td>CL</td>
+<td>CHL</td>
+</tr>
+<tr>
+<td>China</td>
+<td>156</td>
+<td>CN</td>
+<td>CHN</td>
+</tr>
+<tr>
+<td>Christmas Island</td>
+<td>162</td>
+<td>CX</td>
+<td>CXR</td>
+</tr>
+<tr>
+<td>Cocos (Keeling) Islands</td>
+<td>166</td>
+<td>CC</td>
+<td>CCK</td>
+</tr>
+<tr>
+<td>Colombia</td>
+<td>170</td>
+<td>CO</td>
+<td>COL</td>
+</tr>
+<tr>
+<td>Comoros</td>
+<td>174</td>
+<td>KM</td>
+<td>COM</td>
+</tr>
+<tr>
+<td>Congo</td>
+<td>178</td>
+<td>CG</td>
+<td>COG</td>
+</tr>
+<tr>
+<td>Congo, Democratic Republic of the</td>
+<td>180</td>
+<td>CD</td>
+<td>COD</td>
+</tr>
+<tr>
+<td>Cook Islands</td>
+<td>184</td>
+<td>CK</td>
+<td>COK</td>
+</tr>
+<tr>
+<td>Costa Rica</td>
+<td>188</td>
+<td>CR</td>
+<td>CRI</td>
+</tr>
+<tr>
+<td>Cote dIvoire</td>
+<td>384</td>
+<td>CI</td>
+<td>CIV</td>
+</tr>
+<tr>
+<td>Croatia</td>
+<td>191</td>
+<td>HR</td>
+<td>HRV</td>
+</tr>
+<tr>
+<td>Cuba</td>
+<td>192</td>
+<td>CU</td>
+<td>CUB</td>
+</tr>
+<tr>
+<td>Curacao</td>
+<td>531</td>
+<td>CW</td>
+<td>CUW</td>
+</tr>
+<tr>
+<td>Cyprus</td>
+<td>196</td>
+<td>CY</td>
+<td>CYP</td>
+</tr>
+<tr>
+<td>Czechia</td>
+<td>203</td>
+<td>CZ</td>
+<td>CZE</td>
+</tr>
+<tr>
+<td>Denmark</td>
+<td>208</td>
+<td>DK</td>
+<td>DNK</td>
+</tr>
+<tr>
+<td>Djibouti</td>
+<td>262</td>
+<td>DJ</td>
+<td>DJI</td>
+</tr>
+<tr>
+<td>Dominica</td>
+<td>212</td>
+<td>DM</td>
+<td>DMA</td>
+</tr>
+<tr>
+<td>Dominican Republic</td>
+<td>214</td>
+<td>DO</td>
+<td>DOM</td>
+</tr>
+<tr>
+<td>Ecuador</td>
+<td>218</td>
+<td>EC</td>
+<td>ECU</td>
+</tr>
+<tr>
+<td>Egypt</td>
+<td>818</td>
+<td>EG</td>
+<td>EGY</td>
+</tr>
+<tr>
+<td>El Salvador</td>
+<td>222</td>
+<td>SV</td>
+<td>SLV</td>
+</tr>
+<tr>
+<td>Equatorial Guinea</td>
+<td>226</td>
+<td>GQ</td>
+<td>GNQ</td>
+</tr>
+<tr>
+<td>Eritrea</td>
+<td>232</td>
+<td>ER</td>
+<td>ERI</td>
+</tr>
+<tr>
+<td>Estonia</td>
+<td>233</td>
+<td>EE</td>
+<td>EST</td>
+</tr>
+<tr>
+<td>Eswatini</td>
+<td>748</td>
+<td>SZ</td>
+<td>SWZ</td>
+</tr>
+<tr>
+<td>Ethiopia</td>
+<td>231</td>
+<td>ET</td>
+<td>ETH</td>
+</tr>
+<tr>
+<td>Falkland Islands (Malvinas)</td>
+<td>238</td>
+<td>FK</td>
+<td>FLK</td>
+</tr>
+<tr>
+<td>Faroe Islands</td>
+<td>234</td>
+<td>FO</td>
+<td>FRO</td>
+</tr>
+<tr>
+<td>Fiji</td>
+<td>242</td>
+<td>FJ</td>
+<td>FJI</td>
+</tr>
+<tr>
+<td>Finland</td>
+<td>246</td>
+<td>FI</td>
+<td>FIN</td>
+</tr>
+<tr>
+<td>France</td>
+<td>250</td>
+<td>FR</td>
+<td>FRA</td>
+</tr>
+<tr>
+<td>French Guiana</td>
+<td>254</td>
+<td>GF</td>
+<td>GUF</td>
+</tr>
+<tr>
+<td>French Polynesia</td>
+<td>258</td>
+<td>PF</td>
+<td>PYF</td>
+</tr>
+<tr>
+<td>French Southern Territories</td>
+<td>260</td>
+<td>TF</td>
+<td>ATF</td>
+</tr>
+<tr>
+<td>Gabon</td>
+<td>266</td>
+<td>GA</td>
+<td>GAB</td>
+</tr>
+<tr>
+<td>Gambia</td>
+<td>270</td>
+<td>GM</td>
+<td>GMB</td>
+</tr>
+<tr>
+<td>Georgia</td>
+<td>268</td>
+<td>GE</td>
+<td>GEO</td>
+</tr>
+<tr>
+<td>Germany</td>
+<td>276</td>
+<td>DE</td>
+<td>DEU</td>
+</tr>
+<tr>
+<td>Ghana</td>
+<td>288</td>
+<td>GH</td>
+<td>GHA</td>
+</tr>
+<tr>
+<td>Gibraltar</td>
+<td>292</td>
+<td>GI</td>
+<td>GIB</td>
+</tr>
+<tr>
+<td>Greece</td>
+<td>300</td>
+<td>GR</td>
+<td>GRC</td>
+</tr>
+<tr>
+<td>Greenland</td>
+<td>304</td>
+<td>GL</td>
+<td>GRL</td>
+</tr>
+<tr>
+<td>Grenada</td>
+<td>308</td>
+<td>GD</td>
+<td>GRD</td>
+</tr>
+<tr>
+<td>Guadeloupe</td>
+<td>312</td>
+<td>GP</td>
+<td>GLP</td>
+</tr>
+<tr>
+<td>Guam</td>
+<td>316</td>
+<td>GU</td>
+<td>GUM</td>
+</tr>
+<tr>
+<td>Guatemala</td>
+<td>320</td>
+<td>GT</td>
+<td>GTM</td>
+</tr>
+<tr>
+<td>Guernsey</td>
+<td>831</td>
+<td>GG</td>
+<td>GGY</td>
+</tr>
+<tr>
+<td>Guinea</td>
+<td>324</td>
+<td>GN</td>
+<td>GIN</td>
+</tr>
+<tr>
+<td>Guinea-Bissau</td>
+<td>624</td>
+<td>GW</td>
+<td>GNB</td>
+</tr>
+<tr>
+<td>Guyana</td>
+<td>328</td>
+<td>GY</td>
+<td>GUY</td>
+</tr>
+<tr>
+<td>Haiti</td>
+<td>332</td>
+<td>HT</td>
+<td>HTI</td>
+</tr>
+<tr>
+<td>Heard Island and McDonald Islands</td>
+<td>334</td>
+<td>HM</td>
+<td>HMD</td>
+</tr>
+<tr>
+<td>Holy See</td>
+<td>336</td>
+<td>VA</td>
+<td>VAT</td>
+</tr>
+<tr>
+<td>Honduras</td>
+<td>340</td>
+<td>HN</td>
+<td>HND</td>
+</tr>
+<tr>
+<td>Hong Kong</td>
+<td>344</td>
+<td>HK</td>
+<td>HKG</td>
+</tr>
+<tr>
+<td>Hungary</td>
+<td>348</td>
+<td>HU</td>
+<td>HUN</td>
+</tr>
+<tr>
+<td>Iceland</td>
+<td>352</td>
+<td>IS</td>
+<td>ISL</td>
+</tr>
+<tr>
+<td>India</td>
+<td>356</td>
+<td>IN</td>
+<td>IND</td>
+</tr>
+<tr>
+<td>Indonesia</td>
+<td>360</td>
+<td>ID</td>
+<td>IDN</td>
+</tr>
+<tr>
+<td>Iran (Islamic Republic of)</td>
+<td>364</td>
+<td>IR</td>
+<td>IRN</td>
+</tr>
+<tr>
+<td>Iraq</td>
+<td>368</td>
+<td>IQ</td>
+<td>IRQ</td>
+</tr>
+<tr>
+<td>Ireland</td>
+<td>372</td>
+<td>IE</td>
+<td>IRL</td>
+</tr>
+<tr>
+<td>Isle of Man</td>
+<td>833</td>
+<td>IM</td>
+<td>IMN</td>
+</tr>
+<tr>
+<td>Israel</td>
+<td>376</td>
+<td>IL</td>
+<td>ISR</td>
+</tr>
+<tr>
+<td>Italy</td>
+<td>380</td>
+<td>IT</td>
+<td>ITA</td>
+</tr>
+<tr>
+<td>Jamaica</td>
+<td>388</td>
+<td>JM</td>
+<td>JAM</td>
+</tr>
+<tr>
+<td>Japan</td>
+<td>392</td>
+<td>JP</td>
+<td>JPN</td>
+</tr>
+<tr>
+<td>Jersey</td>
+<td>832</td>
+<td>JE</td>
+<td>JEY</td>
+</tr>
+<tr>
+<td>Jordan</td>
+<td>400</td>
+<td>JO</td>
+<td>JOR</td>
+</tr>
+<tr>
+<td>Kazakhstan</td>
+<td>398</td>
+<td>KZ</td>
+<td>KAZ</td>
+</tr>
+<tr>
+<td>Kenya</td>
+<td>404</td>
+<td>KE</td>
+<td>KEN</td>
+</tr>
+<tr>
+<td>Kiribati</td>
+<td>296</td>
+<td>KI</td>
+<td>KIR</td>
+</tr>
+<tr>
+<td>Korea (Democratic Peoples Republic of)</td>
+<td>408</td>
+<td>KP</td>
+<td>PRK</td>
+</tr>
+<tr>
+<td>Korea, Republic of</td>
+<td>410</td>
+<td>KR</td>
+<td>KOR</td>
+</tr>
+<tr>
+<td>Kuwait</td>
+<td>414</td>
+<td>KW</td>
+<td>KWT</td>
+</tr>
+<tr>
+<td>Kyrgyzstan</td>
+<td>417</td>
+<td>KG</td>
+<td>KGZ</td>
+</tr>
+<tr>
+<td>Lao Peoples Democratic Republic</td>
+<td>418</td>
+<td>LA</td>
+<td>LAO</td>
+</tr>
+<tr>
+<td>Latvia</td>
+<td>428</td>
+<td>LV</td>
+<td>LVA</td>
+</tr>
+<tr>
+<td>Lebanon</td>
+<td>422</td>
+<td>LB</td>
+<td>LBN</td>
+</tr>
+<tr>
+<td>Lesotho</td>
+<td>426</td>
+<td>LS</td>
+<td>LSO</td>
+</tr>
+<tr>
+<td>Liberia</td>
+<td>430</td>
+<td>LR</td>
+<td>LBR</td>
+</tr>
+<tr>
+<td>Libya</td>
+<td>434</td>
+<td>LY</td>
+<td>LBY</td>
+</tr>
+<tr>
+<td>Liechtenstein</td>
+<td>438</td>
+<td>LI</td>
+<td>LIE</td>
+</tr>
+<tr>
+<td>Lithuania</td>
+<td>440</td>
+<td>LT</td>
+<td>LTU</td>
+</tr>
+<tr>
+<td>Luxembourg</td>
+<td>442</td>
+<td>LU</td>
+<td>LUX</td>
+</tr>
+<tr>
+<td>Macao</td>
+<td>446</td>
+<td>MO</td>
+<td>MAC</td>
+</tr>
+<tr>
+<td>Madagascar</td>
+<td>450</td>
+<td>MG</td>
+<td>MDG</td>
+</tr>
+<tr>
+<td>Malawi</td>
+<td>454</td>
+<td>MW</td>
+<td>MWI</td>
+</tr>
+<tr>
+<td>Malaysia</td>
+<td>458</td>
+<td>MY</td>
+<td>MYS</td>
+</tr>
+<tr>
+<td>Maldives</td>
+<td>462</td>
+<td>MV</td>
+<td>MDV</td>
+</tr>
+<tr>
+<td>Mali</td>
+<td>466</td>
+<td>ML</td>
+<td>MLI</td>
+</tr>
+<tr>
+<td>Malta</td>
+<td>470</td>
+<td>MT</td>
+<td>MLT</td>
+</tr>
+<tr>
+<td>Marshall Islands</td>
+<td>584</td>
+<td>MH</td>
+<td>MHL</td>
+</tr>
+<tr>
+<td>Martinique</td>
+<td>474</td>
+<td>MQ</td>
+<td>MTQ</td>
+</tr>
+<tr>
+<td>Mauritania</td>
+<td>478</td>
+<td>MR</td>
+<td>MRT</td>
+</tr>
+<tr>
+<td>Mauritius</td>
+<td>480</td>
+<td>MU</td>
+<td>MUS</td>
+</tr>
+<tr>
+<td>Mayotte</td>
+<td>175</td>
+<td>YT</td>
+<td>MYT</td>
+</tr>
+<tr>
+<td>Mexico</td>
+<td>484</td>
+<td>MX</td>
+<td>MEX</td>
+</tr>
+<tr>
+<td>Micronesia (Federated States of)</td>
+<td>583</td>
+<td>FM</td>
+<td>FSM</td>
+</tr>
+<tr>
+<td>Moldova, Republic of</td>
+<td>498</td>
+<td>MD</td>
+<td>MDA</td>
+</tr>
+<tr>
+<td>Monaco</td>
+<td>492</td>
+<td>MC</td>
+<td>MCO</td>
+</tr>
+<tr>
+<td>Mongolia</td>
+<td>496</td>
+<td>MN</td>
+<td>MNG</td>
+</tr>
+<tr>
+<td>Montenegro</td>
+<td>499</td>
+<td>ME</td>
+<td>MNE</td>
+</tr>
+<tr>
+<td>Montserrat</td>
+<td>500</td>
+<td>MS</td>
+<td>MSR</td>
+</tr>
+<tr>
+<td>Morocco</td>
+<td>504</td>
+<td>MA</td>
+<td>MAR</td>
+</tr>
+<tr>
+<td>Mozambique</td>
+<td>508</td>
+<td>MZ</td>
+<td>MOZ</td>
+</tr>
+<tr>
+<td>Myanmar</td>
+<td>104</td>
+<td>MM</td>
+<td>MMR</td>
+</tr>
+<tr>
+<td>Namibia</td>
+<td>516</td>
+<td>NA</td>
+<td>NAM</td>
+</tr>
+<tr>
+<td>Nauru</td>
+<td>520</td>
+<td>NR</td>
+<td>NRU</td>
+</tr>
+<tr>
+<td>Nepal</td>
+<td>524</td>
+<td>NP</td>
+<td>NPL</td>
+</tr>
+<tr>
+<td>Netherlands</td>
+<td>528</td>
+<td>NL</td>
+<td>NLD</td>
+</tr>
+<tr>
+<td>New Caledonia</td>
+<td>540</td>
+<td>NC</td>
+<td>NCL</td>
+</tr>
+<tr>
+<td>New Zealand</td>
+<td>554</td>
+<td>NZ</td>
+<td>NZL</td>
+</tr>
+<tr>
+<td>Nicaragua</td>
+<td>558</td>
+<td>NI</td>
+<td>NIC</td>
+</tr>
+<tr>
+<td>Niger</td>
+<td>562</td>
+<td>NE</td>
+<td>NER</td>
+</tr>
+<tr>
+<td>Nigeria</td>
+<td>566</td>
+<td>NG</td>
+<td>NGA</td>
+</tr>
+<tr>
+<td>Niue</td>
+<td>570</td>
+<td>NU</td>
+<td>NIU</td>
+</tr>
+<tr>
+<td>Norfolk Island</td>
+<td>574</td>
+<td>NF</td>
+<td>NFK</td>
+</tr>
+<tr>
+<td>North Macedonia</td>
+<td>807</td>
+<td>MK</td>
+<td>MKD</td>
+</tr>
+<tr>
+<td>Northern Mariana Islands</td>
+<td>580</td>
+<td>MP</td>
+<td>MNP</td>
+</tr>
+<tr>
+<td>Norway</td>
+<td>578</td>
+<td>NO</td>
+<td>NOR</td>
+</tr>
+<tr>
+<td>Oman</td>
+<td>512</td>
+<td>OM</td>
+<td>OMN</td>
+</tr>
+<tr>
+<td>Pakistan</td>
+<td>586</td>
+<td>PK</td>
+<td>PAK</td>
+</tr>
+<tr>
+<td>Palau</td>
+<td>585</td>
+<td>PW</td>
+<td>PLW</td>
+</tr>
+<tr>
+<td>Palestine, State of</td>
+<td>275</td>
+<td>PS</td>
+<td>PSE</td>
+</tr>
+<tr>
+<td>Panama</td>
+<td>591</td>
+<td>PA</td>
+<td>PAN</td>
+</tr>
+<tr>
+<td>Papua New Guinea</td>
+<td>598</td>
+<td>PG</td>
+<td>PNG</td>
+</tr>
+<tr>
+<td>Paraguay</td>
+<td>600</td>
+<td>PY</td>
+<td>PRY</td>
+</tr>
+<tr>
+<td>Peru</td>
+<td>604</td>
+<td>PE</td>
+<td>PER</td>
+</tr>
+<tr>
+<td>Philippines</td>
+<td>608</td>
+<td>PH</td>
+<td>PHL</td>
+</tr>
+<tr>
+<td>Pitcairn</td>
+<td>612</td>
+<td>PN</td>
+<td>PCN</td>
+</tr>
+<tr>
+<td>Poland</td>
+<td>616</td>
+<td>PL</td>
+<td>POL</td>
+</tr>
+<tr>
+<td>Portugal</td>
+<td>620</td>
+<td>PT</td>
+<td>PRT</td>
+</tr>
+<tr>
+<td>Puerto Rico</td>
+<td>630</td>
+<td>PR</td>
+<td>PRI</td>
+</tr>
+<tr>
+<td>Qatar</td>
+<td>634</td>
+<td>QA</td>
+<td>QAT</td>
+</tr>
+<tr>
+<td>Reunion</td>
+<td>638</td>
+<td>RE</td>
+<td>REU</td>
+</tr>
+<tr>
+<td>Romania</td>
+<td>642</td>
+<td>RO</td>
+<td>ROU</td>
+</tr>
+<tr>
+<td>Russian Federation</td>
+<td>643</td>
+<td>RU</td>
+<td>RUS</td>
+</tr>
+<tr>
+<td>Rwanda</td>
+<td>646</td>
+<td>RW</td>
+<td>RWA</td>
+</tr>
+<tr>
+<td>Saint Barthelemy</td>
+<td>652</td>
+<td>BL</td>
+<td>BLM</td>
+</tr>
+<tr>
+<td>Saint Helena, Ascension and Tristan da Cunha</td>
+<td>654</td>
+<td>SH</td>
+<td>SHN</td>
+</tr>
+<tr>
+<td>Saint Kitts and Nevis</td>
+<td>659</td>
+<td>KN</td>
+<td>KNA</td>
+</tr>
+<tr>
+<td>Saint Lucia</td>
+<td>662</td>
+<td>LC</td>
+<td>LCA</td>
+</tr>
+<tr>
+<td>Saint Martin (French part)</td>
+<td>663</td>
+<td>MF</td>
+<td>MAF</td>
+</tr>
+<tr>
+<td>Saint Pierre and Miquelon</td>
+<td>666</td>
+<td>PM</td>
+<td>SPM</td>
+</tr>
+<tr>
+<td>Saint Vincent and the Grenadines</td>
+<td>670</td>
+<td>VC</td>
+<td>VCT</td>
+</tr>
+<tr>
+<td>Samoa</td>
+<td>882</td>
+<td>WS</td>
+<td>WSM</td>
+</tr>
+<tr>
+<td>San Marino</td>
+<td>674</td>
+<td>SM</td>
+<td>SMR</td>
+</tr>
+<tr>
+<td>Sao Tome and Principe</td>
+<td>678</td>
+<td>ST</td>
+<td>STP</td>
+</tr>
+<tr>
+<td>Saudi Arabia</td>
+<td>682</td>
+<td>SA</td>
+<td>SAU</td>
+</tr>
+<tr>
+<td>Senegal</td>
+<td>686</td>
+<td>SN</td>
+<td>SEN</td>
+</tr>
+<tr>
+<td>Serbia</td>
+<td>688</td>
+<td>RS</td>
+<td>SRB</td>
+</tr>
+<tr>
+<td>Seychelles</td>
+<td>690</td>
+<td>SC</td>
+<td>SYC</td>
+</tr>
+<tr>
+<td>Sierra Leone</td>
+<td>694</td>
+<td>SL</td>
+<td>SLE</td>
+</tr>
+<tr>
+<td>Singapore</td>
+<td>702</td>
+<td>SG</td>
+<td>SGP</td>
+</tr>
+<tr>
+<td>Sint Maarten (Dutch part)</td>
+<td>534</td>
+<td>SX</td>
+<td>SXM</td>
+</tr>
+<tr>
+<td>Slovakia</td>
+<td>703</td>
+<td>SK</td>
+<td>SVK</td>
+</tr>
+<tr>
+<td>Slovenia</td>
+<td>705</td>
+<td>SI</td>
+<td>SVN</td>
+</tr>
+<tr>
+<td>Solomon Islands</td>
+<td>090</td>
+<td>SB</td>
+<td>SLB</td>
+</tr>
+<tr>
+<td>Somalia</td>
+<td>706</td>
+<td>SO</td>
+<td>SOM</td>
+</tr>
+<tr>
+<td>South Africa</td>
+<td>710</td>
+<td>ZA</td>
+<td>ZAF</td>
+</tr>
+<tr>
+<td>South Georgia and the South Sandwich Islands</td>
+<td>239</td>
+<td>GS</td>
+<td>SGS</td>
+</tr>
+<tr>
+<td>South Sudan</td>
+<td>728</td>
+<td>SS</td>
+<td>SSD</td>
+</tr>
+<tr>
+<td>Spain</td>
+<td>724</td>
+<td>ES</td>
+<td>ESP</td>
+</tr>
+<tr>
+<td>Sri Lanka</td>
+<td>144</td>
+<td>LK</td>
+<td>LKA</td>
+</tr>
+<tr>
+<td>Sudan</td>
+<td>729</td>
+<td>SD</td>
+<td>SDN</td>
+</tr>
+<tr>
+<td>Suriname</td>
+<td>740</td>
+<td>SR</td>
+<td>SUR</td>
+</tr>
+<tr>
+<td>Svalbard and Jan Mayen</td>
+<td>744</td>
+<td>SJ</td>
+<td>SJM</td>
+</tr>
+<tr>
+<td>Sweden</td>
+<td>752</td>
+<td>SE</td>
+<td>SWE</td>
+</tr>
+<tr>
+<td>Switzerland</td>
+<td>756</td>
+<td>CH</td>
+<td>CHE</td>
+</tr>
+<tr>
+<td>Syrian Arab Republic</td>
+<td>760</td>
+<td>SY</td>
+<td>SYR</td>
+</tr>
+<tr>
+<td>Taiwan, Province of China</td>
+<td>158</td>
+<td>TW</td>
+<td>TWN</td>
+</tr>
+<tr>
+<td>Tajikistan</td>
+<td>762</td>
+<td>TJ</td>
+<td>TJK</td>
+</tr>
+<tr>
+<td>Tanzania, United Republic of</td>
+<td>834</td>
+<td>TZ</td>
+<td>TZA</td>
+</tr>
+<tr>
+<td>Thailand</td>
+<td>764</td>
+<td>TH</td>
+<td>THA</td>
+</tr>
+<tr>
+<td>Timor-Leste</td>
+<td>626</td>
+<td>TL</td>
+<td>TLS</td>
+</tr>
+<tr>
+<td>Togo</td>
+<td>768</td>
+<td>TG</td>
+<td>TGO</td>
+</tr>
+<tr>
+<td>Tokelau</td>
+<td>772</td>
+<td>TK</td>
+<td>TKL</td>
+</tr>
+<tr>
+<td>Tonga</td>
+<td>776</td>
+<td>TO</td>
+<td>TON</td>
+</tr>
+<tr>
+<td>Trinidad and Tobago</td>
+<td>780</td>
+<td>TT</td>
+<td>TTO</td>
+</tr>
+<tr>
+<td>Tunisia</td>
+<td>788</td>
+<td>TN</td>
+<td>TUN</td>
+</tr>
+<tr>
+<td>Turkey</td>
+<td>792</td>
+<td>TR</td>
+<td>TUR</td>
+</tr>
+<tr>
+<td>Turkmenistan</td>
+<td>795</td>
+<td>TM</td>
+<td>TKM</td>
+</tr>
+<tr>
+<td>Turks and Caicos Islands</td>
+<td>796</td>
+<td>TC</td>
+<td>TCA</td>
+</tr>
+<tr>
+<td>Tuvalu</td>
+<td>798</td>
+<td>TV</td>
+<td>TUV</td>
+</tr>
+<tr>
+<td>Uganda</td>
+<td>800</td>
+<td>UG</td>
+<td>UGA</td>
+</tr>
+<tr>
+<td>Ukraine</td>
+<td>804</td>
+<td>UA</td>
+<td>UKR</td>
+</tr>
+<tr>
+<td>United Arab Emirates</td>
+<td>784</td>
+<td>AE</td>
+<td>ARE</td>
+</tr>
+<tr>
+<td>United Kingdom of Great Britain and Northern Ireland</td>
+<td>826</td>
+<td>GB</td>
+<td>GBR</td>
+</tr>
+<tr>
+<td>United States of America</td>
+<td>840</td>
+<td>US</td>
+<td>USA</td>
+</tr>
+<tr>
+<td>United States Minor Outlying Islands</td>
+<td>581</td>
+<td>UM</td>
+<td>UMI</td>
+</tr>
+<tr>
+<td>Uruguay</td>
+<td>858</td>
+<td>UY</td>
+<td>URY</td>
+</tr>
+<tr>
+<td>Uzbekistan</td>
+<td>860</td>
+<td>UZ</td>
+<td>UZB</td>
+</tr>
+<tr>
+<td>Vanuatu</td>
+<td>548</td>
+<td>VU</td>
+<td>VUT</td>
+</tr>
+<tr>
+<td>Venezuela (Bolivarian Republic of)</td>
+<td>862</td>
+<td>VE</td>
+<td>VEN</td>
+</tr>
+<tr>
+<td>Viet Nam</td>
+<td>704</td>
+<td>VN</td>
+<td>VNM</td>
+</tr>
+<tr>
+<td>Virgin Islands (British)</td>
+<td>092</td>
+<td>VG</td>
+<td>VGB</td>
+</tr>
+<tr>
+<td>Virgin Islands (U.S.)</td>
+<td>850</td>
+<td>VI</td>
+<td>VIR</td>
+</tr>
+<tr>
+<td>Wallis and Futuna</td>
+<td>876</td>
+<td>WF</td>
+<td>WLF</td>
+</tr>
+<tr>
+<td>Western Sahara</td>
+<td>732</td>
+<td>EH</td>
+<td>ESH</td>
+</tr>
+<tr>
+<td>Yemen</td>
+<td>887</td>
+<td>YE</td>
+<td>YEM</td>
+</tr>
+<tr>
+<td>Zambia</td>
+<td>894</td>
+<td>ZM</td>
+<td>ZMB</td>
+</tr>
+<tr>
+<td>Zimbabwe</td>
+<td>716</td>
+<td>ZW</td>
+<td>ZWE</td>
+</tr>
+</tbody>
+</table>
+<h2 id="currencies-list">Currencies list</h2>
+<p>Currencies list for data fields validation</p>
+<table>
+<thead>
+<tr>
+<th>Code A3</th>
+<th>Exponent</th>
+<th>Name</th>
+<th>Code N3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AED</td>
+<td>2</td>
+<td>United Arab Emirates dirham</td>
+<td>784</td>
+</tr>
+<tr>
+<td>AFN</td>
+<td>2</td>
+<td>Afghan afghani</td>
+<td>971</td>
+</tr>
+<tr>
+<td>ALL</td>
+<td>2</td>
+<td>Albanian lek</td>
+<td>008</td>
+</tr>
+<tr>
+<td>AMD</td>
+<td>2</td>
+<td>Armenian dram</td>
+<td>051</td>
+</tr>
+<tr>
+<td>ANG</td>
+<td>2</td>
+<td>Netherlands Antillean guilder</td>
+<td>532</td>
+</tr>
+<tr>
+<td>AOA</td>
+<td>2</td>
+<td>Angolan kwanza</td>
+<td>973</td>
+</tr>
+<tr>
+<td>ARS</td>
+<td>2</td>
+<td>Argentine peso</td>
+<td>032</td>
+</tr>
+<tr>
+<td>AUD</td>
+<td>2</td>
+<td>Australian dollar</td>
+<td>036</td>
+</tr>
+<tr>
+<td>AWG</td>
+<td>2</td>
+<td>Aruban florin</td>
+<td>533</td>
+</tr>
+<tr>
+<td>AZN</td>
+<td>2</td>
+<td>Azerbaijani manat</td>
+<td>944</td>
+</tr>
+<tr>
+<td>BAM</td>
+<td>2</td>
+<td>Bosnia and Herzegovina convertible mark</td>
+<td>977</td>
+</tr>
+<tr>
+<td>BBD</td>
+<td>2</td>
+<td>Barbados dollar</td>
+<td>052</td>
+</tr>
+<tr>
+<td>BDT</td>
+<td>2</td>
+<td>Bangladeshi taka</td>
+<td>050</td>
+</tr>
+<tr>
+<td>BGN</td>
+<td>2</td>
+<td>Bulgarian lev</td>
+<td>975</td>
+</tr>
+<tr>
+<td>BHD</td>
+<td>3</td>
+<td>Bahraini dinar</td>
+<td>048</td>
+</tr>
+<tr>
+<td>BIF</td>
+<td>0</td>
+<td>Burundian franc</td>
+<td>108</td>
+</tr>
+<tr>
+<td>BMD</td>
+<td>2</td>
+<td>Bermudian dollar (customarily known as Bermuda dollar)</td>
+<td>060</td>
+</tr>
+<tr>
+<td>BND</td>
+<td>2</td>
+<td>Brunei dollar</td>
+<td>096</td>
+</tr>
+<tr>
+<td>BOB</td>
+<td>2</td>
+<td>Boliviano</td>
+<td>068</td>
+</tr>
+<tr>
+<td>BOV</td>
+<td>2</td>
+<td>Bolivian Mvdol</td>
+<td>984</td>
+</tr>
+<tr>
+<td>BRL</td>
+<td>2</td>
+<td>Brazilian real</td>
+<td>986</td>
+</tr>
+<tr>
+<td>BSD</td>
+<td>2</td>
+<td>Bahamian dollar</td>
+<td>044</td>
+</tr>
+<tr>
+<td>BTN</td>
+<td>2</td>
+<td>Bhutanese ngultrum</td>
+<td>064</td>
+</tr>
+<tr>
+<td>BWP</td>
+<td>2</td>
+<td>Botswana pula</td>
+<td>072</td>
+</tr>
+<tr>
+<td>BYR</td>
+<td>0</td>
+<td>Belarusian ruble</td>
+<td>974</td>
+</tr>
+<tr>
+<td>BZD</td>
+<td>2</td>
+<td>Belize dollar</td>
+<td>084</td>
+</tr>
+<tr>
+<td>CAD</td>
+<td>2</td>
+<td>Canadian dollar</td>
+<td>124</td>
+</tr>
+<tr>
+<td>CDF</td>
+<td>2</td>
+<td>Congolese franc</td>
+<td>976</td>
+</tr>
+<tr>
+<td>CHE</td>
+<td>2</td>
+<td>WIR Euro (complementary currency)</td>
+<td>947</td>
+</tr>
+<tr>
+<td>CHF</td>
+<td>2</td>
+<td>Swiss franc</td>
+<td>756</td>
+</tr>
+<tr>
+<td>CHW</td>
+<td>2</td>
+<td>WIR Franc (complementary currency)</td>
+<td>948</td>
+</tr>
+<tr>
+<td>CLF</td>
+<td>0</td>
+<td>Unidad de Fomento</td>
+<td>990</td>
+</tr>
+<tr>
+<td>CLP</td>
+<td>0</td>
+<td>Chilean peso</td>
+<td>152</td>
+</tr>
+<tr>
+<td>CNY</td>
+<td>2</td>
+<td>Chinese yuan</td>
+<td>156</td>
+</tr>
+<tr>
+<td>COP</td>
+<td>2</td>
+<td>Colombian peso</td>
+<td>170</td>
+</tr>
+<tr>
+<td>COU</td>
+<td>2</td>
+<td>Unidad de Valor Real</td>
+<td>970</td>
+</tr>
+<tr>
+<td>CRC</td>
+<td>2</td>
+<td>Costa Rican colon</td>
+<td>188</td>
+</tr>
+<tr>
+<td>CUC</td>
+<td>2</td>
+<td>Cuban convertible peso</td>
+<td>931</td>
+</tr>
+<tr>
+<td>CUP</td>
+<td>2</td>
+<td>Cuban peso</td>
+<td>192</td>
+</tr>
+<tr>
+<td>CVE</td>
+<td>0</td>
+<td>Cape Verde escudo</td>
+<td>132</td>
+</tr>
+<tr>
+<td>CZK</td>
+<td>2</td>
+<td>Czech koruna</td>
+<td>203</td>
+</tr>
+<tr>
+<td>DJF</td>
+<td>0</td>
+<td>Djiboutian franc</td>
+<td>262</td>
+</tr>
+<tr>
+<td>DKK</td>
+<td>2</td>
+<td>Danish krone</td>
+<td>208</td>
+</tr>
+<tr>
+<td>DOP</td>
+<td>2</td>
+<td>Dominican peso</td>
+<td>214</td>
+</tr>
+<tr>
+<td>DZD</td>
+<td>2</td>
+<td>Algerian dinar</td>
+<td>012</td>
+</tr>
+<tr>
+<td>EGP</td>
+<td>2</td>
+<td>Egyptian pound</td>
+<td>818</td>
+</tr>
+<tr>
+<td>ERN</td>
+<td>2</td>
+<td>Eritrean nakfa</td>
+<td>232</td>
+</tr>
+<tr>
+<td>ETB</td>
+<td>2</td>
+<td>Ethiopian birr</td>
+<td>230</td>
+</tr>
+<tr>
+<td>EUR</td>
+<td>2</td>
+<td>Euro</td>
+<td>978</td>
+</tr>
+<tr>
+<td>FJD</td>
+<td>2</td>
+<td>Fiji dollar</td>
+<td>242</td>
+</tr>
+<tr>
+<td>FKP</td>
+<td>2</td>
+<td>Falkland Islands pound</td>
+<td>238</td>
+</tr>
+<tr>
+<td>GBP</td>
+<td>2</td>
+<td>Pound sterling</td>
+<td>826</td>
+</tr>
+<tr>
+<td>GEL</td>
+<td>2</td>
+<td>Georgian lari</td>
+<td>981</td>
+</tr>
+<tr>
+<td>GHS</td>
+<td>2</td>
+<td>Ghanaian cedi</td>
+<td>936</td>
+</tr>
+<tr>
+<td>GIP</td>
+<td>2</td>
+<td>Gibraltar pound</td>
+<td>292</td>
+</tr>
+<tr>
+<td>GMD</td>
+<td>2</td>
+<td>Gambian dalasi</td>
+<td>270</td>
+</tr>
+<tr>
+<td>GNF</td>
+<td>0</td>
+<td>Guinean franc</td>
+<td>324</td>
+</tr>
+<tr>
+<td>GTQ</td>
+<td>2</td>
+<td>Guatemalan quetzal</td>
+<td>320</td>
+</tr>
+<tr>
+<td>GYD</td>
+<td>2</td>
+<td>Guyanese dollar</td>
+<td>328</td>
+</tr>
+<tr>
+<td>HKD</td>
+<td>2</td>
+<td>Hong Kong dollar</td>
+<td>344</td>
+</tr>
+<tr>
+<td>HNL</td>
+<td>2</td>
+<td>Honduran lempira</td>
+<td>340</td>
+</tr>
+<tr>
+<td>HRK</td>
+<td>2</td>
+<td>Croatian kuna</td>
+<td>191</td>
+</tr>
+<tr>
+<td>HTG</td>
+<td>2</td>
+<td>Haitian gourde</td>
+<td>332</td>
+</tr>
+<tr>
+<td>HUF</td>
+<td>2</td>
+<td>Hungarian forint</td>
+<td>348</td>
+</tr>
+<tr>
+<td>IDR</td>
+<td>2</td>
+<td>Indonesian rupiah</td>
+<td>360</td>
+</tr>
+<tr>
+<td>ILS</td>
+<td>2</td>
+<td>Israeli new shekel</td>
+<td>376</td>
+</tr>
+<tr>
+<td>INR</td>
+<td>2</td>
+<td>Indian rupee</td>
+<td>356</td>
+</tr>
+<tr>
+<td>IQD</td>
+<td>3</td>
+<td>Iraqi dinar</td>
+<td>368</td>
+</tr>
+<tr>
+<td>IRR</td>
+<td>0</td>
+<td>Iranian rial</td>
+<td>364</td>
+</tr>
+<tr>
+<td>ISK</td>
+<td>0</td>
+<td>Icelandic króna</td>
+<td>352</td>
+</tr>
+<tr>
+<td>JMD</td>
+<td>2</td>
+<td>Jamaican dollar</td>
+<td>388</td>
+</tr>
+<tr>
+<td>JOD</td>
+<td>3</td>
+<td>Jordanian dinar</td>
+<td>400</td>
+</tr>
+<tr>
+<td>JPY</td>
+<td>0</td>
+<td>Japanese yen</td>
+<td>392</td>
+</tr>
+<tr>
+<td>KES</td>
+<td>2</td>
+<td>Kenyan shilling</td>
+<td>404</td>
+</tr>
+<tr>
+<td>KGS</td>
+<td>2</td>
+<td>Kyrgyzstani som</td>
+<td>417</td>
+</tr>
+<tr>
+<td>KHR</td>
+<td>2</td>
+<td>Cambodian riel</td>
+<td>116</td>
+</tr>
+<tr>
+<td>KMF</td>
+<td>0</td>
+<td>Comoro franc</td>
+<td>174</td>
+</tr>
+<tr>
+<td>KPW</td>
+<td>0</td>
+<td>North Korean won</td>
+<td>408</td>
+</tr>
+<tr>
+<td>KRW</td>
+<td>0</td>
+<td>South Korean won</td>
+<td>410</td>
+</tr>
+<tr>
+<td>KWD</td>
+<td>3</td>
+<td>Kuwaiti dinar</td>
+<td>414</td>
+</tr>
+<tr>
+<td>KYD</td>
+<td>2</td>
+<td>Cayman Islands dollar</td>
+<td>136</td>
+</tr>
+<tr>
+<td>KZT</td>
+<td>2</td>
+<td>Kazakhstani tenge</td>
+<td>398</td>
+</tr>
+<tr>
+<td>LAK</td>
+<td>0</td>
+<td>Lao kip</td>
+<td>418</td>
+</tr>
+<tr>
+<td>LBP</td>
+<td>0</td>
+<td>Lebanese pound</td>
+<td>422</td>
+</tr>
+<tr>
+<td>LKR</td>
+<td>2</td>
+<td>Sri Lankan rupee</td>
+<td>144</td>
+</tr>
+<tr>
+<td>LRD</td>
+<td>2</td>
+<td>Liberian dollar</td>
+<td>430</td>
+</tr>
+<tr>
+<td>LSL</td>
+<td>2</td>
+<td>Lesotho loti</td>
+<td>426</td>
+</tr>
+<tr>
+<td>LTL</td>
+<td>2</td>
+<td>Lithuanian litas</td>
+<td>440</td>
+</tr>
+<tr>
+<td>LVL</td>
+<td>2</td>
+<td>Latvian lats</td>
+<td>428</td>
+</tr>
+<tr>
+<td>LYD</td>
+<td>3</td>
+<td>Libyan dinar</td>
+<td>434</td>
+</tr>
+<tr>
+<td>MAD</td>
+<td>2</td>
+<td>Moroccan dirham</td>
+<td>504</td>
+</tr>
+<tr>
+<td>MDL</td>
+<td>2</td>
+<td>Moldovan leu</td>
+<td>498</td>
+</tr>
+<tr>
+<td>MGA</td>
+<td>0</td>
+<td>Malagasy ariary</td>
+<td>969</td>
+</tr>
+<tr>
+<td>MKD</td>
+<td>0</td>
+<td>Macedonian denar</td>
+<td>807</td>
+</tr>
+<tr>
+<td>MMK</td>
+<td>0</td>
+<td>Myanma kyat</td>
+<td>104</td>
+</tr>
+<tr>
+<td>MNT</td>
+<td>2</td>
+<td>Mongolian tugrik</td>
+<td>496</td>
+</tr>
+<tr>
+<td>MOP</td>
+<td>2</td>
+<td>Macanese pataca</td>
+<td>446</td>
+</tr>
+<tr>
+<td>MRO</td>
+<td>0</td>
+<td>Mauritanian ouguiya</td>
+<td>478</td>
+</tr>
+<tr>
+<td>MUR</td>
+<td>2</td>
+<td>Mauritian rupee</td>
+<td>480</td>
+</tr>
+<tr>
+<td>MVR</td>
+<td>2</td>
+<td>Maldivian rufiyaa</td>
+<td>462</td>
+</tr>
+<tr>
+<td>MWK</td>
+<td>2</td>
+<td>Malawian kwacha</td>
+<td>454</td>
+</tr>
+<tr>
+<td>MXN</td>
+<td>2</td>
+<td>Mexican peso</td>
+<td>484</td>
+</tr>
+<tr>
+<td>MXV</td>
+<td>2</td>
+<td>Mexican Unidad de Inversion (UDI)</td>
+<td>979</td>
+</tr>
+<tr>
+<td>MYR</td>
+<td>2</td>
+<td>Malaysian ringgit</td>
+<td>458</td>
+</tr>
+<tr>
+<td>MZN</td>
+<td>2</td>
+<td>Mozambican metical</td>
+<td>943</td>
+</tr>
+<tr>
+<td>NAD</td>
+<td>2</td>
+<td>Namibian dollar</td>
+<td>516</td>
+</tr>
+<tr>
+<td>NGN</td>
+<td>2</td>
+<td>Nigerian naira</td>
+<td>566</td>
+</tr>
+<tr>
+<td>NIO</td>
+<td>2</td>
+<td>Nicaraguan córdoba</td>
+<td>558</td>
+</tr>
+<tr>
+<td>NOK</td>
+<td>2</td>
+<td>Norwegian krone</td>
+<td>578</td>
+</tr>
+<tr>
+<td>NPR</td>
+<td>2</td>
+<td>Nepalese rupee</td>
+<td>524</td>
+</tr>
+<tr>
+<td>NZD</td>
+<td>2</td>
+<td>New Zealand dollar</td>
+<td>554</td>
+</tr>
+<tr>
+<td>OMR</td>
+<td>3</td>
+<td>Omani rial</td>
+<td>512</td>
+</tr>
+<tr>
+<td>PAB</td>
+<td>2</td>
+<td>Panamanian balboa</td>
+<td>590</td>
+</tr>
+<tr>
+<td>PEN</td>
+<td>2</td>
+<td>Peruvian nuevo sol</td>
+<td>604</td>
+</tr>
+<tr>
+<td>PGK</td>
+<td>2</td>
+<td>Papua New Guinean kina</td>
+<td>598</td>
+</tr>
+<tr>
+<td>PHP</td>
+<td>2</td>
+<td>Philippine peso</td>
+<td>608</td>
+</tr>
+<tr>
+<td>PKR</td>
+<td>2</td>
+<td>Pakistani rupee</td>
+<td>586</td>
+</tr>
+<tr>
+<td>PLN</td>
+<td>2</td>
+<td>Polish złoty</td>
+<td>985</td>
+</tr>
+<tr>
+<td>PYG</td>
+<td>0</td>
+<td>Paraguayan guaraní</td>
+<td>600</td>
+</tr>
+<tr>
+<td>QAR</td>
+<td>2</td>
+<td>Qatari riyal</td>
+<td>634</td>
+</tr>
+<tr>
+<td>RON</td>
+<td>2</td>
+<td>Romanian new leu</td>
+<td>946</td>
+</tr>
+<tr>
+<td>RSD</td>
+<td>2</td>
+<td>Serbian dinar</td>
+<td>941</td>
+</tr>
+<tr>
+<td>RUB</td>
+<td>2</td>
+<td>Russian rouble</td>
+<td>643</td>
+</tr>
+<tr>
+<td>RWF</td>
+<td>0</td>
+<td>Rwandan franc</td>
+<td>646</td>
+</tr>
+<tr>
+<td>SAR</td>
+<td>2</td>
+<td>Saudi riyal</td>
+<td>682</td>
+</tr>
+<tr>
+<td>SBD</td>
+<td>2</td>
+<td>Solomon Islands dollar</td>
+<td>090</td>
+</tr>
+<tr>
+<td>SCR</td>
+<td>2</td>
+<td>Seychelles rupee</td>
+<td>690</td>
+</tr>
+<tr>
+<td>SDG</td>
+<td>2</td>
+<td>Sudanese pound</td>
+<td>938</td>
+</tr>
+<tr>
+<td>SEK</td>
+<td>2</td>
+<td>Swedish krona/kronor</td>
+<td>752</td>
+</tr>
+<tr>
+<td>SGD</td>
+<td>2</td>
+<td>Singapore dollar</td>
+<td>702</td>
+</tr>
+<tr>
+<td>SHP</td>
+<td>2</td>
+<td>Saint Helena pound</td>
+<td>654</td>
+</tr>
+<tr>
+<td>SLL</td>
+<td>0</td>
+<td>Sierra Leonean leone</td>
+<td>694</td>
+</tr>
+<tr>
+<td>SOS</td>
+<td>2</td>
+<td>Somali shilling</td>
+<td>706</td>
+</tr>
+<tr>
+<td>SRD</td>
+<td>2</td>
+<td>Surinamese dollar</td>
+<td>968</td>
+</tr>
+<tr>
+<td>SSP</td>
+<td>2</td>
+<td>South Sudanese pound</td>
+<td>728</td>
+</tr>
+<tr>
+<td>STD</td>
+<td>0</td>
+<td>São Tomé and Príncipe dobra</td>
+<td>678</td>
+</tr>
+<tr>
+<td>SYP</td>
+<td>2</td>
+<td>Syrian pound</td>
+<td>760</td>
+</tr>
+<tr>
+<td>SZL</td>
+<td>2</td>
+<td>Swazi lilangeni</td>
+<td>748</td>
+</tr>
+<tr>
+<td>THB</td>
+<td>2</td>
+<td>Thai baht</td>
+<td>764</td>
+</tr>
+<tr>
+<td>TJS</td>
+<td>2</td>
+<td>Tajikistani somoni</td>
+<td>972</td>
+</tr>
+<tr>
+<td>TMT</td>
+<td>2</td>
+<td>Turkmenistani manat</td>
+<td>934</td>
+</tr>
+<tr>
+<td>TND</td>
+<td>3</td>
+<td>Tunisian dinar</td>
+<td>788</td>
+</tr>
+<tr>
+<td>TOP</td>
+<td>2</td>
+<td>Tongan paʻanga</td>
+<td>776</td>
+</tr>
+<tr>
+<td>TRY</td>
+<td>2</td>
+<td>Turkish lira</td>
+<td>949</td>
+</tr>
+<tr>
+<td>TTD</td>
+<td>2</td>
+<td>Trinidad and Tobago dollar</td>
+<td>780</td>
+</tr>
+<tr>
+<td>TWD</td>
+<td>2</td>
+<td>New Taiwan dollar</td>
+<td>901</td>
+</tr>
+<tr>
+<td>TZS</td>
+<td>2</td>
+<td>Tanzanian shilling</td>
+<td>834</td>
+</tr>
+<tr>
+<td>UAH</td>
+<td>2</td>
+<td>Ukrainian hryvnia</td>
+<td>980</td>
+</tr>
+<tr>
+<td>UGX</td>
+<td>2</td>
+<td>Ugandan shilling</td>
+<td>800</td>
+</tr>
+<tr>
+<td>USD</td>
+<td>2</td>
+<td>United States dollar</td>
+<td>840</td>
+</tr>
+<tr>
+<td>USN</td>
+<td>2</td>
+<td>United States dollar (next day)</td>
+<td>997</td>
+</tr>
+<tr>
+<td>USS</td>
+<td>2</td>
+<td>United States dollar</td>
+<td>998</td>
+</tr>
+<tr>
+<td>UYI</td>
+<td>0</td>
+<td>Uruguay Peso en Unidades Indexadas (URUIURUI)</td>
+<td>940</td>
+</tr>
+<tr>
+<td>UYU</td>
+<td>2</td>
+<td>Uruguayan peso</td>
+<td>858</td>
+</tr>
+<tr>
+<td>UZS</td>
+<td>2</td>
+<td>Uzbekistan som</td>
+<td>860</td>
+</tr>
+<tr>
+<td>VEF</td>
+<td>2</td>
+<td>Venezuelan bolívar fuerte</td>
+<td>937</td>
+</tr>
+<tr>
+<td>VND</td>
+<td>0</td>
+<td>Vietnamese dong</td>
+<td>704</td>
+</tr>
+<tr>
+<td>VUV</td>
+<td>0</td>
+<td>Vanuatu vatu</td>
+<td>548</td>
+</tr>
+<tr>
+<td>WST</td>
+<td>2</td>
+<td>Samoan tala</td>
+<td>882</td>
+</tr>
+<tr>
+<td>XAF</td>
+<td>0</td>
+<td>CFA franc BEAC</td>
+<td>950</td>
+</tr>
+<tr>
+<td>XAG</td>
+<td>0</td>
+<td>Silver (one troy ounce)</td>
+<td>961</td>
+</tr>
+<tr>
+<td>XAU</td>
+<td>0</td>
+<td>Gold (one troy ounce)</td>
+<td>959</td>
+</tr>
+<tr>
+<td>XBA</td>
+<td>0</td>
+<td>European Composite Unit (EURCO) (bond market unit)</td>
+<td>955</td>
+</tr>
+<tr>
+<td>XBB</td>
+<td>0</td>
+<td>European Monetary Unit (E.M.U.-6) (bond market unit)</td>
+<td>956</td>
+</tr>
+<tr>
+<td>XBC</td>
+<td>0</td>
+<td>European Unit of Account 9 (E.U.A.-9) (bond market unit)</td>
+<td>957</td>
+</tr>
+<tr>
+<td>XBD</td>
+<td>0</td>
+<td>European Unit of Account 17 (E.U.A.-17) (bond market unit)</td>
+<td>958</td>
+</tr>
+<tr>
+<td>XCD</td>
+<td>2</td>
+<td>East Caribbean dollar</td>
+<td>951</td>
+</tr>
+<tr>
+<td>XDR</td>
+<td>0</td>
+<td>Special drawing rights</td>
+<td>960</td>
+</tr>
+<tr>
+<td>XOF</td>
+<td>0</td>
+<td>CFA franc BCEAO</td>
+<td>952</td>
+</tr>
+<tr>
+<td>XPD</td>
+<td>0</td>
+<td>Palladium (one troy ounce)</td>
+<td>964</td>
+</tr>
+<tr>
+<td>XPF</td>
+<td>0</td>
+<td>CFP franc</td>
+<td>953</td>
+</tr>
+<tr>
+<td>XPT</td>
+<td>0</td>
+<td>Platinum (one troy ounce)</td>
+<td>962</td>
+</tr>
+<tr>
+<td>XTS</td>
+<td>0</td>
+<td>code_a3 reserved for testing purposes</td>
+<td>963</td>
+</tr>
+<tr>
+<td>XXX</td>
+<td>0</td>
+<td>No currency</td>
+<td>999</td>
+</tr>
+<tr>
+<td>YER</td>
+<td>2</td>
+<td>Yemeni rial</td>
+<td>886</td>
+</tr>
+<tr>
+<td>ZAR</td>
+<td>2</td>
+<td>South African rand</td>
+<td>710</td>
+</tr>
+<tr>
+<td>ZMW</td>
+<td>2</td>
+<td>Zambian kwacha</td>
+<td>967</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../config/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Config">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Config
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../downloads/" class="md-footer__link md-footer__link--next" aria-label="Next: Download">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Download
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.footer", "navigation.instant", "navigation.instant.prefetch", "navigation.tabs", "navigation.indexes", "navigation.path"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
