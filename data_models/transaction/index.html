@@ -2077,9 +2077,12 @@
 
 <h1 id="transaction">Transaction</h1>
 <h2 id="transaction-data">Transaction data</h2>
-<p>Transaction data is an incoming Signal dataset, containing payment transaction data</p>
-<p>In GUI mode you can put this data to some file, e.g. <code>transaction.json</code> and parse this file. Use hotkey <code>Ctrl + O</code>, 
-button <code>Open File</code> or drop file to the MainWindow on Signal GUI to open the incoming transaction file</p>
+<p>The Transaction data model is the central dataset used by Signal to represent payment transactions. Each request and 
+response is represented as a separate Transaction object</p>
+<p>Signal receives transactions from multiple sources (files, API, TCP sockets, GUI), converts them into the internal 
+Transaction model, processes them in the Signal Core, and routes them to the appropriate destination</p>
+<p>After processing, the Transaction can be converted to a target format and returned via various interfaces, such as a 
+GUI, an API response, CLI output, or a TCP connection</p>
 <p>See <a href="/data_models">here</a> how to read the transaction data in any Signal run mode</p>
 <h2 id="transaction-format">Transaction format</h2>
 <p>The signal supports three transaction data formats</p>
@@ -2118,7 +2121,8 @@ will try to parse the transaction as every known format. See details in <a href=
 chapter</p>
 <h2 id="transaction-data-model">Transaction data model</h2>
 <h3 id="json">JSON</h3>
-<p>JSON-like transaction data fields representation  </p>
+<p>The Transaction data fields representation. The Transaction dataset is the target format of data, so all the others 
+formats, e.g., DUMP or INI, will be converted to Transaction for future data processing</p>
 <table>
   <thead>
     <tr>
@@ -2456,12 +2460,12 @@ chapter</p>
 </span></code></pre></div></td></tr></table></div>
 </details>
 <h3 id="dump">DUMP</h3>
-<p>Dump is hex-encoded transaction message, ready to send to remote host by TCP/IP. It can be set as a single string or 
-multi string value. The right side in ascii representation is optional and the Signal never reads it </p>
-<p>The transaction data in dump representation can be used in GUI or CLI mode. You can also generate the dump using GUI or 
-API tools</p>
-<p>The dump is raw transaction data, so, there is no any configuration or other additional field. MTI, Bitmap and all the 
-fields value should be pre-calculated</p>
+<p>Dump is a hex-encoded transaction message, ready to be sent to a remote host over TCP/IP. It can be set as a single 
+string or a multi-string value. The right side in ASCII representation is optional, and the Signal never reads it</p>
+<p>The transaction data in dump representation can be used in GUI or CLI mode. You can also generate the dump using the GUI 
+or API tools</p>
+<p>The dump is raw transaction data, so there is no configuration or any other additional fields. MTI, Bitmap, and all the 
+field values should be pre-calculated</p>
 <details class="example">
 <summary>DUMP transaction example</summary>
 <div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>

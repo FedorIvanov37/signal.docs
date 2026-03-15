@@ -1897,13 +1897,41 @@
 
 <h1 id="data-models">Data models</h1>
 <h2 id="signal-data-models">Signal Data Models</h2>
-<p>This chapter contains Signal data models - the description of data element, which can be processed by the Signal</p>
-<p>Incoming data can be put to the terminal by different ways</p>
+<p>Signal stores data in instances of data models. A data model is a structured representation of system data, such as 
+transaction data, configuration, and other entities. The Signal has a few data models, containing the data for 
+transaction processing</p>
+<p>Signal works with the following public datasets </p>
 <table>
 <thead>
 <tr>
-<th>Data type</th>
+<th>Data Model</th>
+<th>What is it</th>
 <th>Supported formats</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/data_models/transaction">Transaction</a></td>
+<td>Payment transaction data: MTI, transaction data fields<br/>Uses for incoming and outgoing transactions</td>
+<td><code>JSON</code>, <code>DUMP</code>, <code>INI</code></td>
+</tr>
+<tr>
+<td><a href="/data_models/specification">Specification</a></td>
+<td>Data fields formats, validation rules, fields descriptions, and hierarhy</td>
+<td><code>JSON</code></td>
+</tr>
+<tr>
+<td><a href="/data_models/config">Config</a></td>
+<td>General configuration data. Base settings for all the run modes</td>
+<td><code>JSON</code></td>
+</tr>
+</tbody>
+</table>
+<p>Incoming data can be loaded to the Signal by different ways</p>
+<table>
+<thead>
+<tr>
+<th>Data models</th>
 <th>GUI</th>
 <th>CLI</th>
 <th>API</th>
@@ -1911,25 +1939,22 @@
 </thead>
 <tbody>
 <tr>
-<td>Transaction</td>
-<td><code>JSON</code>, <code>DUMP</code>, <code>INI</code></td>
-<td>Hotkey <code>Ctrl + O</code>, button <code>Open File</code> or drop file to the MainWindow on Signal GUI</td>
-<td>Argument <code>--file FILE</code> or <code>--dir DIR</code></td>
-<td>Endpoint <code>/api/transactions</code></td>
+<td><a href="/data_models/transaction">Transaction</a></td>
+<td>• Hotkey <code>Ctrl + O</code> <br/>• Button <code>Open File</code><br/>• Drop file to the MainWindow on Signal GUI</td>
+<td><code>--file FILE</code> or <code>--dir DIR</code></td>
+<td><code>/api/transactions</code></td>
 </tr>
 <tr>
-<td>Specification</td>
-<td><code>JSON</code></td>
-<td>Hotkey <code>Ctrl + O</code>, button <code>Open File</code> or drop file to the SpecWindow on Signal GUI</td>
-<td>Argument <code>--specification SPECIFICATION</code></td>
-<td>Endpoint <code>/api/specifications</code></td>
+<td><a href="/data_models/specification">Specification</a></td>
+<td>• Hotkey <code>Ctrl + O</code>,<br/>• Button <code>Open File</code><br/>• Drop file to the SpecWindow on Signal GUI</td>
+<td><code>--specification SPECIFICATION</code></td>
+<td><code>/api/specifications</code></td>
 </tr>
 <tr>
-<td>Config</td>
-<td><code>JSON</code></td>
+<td><a href="/data_models/config">Config</a></td>
 <td>Setup in <code>Tools → Settings</code> UI-tool</td>
-<td>Argument <code>--config-file CONFIG_FILE</code></td>
-<td>Endpoint <code>/api/config</code></td>
+<td><code>--config-file CONFIG_FILE</code></td>
+<td><code>/api/config</code></td>
 </tr>
 </tbody>
 </table>
