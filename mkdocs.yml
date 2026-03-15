@@ -29,12 +29,12 @@ theme:
     - scheme: slate
       primary: blue grey
       toggle:
-        icon: material/brightness-4
+        icon: material/brightness-7
         name: Switch to dark mode
     - scheme: default
       primary: blue grey
       toggle:
-        icon: material/brightness-7
+        icon: material/brightness-4
         name: Switch to light mode
   features:
     - navigation.footer
