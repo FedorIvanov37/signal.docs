@@ -24,18 +24,76 @@ will try to parse the transaction as every known format. See details in [data ex
 chapter
 
 
+
 ## Transaction data model
 
 ### JSON
 
 JSON-like transaction data fields representation  
 
-| Field           | Type                   | Required | Default value | Contains                                         | Validation                                                        | Valid example                                                                                       | 
-|-----------------|------------------------|----------|---------------|--------------------------------------------------|-------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| message_type    | str[int]               | Yes      | -             | Transaction Message Type Identifier              | Lenght is exact 4<br>Digits only<br>Field exists in Specification | `0200`                                                                                              |
-| max_amount      | str[int]               | No       | 100           | Maximum generated transaction amoun              | Digits only                                                       | `100`                                                                                               |
-| generate_fields | list[str[int]]         | No       | [ ]           | Field numbers to generate                        | Digits only                                                       | `["4", "11", "37"]`                                                                                 |
-| data_fields     | dict[str, str \| dict] | yes      | -             | JSON-like transaction data fields representation | According to the field specification                              | ```{"3": "000000", "11" :"145787", "47": {"227": {"01": "Limassol", "03": "CYP", "04": "3101"}}}``` |
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Default value</th>
+      <th>Contains</th>
+      <th>Validation</th>
+      <th>Valid example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>message_type</td>
+      <td>str[int]</td>
+      <td>Yes</td>
+      <td>-</td>
+      <td>Transaction Message Type Identifier</td>
+      <td>Length is exact 4<br>Digits only<br>Field exists in Specification</td>
+      <td><code>0200</code></td>
+    </tr>
+    <tr>
+     <td>max_amount</td>
+     <td>str[int]</td>
+     <td>No</td>
+     <td>100</td>
+     <td>Maximum generated transaction amount</td>
+     <td>Digits only</td>
+     <td><code>100</code></td>
+    </tr>
+    <tr>
+     <td>generate_fields</td>
+     <td>list[str[int]]</td>
+     <td>No</td>
+     <td>[ ]</td>
+     <td>Field numbers to generate</td>
+     <td>Digits only</td>
+     <td><code>["4", "11", "37"]</code></td>
+    </tr>
+    <tr>
+     <td>data_fields</td>
+     <td>dict[str, str | dict]</td>
+     <td>Yes</td>
+     <td>-</td>
+     <td>JSON-like transaction data fields representation</td>
+     <td>According to the field specification</td>
+     <td><pre><code class="language-json">{
+ "3": "000000", 
+ "11": "145787",
+ "47": {
+   "227": {
+    "01": "Limassol", 
+    "03": "CYP", 
+    "04": "3101"
+   }
+ }
+}</code></pre></td>
+</tr>
+</tbody>
+</table>
+
 
 ??? example "JSON transaction example"  
     ```json linenums="1"
@@ -87,12 +145,12 @@ INI transaction data contains up to three sections
 
 The sections should be filled according to the data model 
 
-| Section     | Option                         | Type      | Required   | Default value | Contains                            | Validation                                        | Valid example                                                        | 
-|-------------|--------------------------------|-----------|------------|---------------|-------------------------------------|---------------------------------------------------|----------------------------------------------------------------------|
-| [MTI]       | MTI                            | str[int]  | Yes        | -             | Transaction Message Type Identifier | lenght is 4, digits only, exists in Specification | `[0200]`                                                             |
-| [CONFIG]    | MAX_AMOUNT                     | str[int]  | No         | 100           | Maximum generated transaction amoun | Digits only                                       | `[100]`                                                              |
-| [CONFIG]    | GENERATE_FIELDS                | list[int] | No         | [ ]           | Field numbers to generate           | Digits only                                       | `[4, 11, 37]`                                                        |
-| [MESSAGE]   | FNNN where NNN is field number | str       | yes        | -             | Transaction data fields             | According to the field specification              | `F002 = [4000000000000000]`<br>`F003 = [000000]`<br>`;...`<br>`;...` |
+| Section     | Option                         | Type      | Required   | Default value | Contains                                          | Validation                                        | Valid example                                                        | 
+|-------------|--------------------------------|-----------|------------|---------------|---------------------------------------------------|---------------------------------------------------|----------------------------------------------------------------------|
+| [MTI]       | MTI                            | str[int]  | Yes        | -             | Transaction Message Type Identifier               | lenght is 4, digits only, exists in Specification | `[0200]`                                                             |
+| [CONFIG]    | MAX_AMOUNT                     | str[int]  | No         | 100           | Maximum generated transaction amoun               | Digits only                                       | `[100]`                                                              |
+| [CONFIG]    | GENERATE_FIELDS                | list[int] | No         | [ ]           | Field numbers to generate before send transaction | Digits only                                       | `[4, 11, 37]`                                                        |
+| [MESSAGE]   | FNNN where NNN is field number | str       | yes        | -             | Transaction data fields                           | According to the field specification              | `F002 = [4000000000000000]`<br>`F003 = [000000]`<br>`;...`<br>`;...` |
 
 
 !!! danger "% Substitution"

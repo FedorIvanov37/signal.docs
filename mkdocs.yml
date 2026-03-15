@@ -17,9 +17,9 @@ markdown_extensions:
   - pymdownx.snippets:
         base_path: docs
   - pymdownx.highlight:
+      pygments_lang_class: true
       anchor_linenums: true
       line_spans: __span
-      pygments_lang_class: true
 
 theme:
   name: material
@@ -78,4 +78,5 @@ nav:
       - Transaction: data_models/transaction.md
       - Specification: data_models/specification.md
       - Config: data_models/config.md
+      - Dictionaries: data_models/dictionaries.md
   - Download: downloads.md
