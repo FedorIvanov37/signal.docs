@@ -1,4 +1,4 @@
-# Command Line Interface
+# Command Line
 
 
 ## Command Line Interface

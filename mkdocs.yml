@@ -26,7 +26,16 @@ theme:
   logo: images/logo_triangle.ico
   favicon: images/logo_triangle.ico
   palette:
-    primary: blue grey
+    - scheme: slate
+      primary: blue grey
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+    - scheme: default
+      primary: blue grey
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
   features:
     - navigation.footer
     - navigation.instant
@@ -34,6 +43,10 @@ theme:
     - navigation.tabs
     - navigation.indexes
     - navigation.path
+
+
+
+
 
 plugins:
   - social
