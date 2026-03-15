@@ -2,8 +2,8 @@
 
 ## How to run API in CLI mode 
 
-You can run the Signal API in command-line mode. It can be useful to start the API on remote server where GUI is not 
-need
+You can run the Signal API in command-line mode. It can be useful to start the API on a remote server where a GUI is not 
+needed
 
 The minimum command to run this mode
 
@@ -26,13 +26,12 @@ C:\signal>signal.exe --console --api-mode
 15.03.2026 20:13:55 [INFO] Signal API running on port 7777. Process ID: 14976
 ```
 
-After this run command there are two ways only to interact with the Signal API 
+After this run command, there are only two ways to interact with the Signal API 
 
-* Using the Signal endpoints to get and change the setting, manage the connection, send transactions, and so on 
+* Using the Signal endpoints to get and change the settings, manage the connection, send transactions, and so on
 * Press `CTRL + C` to stop the API
+The Signal provides a complete toolkit for working with the API via the endpoint, with no interface involved. 
+Find the latest Postman Collection on [download page](/downloads)
 
-The Signal provides a complete toolkit for full work with API through the endpoint with no interface involving. 
-Find latest Postman Collection on [download page](/downloads)
-
-It is also recommended to set [custom config](/data_models/config) up and when needed use dedicated 
-[specification file](/data_models/specification) for this mode
+It is also recommended to set up a [custom config](/data_models/config) and, when needed, use a dedicated 
+[specification file](/data_models/specification) for the API mode
