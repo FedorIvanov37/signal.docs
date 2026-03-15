@@ -1,0 +1,75 @@
+# Config
+
+## Configuration structure
+
+This chapter describes configuration parameters data model. Configuration contains a few group of configurations such as 
+host, validations, actions on startup and so on
+
+## Configuration parameters groups
+
+Config contains the following groups
+
+| Group         | Required  | Description                          |
+|---------------|-----------|--------------------------------------|
+| host          | Yes       | Remote host configuration            |
+| terminal      | No        | Startup actions plan                 |
+| debug         | No        | Log writting configuration           |
+| validation    | No        | Fields data validation configuration |
+| fields        | No        | Fields building configuration        |
+| specification | No        | Specification data parametert        | 
+| api           | No        | API configuration                    | 
+
+## Configuration parameters
+
+The groups contain configuration as described below
+
+| Group         | Parameter                   | Type            | Required | Default value | Description                                                                 | Validation         | Valid example                |
+|---------------|-----------------------------|-----------------|----------|---------------|-----------------------------------------------------------------------------|--------------------|------------------------------|
+| host          | host                        | str             | Yes      | -             | Remote ISO8583 host IP address                                              | Valid IPv4 address | 172.21.30.5                  |
+| host          | port                        | int             | Yes      | -             | Remote ISO8583 host port                                                    | Digits only        | 16677                        |
+| host          | keep_alive_mode             | bool            | No       | False         | Send regular keep-alive transactions to host                                | -                  | true                         |
+| host          | keep_alive_interval         | int             | No       | 300           | Keep-alive auto-sending interval. Works when keep_alive_mode is true        | Digits only        | 10                           |
+| host          | header_length_exists        | bool            | No       | True          | TCP/IP message header length exists                                         | -                  | true                         |
+| host          | header_length               | int             | No       | 0             | TCP/IP message header length bytes. Works when header_length_exists is true | Digits only        | 2                            |
+| terminal      | process_default_dump        | bool            | No       | False         | Parse default transaction file on GUI startup                               | -                  | true                         |
+| terminal      | connect_on_startup          | bool            | No       | False         | Connect to remote TCP/IP host on GUI startup                                | -                  | true                         |
+| terminal      | load_remote_spec            | bool            | No       | False         | Load remote specification data on GUI startup                               | -                  | true                         |
+| terminal      | show_license_dialog         | bool            | No       | False         | Show license dialog on GUI startup                                          | -                  | true                         |
+| terminal      | run_api                     | bool            | No       | False         | Start API mode on GUI startup                                               | -                  | true                         |
+| debug         | level                       | log-level       | No       | INFO          | Debug level                                                                 | log-level          | WARNING                      |
+| debug         | clear_log                   | bool            | No       | False         | Clear GUI logscreen before send a new message                               | -                  | true                         |
+| debug         | parse_subfields             | bool            | No       | False         | Show parsed complex fields data on GUI logscreen                            | -                  | true                         |
+| debug         | print_description           | bool            | No       | False         | Show fields descriptions on GUI logscreen                                   | -                  | true                         |
+| debug         | backup_storage_depth_exists | bool            | No       | False         | Store old logfiles 10MB each                                                | -                  | true                         |
+| debug         | backup_storage_depth        | int             | No       | 30            | Logfile backup storage dept. How many last files 10MB each will be stored   | Digits only        | 10                           |
+| debug         | reduce_keep_alive           | bool            | No       | True          | Hide auto-generated keep-alive messages in logfile and screen               | -                  | true                         |
+| validation    | validation_enabled          | bool            | No       | False         | Enable GUI fields validation                                                | -                  | true                         |
+| validation    | validate_window             | bool            | No       | False         | Validate MainWindow transaction data                                        | -                  | true                         |
+| validation    | validate_incoming           | bool            | No       | False         | Validate incoming transactions data                                         | -                  | true                         |
+| validation    | validate_outgoing           | bool            | No       | False         | Validate outgoing transactions data                                         | -                  | true                         |
+| validation    | validation_mode             | validation-mode | No       | WARNING       | Data validation violation processing mode. See [validaions]                 | validation-mode    | ERROR                        |
+| fields        | max_amount_limited          | bool            | No       | False         | Is maximum generated amount limited                                         | -                  | true                         |
+| fields        | max_amount                  | int             | No       | 100           | Maximum generated amount. Works when max_amount_limited is true             | Digits only        | 500                          |
+| fields        | send_internal_id            | bool            | No       | True          | Sent Signal's transactions ID to the remote host                            | -                  | true                         |
+| fields        | json_mode                   | bool            | No       | True          | GUI MainWindow JSON-like fields representation                              | -                  | true                         |
+| fields        | hide_secrets                | bool            | No       | True          | Hide secret fields on the GUI MainWindow                                    | -                  | true                         |
+| fields        | build_fld_90                | bool            | No       | True          | Send original data elements in DE90 for reversal transaction                | -                  | true                         |
+| specification | backup_on_startup           | bool            | No       | False         | Make Soecification backup on the Signal start                               | -                  | true                         |
+| specification | backup_on_shutdown          | bool            | No       | False         | Make Soecification backup on the Signal stop                                | -                  | true                         |
+| specification | backup_storage              | bool            | No       | True          | Store Soecification backup files                                            | -                  | true                         |
+| specification | backup_storage_depth        | int             | No       | 100           | Soecification backup storage dept. How many last spec files will be stored  | -                  | 5                            |
+| specification | load_remote_spec            | bool            | No       | False         | Load remote Specification on GUI startup                                    | -                  | false                        |
+| specification | remote_spec_url             | str             | No       | ""            | Remote Specification service URL                                            | Valid URL          | http://spec.iso8583.com/spec |
+| specification | rewrite_local_spec          | bool            | No       | False         | Rewrite locan Specification file by remote one when remote is loaded        | -                  | false                        |
+| api           | port                        | int             | No       | 7777          | API local port for incoming requests                                        | Digits only        | 5665                         |
+| api           | wait_remote_host_response   | bool            | No       | True          | Wait answer of remote host or timeout before answer to API                  | -                  | true                         |
+| api           | waiting_timeout_seconds     | int             | No       | 10            | Wait answer of remote host seconds before timeout setting                   | Digits only        | 8                            |
+| api           | hide_secrets                | bool            | No       | False         | Hide secret fields on the API response                                      | -                  | true                         |
+| api           | parse_subfields             | bool            | No       | False         | Parse complex fields in API response messages                               | -                  | true                         |
+
+## Config example
+
+??? example "Config data example"
+    ```json linenums="1"
+    --8<-- "files/data_examples/config.json"
+    ```

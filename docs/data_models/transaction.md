@@ -30,15 +30,15 @@ chapter
 
 JSON-like transaction data fields representation  
 
-| Field           | Type                   | Required | Default value | Contains                                         | Validation                                                        | Valid example                   | 
-|-----------------|------------------------|----------|---------------|--------------------------------------------------|-------------------------------------------------------------------|---------------------------------|
-| message_type    | str[int]               | Yes      | -             | Transaction Message Type Identifier              | Lenght is exact 4<br>Digits only<br>Field exists in Specification | 0200                            |
-| max_amount      | str[int]               | No       | 100           | Maximum generated transaction amoun              | Digits only                                                       | 100                             |
-| generate_fields | list[str[int]]         | No       | [ ]           | Field numbers to generate                        | Digits only                                                       | ["4", "11", "37"]               |
-| data_fields     | dict[str, str \| dict] | yes      | -             | JSON-like transaction data fields representation | According to the field specification                              | {"3": "000000", "11" :"145787"} |
+| Field           | Type                   | Required | Default value | Contains                                         | Validation                                                        | Valid example                                                                                       | 
+|-----------------|------------------------|----------|---------------|--------------------------------------------------|-------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| message_type    | str[int]               | Yes      | -             | Transaction Message Type Identifier              | Lenght is exact 4<br>Digits only<br>Field exists in Specification | `0200`                                                                                              |
+| max_amount      | str[int]               | No       | 100           | Maximum generated transaction amoun              | Digits only                                                       | `100`                                                                                               |
+| generate_fields | list[str[int]]         | No       | [ ]           | Field numbers to generate                        | Digits only                                                       | `["4", "11", "37"]`                                                                                 |
+| data_fields     | dict[str, str \| dict] | yes      | -             | JSON-like transaction data fields representation | According to the field specification                              | ```{"3": "000000", "11" :"145787", "47": {"227": {"01": "Limassol", "03": "CYP", "04": "3101"}}}``` |
 
 ??? example "JSON transaction example"  
-    ```json
+    ```json linenums="1"
     --8<-- "files/data_examples/transaction.json"
     ```
 
@@ -46,9 +46,9 @@ JSON-like transaction data fields representation
 
 INI transaction fields representation. See more about INI format [here](https://en.wikipedia.org/wiki/INI_file)
 
-INI format contains the following parts: sections, options, and option values. 
+INI format contains the following parts: sections, options, and options values
 
-```ini
+```ini linenums="1"
 [SECTION]
 OPTION = [VALUE]
 ANOTHER_OPTION = [ANOTHER_VALUE]
@@ -62,7 +62,7 @@ ANOTHER_OPTION = [ANOTHER_VALUE]
 
 All the options values should be put in square brackets like [this]
 
-```ini
+```ini linenums="1"
 [MESSAGE]
 F002 = [4000000000000000]  ; Correct
 F003 = 000000              ; Incorrect
@@ -70,41 +70,59 @@ F003 = 000000              ; Incorrect
 
 All the fields numbers in the section [MESSAGE] must start from F. E.g. F002
 
-```ini
+```ini linenums="1"
 [MESSAGE]
 F002 = [4000000000000000]  ; Correct
 3    = [000000]            ; Incorrect
 ```
 
+INI transaction data contains up to three sections
 
-| Section     | Option                         | Type      | Required   | Default value | Contains                            | Validation                                        | Valid example                                                     | 
-|-------------|--------------------------------|-----------|------------|---------------|-------------------------------------|---------------------------------------------------|-------------------------------------------------------------------|
-| [MTI]       | MTI                            | str[int]  | Yes        | -             | Transaction Message Type Identifier | lenght is 4, digits only, exists in Specification | [0200]                                                            |
-| [CONFIG]    | MAX_AMOUNT                     | str[int]  | No         | 100           | Maximum generated transaction amoun | Digits only                                       | 100                                                               |
-| [CONFIG]    | GENERATE_FIELDS                | list[int] | No         | [ ]           | Field numbers to generate           | Digits only                                       | [4, 11, 37]                                                       |
-| [MESSAGE]   | FNNN where NNN is field number | str       | yes        | -             | Transaction data fields             | According to the field specification              | F002 = [4000000000000000] <br> F003 = [000000] <br>;...<br>;...   |
+| Section    | Required | Contains                                                                 |
+|------------|----------|--------------------------------------------------------------------------|
+| [MTI]      | Yes      | Transaction Message Type Identifier                                      |
+| [CONFIG]   | No       | Transaction configuration params such as MAX_AMOUNT and GENERATE_FIELDS  |
+| [MESSAGE]  | Yes      | Message body, contains data fields values                                |
+
+
+The sections should be filled according to the data model 
+
+| Section     | Option                         | Type      | Required   | Default value | Contains                            | Validation                                        | Valid example                                                        | 
+|-------------|--------------------------------|-----------|------------|---------------|-------------------------------------|---------------------------------------------------|----------------------------------------------------------------------|
+| [MTI]       | MTI                            | str[int]  | Yes        | -             | Transaction Message Type Identifier | lenght is 4, digits only, exists in Specification | `[0200]`                                                             |
+| [CONFIG]    | MAX_AMOUNT                     | str[int]  | No         | 100           | Maximum generated transaction amoun | Digits only                                       | `[100]`                                                              |
+| [CONFIG]    | GENERATE_FIELDS                | list[int] | No         | [ ]           | Field numbers to generate           | Digits only                                       | `[4, 11, 37]`                                                        |
+| [MESSAGE]   | FNNN where NNN is field number | str       | yes        | -             | Transaction data fields             | According to the field specification              | `F002 = [4000000000000000]`<br>`F003 = [000000]`<br>`;...`<br>`;...` |
 
 
 !!! danger "% Substitution"
     Due to ConfigParser library restrictions the sign `%` in options values must be written as double percent, `%%` only
 
-    Refer to the [ConfigParser](https://docs.python.org/3/library/configparser.html) for details 
+    Refer to the [ConfigParser docs](https://docs.python.org/3/library/configparser.html) for details 
     
-    ```ini
+    ```ini linenums="1"
     [MESSSAGE]
-    VALUE = [100%% Complete]  ; Correct, will desplay "100% Complete"
-    VALUE = [100% Complete]   ; Incorrect, will lead to parsing error
+    F002 = [415481%%0001]  ; Correct, will desplay "415481%0001"
+    F002 = [415481%0001]   ; Incorrect, will lead to parsing error
     ```
 
 ??? example "INI transaction example"
-    ```ini
+    ```ini linenums="1"
     --8<-- "files/data_examples/transaction.ini"
     ```
 
 ### DUMP
 
+Dump is hex-encoded transaction message, ready to send to remote host by TCP/IP. It can be set as a single string or 
+multi string value. The right side in ascii representation is optional and the Signal never reads it 
+
+The transaction data in dump representation can be used in GUI or CLI mode. You can also generate the dump using GUI or 
+API tools
+
+The dump is raw transaction data, so, there is no any configuration or other additional field. MTI, Bitmap and all the 
+fields value should be pre-calculated
+
 ??? example "DUMP transaction example"
-    ```text
+    ```text linenums="1"
     --8<-- "files/data_examples/transaction.dump"
     ```
-
