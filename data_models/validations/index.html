@@ -1685,10 +1685,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#logical-validators" class="md-nav__link">
+  <a href="#validators" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Logical Validators
+        Validators
       
     </span>
   </a>
@@ -1696,10 +1696,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#validators" class="md-nav__link">
+  <a href="#logical-validators" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Validators
+        Logical Validators
       
     </span>
   </a>
@@ -1826,10 +1826,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#logical-validators" class="md-nav__link">
+  <a href="#validators" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Logical Validators
+        Validators
       
     </span>
   </a>
@@ -1837,10 +1837,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#validators" class="md-nav__link">
+  <a href="#logical-validators" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Validators
+        Logical Validators
       
     </span>
   </a>
@@ -1884,133 +1884,6 @@
 <h1 id="validations">Validations</h1>
 <h2 id="validation-data-models">Validation data models</h2>
 <p>This chapter contains validation data models</p>
-<h2 id="logical-validators">Logical Validators</h2>
-<p>This property refers that the field contents one of the dictionaries value</p>
-<table>
-<thead>
-<tr>
-<th>Validator</th>
-<th>Type</th>
-<th>Check</th>
-<th>Example</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>currency_a3</td>
-<td>bool</td>
-<td>Field contents <a href="/data_models/dictionaries/#currencies-list">Currency A3</a></td>
-<td>true</td>
-<td></td>
-</tr>
-<tr>
-<td>currency_n3</td>
-<td>bool</td>
-<td>Field contents <a href="/data_models/dictionaries/#currencies-list">Currency N3</a></td>
-<td>true</td>
-<td></td>
-</tr>
-<tr>
-<td>country_a3</td>
-<td>bool</td>
-<td>Field contents <a href="/data_models/dictionaries/#countries-list">Country A3</a></td>
-<td>true</td>
-<td></td>
-</tr>
-<tr>
-<td>country_a2</td>
-<td>bool</td>
-<td>Field contents <a href="/data_models/dictionaries/#countries-list">Country A2</a></td>
-<td>true</td>
-<td></td>
-</tr>
-<tr>
-<td>country_n3</td>
-<td>bool</td>
-<td>Field contents <a href="/data_models/dictionaries/#countries-list">Country N3</a></td>
-<td>true</td>
-<td></td>
-</tr>
-<tr>
-<td>mcc</td>
-<td>bool</td>
-<td>Field contents <a href="/data_models/dictionaries/#merchant-category-codes">Merchant Categoty Code</a></td>
-<td>true</td>
-<td></td>
-</tr>
-<tr>
-<td>date_format</td>
-<td>str</td>
-<td>Field date format for check time</td>
-<td>%Y%m</td>
-<td>Python datetime style</td>
-</tr>
-<tr>
-<td>past</td>
-<td>bool</td>
-<td>Field contents past time</td>
-<td>true</td>
-<td>Works only when date_format is specified</td>
-</tr>
-<tr>
-<td>present</td>
-<td>bool</td>
-<td>Field contents present time</td>
-<td>true</td>
-<td>Works only when date_format is specified</td>
-</tr>
-<tr>
-<td>future</td>
-<td>bool</td>
-<td>Field contents future time</td>
-<td>true</td>
-<td>Works only when date_format is specified</td>
-</tr>
-<tr>
-<td>check_luhn</td>
-<td>bool</td>
-<td>Field content should pass Luhn alghorithm check</td>
-<td>true</td>
-<td></td>
-</tr>
-<tr>
-<td>only_upper</td>
-<td>bool</td>
-<td>Field contents uppercase only</td>
-<td>true</td>
-<td></td>
-</tr>
-<tr>
-<td>only_lower</td>
-<td>bool</td>
-<td>Field contents lowercase only</td>
-<td>true</td>
-<td></td>
-</tr>
-<tr>
-<td>change_to_upper</td>
-<td>bool</td>
-<td>Modify field data set uppercase value</td>
-<td>true</td>
-<td></td>
-</tr>
-<tr>
-<td>change_to_lower</td>
-<td>bool</td>
-<td>Modify field data set lowercase value</td>
-<td>true</td>
-<td></td>
-</tr>
-<tr>
-<td>do_not_validate</td>
-<td>bool</td>
-<td>Skip all validations and modifications</td>
-<td>true</td>
-<td></td>
-</tr>
-</tbody>
-</table>
 <h2 id="validators">Validators</h2>
 <p>Field properties set, which shows validations, applicable to the field and those validations parameters</p>
 <table>
@@ -2155,6 +2028,133 @@
 <td><a href="/data_models/validations/#logical-validators">LogicalValidators</a></td>
 <td>Validate field on some dictionary includement</td>
 <td>["some", "values"]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="logical-validators">Logical Validators</h2>
+<p>This property refers that the field contents one of the dictionaries value</p>
+<table>
+<thead>
+<tr>
+<th>Validator</th>
+<th>Type</th>
+<th>Check</th>
+<th>Example</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>currency_a3</td>
+<td>bool</td>
+<td>Field contents <a href="/data_models/dictionaries/#currencies-list">Currency A3</a></td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>currency_n3</td>
+<td>bool</td>
+<td>Field contents <a href="/data_models/dictionaries/#currencies-list">Currency N3</a></td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>country_a3</td>
+<td>bool</td>
+<td>Field contents <a href="/data_models/dictionaries/#countries-list">Country A3</a></td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>country_a2</td>
+<td>bool</td>
+<td>Field contents <a href="/data_models/dictionaries/#countries-list">Country A2</a></td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>country_n3</td>
+<td>bool</td>
+<td>Field contents <a href="/data_models/dictionaries/#countries-list">Country N3</a></td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>mcc</td>
+<td>bool</td>
+<td>Field contents <a href="/data_models/dictionaries/#merchant-category-codes">Merchant Categoty Code</a></td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>date_format</td>
+<td>str</td>
+<td>Field date format for check time</td>
+<td>%Y%m</td>
+<td>Python datetime style</td>
+</tr>
+<tr>
+<td>past</td>
+<td>bool</td>
+<td>Field contents past time</td>
+<td>true</td>
+<td>Works only when date_format is specified</td>
+</tr>
+<tr>
+<td>present</td>
+<td>bool</td>
+<td>Field contents present time</td>
+<td>true</td>
+<td>Works only when date_format is specified</td>
+</tr>
+<tr>
+<td>future</td>
+<td>bool</td>
+<td>Field contents future time</td>
+<td>true</td>
+<td>Works only when date_format is specified</td>
+</tr>
+<tr>
+<td>check_luhn</td>
+<td>bool</td>
+<td>Field content should pass Luhn alghorithm check</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>only_upper</td>
+<td>bool</td>
+<td>Field contents uppercase only</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>only_lower</td>
+<td>bool</td>
+<td>Field contents lowercase only</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>change_to_upper</td>
+<td>bool</td>
+<td>Modify field data set uppercase value</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>change_to_lower</td>
+<td>bool</td>
+<td>Modify field data set lowercase value</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>do_not_validate</td>
+<td>bool</td>
+<td>Skip all validations and modifications</td>
+<td>true</td>
 <td></td>
 </tr>
 </tbody>
