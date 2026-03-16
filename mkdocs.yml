@@ -41,18 +41,15 @@ theme:
         name: Switch to light mode
   features:
     - navigation.footer
-    - navigation.instant
-    - navigation.instant.prefetch
+#    - navigation.instant
+#    - navigation.instant.prefetch
     - navigation.tabs
     - navigation.indexes
     - navigation.path
 
-
-
-
-
 plugins:
   - social
+  - swagger-ui-tag
 
 nav:
   - General:
@@ -91,8 +88,10 @@ nav:
       - Commands: cli/commands.md
       - Combinations: cli/combinations.md
       - Command line API: cli/cli_api.md
-  - HTTP API: todo.md
-  - Python library: todo2.md
+  - API:
+      - api/index.md
+      - API Spec: api/openapi.md
+  - Python: todo2.md
   - Data models:
       - data_models/index.md
       - Transaction: data_models/transaction.md
