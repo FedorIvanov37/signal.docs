@@ -17,6 +17,14 @@
          <lastmod>2026-03-16</lastmod>
     </url>
     <url>
+         <loc>https://signal.iso8583.tech/api/</loc>
+         <lastmod>2026-03-16</lastmod>
+    </url>
+    <url>
+         <loc>https://signal.iso8583.tech/api/openapi/</loc>
+         <lastmod>2026-03-16</lastmod>
+    </url>
+    <url>
          <loc>https://signal.iso8583.tech/cli/</loc>
          <lastmod>2026-03-16</lastmod>
     </url>

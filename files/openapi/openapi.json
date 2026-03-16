@@ -1,0 +1,2078 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Signal API Specification",
+    "description": "```text \n  ::::::::  :::::::::::  ::::::::   ::::    :::      :::      :::        \n :+:    :+:     :+:     :+:    :+:  :+:+:   :+:    :+: :+:    :+:        \n +:+            +:+     +:+         :+:+:+  +:+   +:+   +:+   +:+        \n +#++:++#++     +#+     :#:         +#+ +:+ +#+  +#++:++#++:  +#+        \n        +#+     +#+     +#+   +#+#  +#+  +#+#+#  +#+     +#+  +#+        \n #+#    #+#     #+#     #+#    #+#  #+#   #+#+#  #+#     #+#  #+#        \n  ########  ###########  ########   ###    ####  ###     ###  ########## \n\n  Simplified ISO generation algorithm v0.20\n```\n\n## Purpose\n\nThe Signal API simplifies the sending of banking card e-commerce transactions to banking card processing systems using a \nuseful program interface. It uses ISO-8583 E-pay protocol for transactions sending, instead of PSP \n\nThe Signal API can be used during the Payment Systems certification test, for checking and setting up the system on the \ntest environment, during the application development process, and so on\n\n## Quick start\n\nA minimal example of the API usage - send echo-test transaction request to the remote host \n\n```bash\n$ curl -X POST http://127.0.0.1:7777/api/transactions/predefined/echo-test\n```\n\nRun the example. In case of predefined transaction request Signal API returns the transaction response. We added jq \ncommand to get beautified JSON output\n\n```bash\n$ curl -X POST http://127.0.0.1:7777/api/transactions/predefined/echo-test | jq  # We added jq command to get beautified JSON output\n\n{\n  \"trans_id\": \"20260308_075419_9487802073\",\n  \"message_type\": \"0810\",\n  \"data_fields\": {\n    \"7\": \"0308075419\",\n    \"11\": \"414743\",\n    \"39\": \"00\",\n    \"70\": \"301\"\n  },\n  \"match_id\": \"20260308_075419_6998706576\",\n  \"utrnno\": null,\n  \"resp_time_seconds\": 0.719\n}\n```\n\n## Resources \n\n| Resource                         | Link             |\n|----------------------------------|------------------|\n| General User Reference Guide     | [Open page](/documentation)  |\n| The Latest Postman Collection    | [Download](/postman_collection)   |\n| Signal API Live Log Tool         | [Open page](/api/log/live)  | \n",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/openapi": {
+      "get": {
+        "tags": [
+          "Documentation"
+        ],
+        "summary": "Get Openapi Documentation",
+        "operationId": "get_openapi_documentation_openapi_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/documentation": {
+      "get": {
+        "tags": [
+          "Documentation"
+        ],
+        "summary": "Get User Guide",
+        "operationId": "get_user_guide_documentation_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        }
+      }
+    },
+    "/api/log/raw": {
+      "get": {
+        "tags": [
+          "Tools"
+        ],
+        "summary": "Get Raw Log",
+        "operationId": "get_raw_log_api_log_raw_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/connection": {
+      "get": {
+        "tags": [
+          "Connection"
+        ],
+        "summary": "Get Connection",
+        "operationId": "get_connection_api_connection_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Connection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/log/live": {
+      "get": {
+        "tags": [
+          "Tools"
+        ],
+        "summary": "Get Live Log",
+        "operationId": "get_live_log_api_log_live_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/specification": {
+      "get": {
+        "tags": [
+          "Config"
+        ],
+        "summary": "Get Specification",
+        "operationId": "get_specification_api_specification_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EpaySpecModel-Output"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Config"
+        ],
+        "summary": "Update Spec",
+        "operationId": "update_spec_api_specification_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EpaySpecModel-Input"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EpaySpecModel-Output"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/transactions": {
+      "get": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "Get Transactions",
+        "operationId": "get_transactions_api_transactions_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/Transaction"
+                  },
+                  "type": "object",
+                  "title": "Response Get Transactions Api Transactions Get"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "Create Transaction",
+        "operationId": "create_transaction_api_transactions_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Transaction"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/Transaction"
+                    },
+                    {
+                      "$ref": "#/components/schemas/TransactionResp"
+                    }
+                  ],
+                  "title": "Response Create Transaction Api Transactions Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/transactions/{trans_id}": {
+      "get": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "Get Transaction",
+        "operationId": "get_transaction_api_transactions__trans_id__get",
+        "parameters": [
+          {
+            "name": "trans_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Trans Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Transaction"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/config": {
+      "get": {
+        "tags": [
+          "Config"
+        ],
+        "summary": "Get Config",
+        "operationId": "get_config_api_config_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Config-Output"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Config"
+        ],
+        "summary": "Update Config",
+        "operationId": "update_config_api_config_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Config-Input"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Config-Output"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/transactions/predefined/{trans_type}": {
+      "post": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "Create Predefined Transaction",
+        "operationId": "create_predefined_transaction_api_transactions_predefined__trans_type__post",
+        "parameters": [
+          {
+            "name": "trans_type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/TransTypes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Transaction"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/transactions/{trans_id}/reversals": {
+      "post": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "Reverse Transaction",
+        "operationId": "reverse_transaction_api_transactions__trans_id__reversals_post",
+        "parameters": [
+          {
+            "name": "trans_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Trans Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Transaction"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/connection/restart": {
+      "post": {
+        "tags": [
+          "Connection"
+        ],
+        "summary": "Reconnect",
+        "operationId": "reconnect_api_connection_restart_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Connection"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Connection"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Connection"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/connection/close": {
+      "post": {
+        "tags": [
+          "Connection"
+        ],
+        "summary": "Disconnect",
+        "operationId": "disconnect_api_connection_close_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Connection"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/connection/open": {
+      "post": {
+        "tags": [
+          "Connection"
+        ],
+        "summary": "Connect",
+        "operationId": "connect_api_connection_open_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Connection"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Connection"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Connection"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/transactions/convert": {
+      "post": {
+        "tags": [
+          "Tools"
+        ],
+        "summary": "Convert Transaction",
+        "operationId": "convert_transaction_api_transactions_convert_post",
+        "parameters": [
+          {
+            "name": "to_format",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/DataConversionFormats"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Transaction"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Transaction"
+                }
+              },
+              "text/plain": {}
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/transactions/validate": {
+      "post": {
+        "tags": [
+          "Tools"
+        ],
+        "summary": "Validate Transaction",
+        "operationId": "validate_transaction_api_transactions_validate_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Transaction"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransValidationErrors"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ApiModel": {
+        "properties": {
+          "address": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Address",
+            "default": "0.0.0.0"
+          },
+          "port": {
+            "type": "integer",
+            "title": "Port",
+            "default": 7777
+          },
+          "wait_remote_host_response": {
+            "type": "boolean",
+            "title": "Wait Remote Host Response",
+            "default": true
+          },
+          "waiting_timeout_seconds": {
+            "type": "integer",
+            "title": "Waiting Timeout Seconds",
+            "default": 10
+          },
+          "hide_secrets": {
+            "type": "boolean",
+            "title": "Hide Secrets",
+            "default": false
+          },
+          "parse_subfields": {
+            "type": "boolean",
+            "title": "Parse Subfields",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "ApiModel"
+      },
+      "Config-Input": {
+        "properties": {
+          "host": {
+            "$ref": "#/components/schemas/Host"
+          },
+          "terminal": {
+            "$ref": "#/components/schemas/Terminal"
+          },
+          "debug": {
+            "$ref": "#/components/schemas/Debug"
+          },
+          "validation": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Validation"
+              }
+            ]
+          },
+          "fields": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Fields"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "specification": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Specification"
+              }
+            ],
+            "default": {
+              "rewrite_local_spec": false,
+              "remote_spec_url": "",
+              "backup_storage_depth": 100,
+              "backup_storage": true,
+              "manual_input_mode": false,
+              "backup_on_startup": false,
+              "backup_on_shutdown": false
+            }
+          },
+          "api": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ApiModel"
+              }
+            ],
+            "default": {
+              "address": "0.0.0.0",
+              "port": 7777,
+              "wait_remote_host_response": true,
+              "waiting_timeout_seconds": 10,
+              "hide_secrets": false,
+              "parse_subfields": false
+            }
+          }
+        },
+        "type": "object",
+        "required": [
+          "host",
+          "terminal",
+          "debug"
+        ],
+        "title": "Config"
+      },
+      "Config-Output": {
+        "properties": {
+          "host": {
+            "$ref": "#/components/schemas/Host"
+          },
+          "terminal": {
+            "$ref": "#/components/schemas/Terminal"
+          },
+          "debug": {
+            "$ref": "#/components/schemas/Debug"
+          },
+          "validation": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Validation"
+              }
+            ]
+          },
+          "fields": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Fields"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "specification": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Specification"
+              }
+            ],
+            "default": {
+              "rewrite_local_spec": false,
+              "remote_spec_url": "",
+              "backup_storage_depth": 100,
+              "backup_storage": true,
+              "manual_input_mode": false,
+              "backup_on_startup": false,
+              "backup_on_shutdown": false
+            }
+          },
+          "api": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ApiModel"
+              }
+            ],
+            "default": {
+              "address": "0.0.0.0",
+              "port": 7777,
+              "wait_remote_host_response": true,
+              "waiting_timeout_seconds": 10,
+              "hide_secrets": false,
+              "parse_subfields": false
+            }
+          }
+        },
+        "type": "object",
+        "required": [
+          "host",
+          "terminal",
+          "debug"
+        ],
+        "title": "Config"
+      },
+      "Connection": {
+        "properties": {
+          "host": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Host"
+          },
+          "port": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Port"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConnectionStatus"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": "Disconnected"
+          }
+        },
+        "type": "object",
+        "title": "Connection"
+      },
+      "ConnectionStatus": {
+        "type": "string",
+        "enum": [
+          "Connected",
+          "Disconnected",
+          "Connection In Progress",
+          "Connection In Progress",
+          "Connection In Progress",
+          "Connection In Progress",
+          "Unknown"
+        ],
+        "title": "ConnectionStatus"
+      },
+      "DataConversionFormats": {
+        "type": "string",
+        "enum": [
+          "JSON",
+          "INI",
+          "DUMP"
+        ],
+        "title": "DataConversionFormats"
+      },
+      "Debug": {
+        "properties": {
+          "level": {
+            "type": "string",
+            "title": "Level",
+            "default": "INFO"
+          },
+          "clear_log": {
+            "type": "boolean",
+            "title": "Clear Log",
+            "default": true
+          },
+          "parse_subfields": {
+            "type": "boolean",
+            "title": "Parse Subfields",
+            "default": false
+          },
+          "backup_storage_depth_exists": {
+            "type": "boolean",
+            "title": "Backup Storage Depth Exists",
+            "default": true
+          },
+          "backup_storage_depth": {
+            "type": "integer",
+            "title": "Backup Storage Depth",
+            "default": 30
+          },
+          "reduce_keep_alive": {
+            "type": "boolean",
+            "title": "Reduce Keep Alive",
+            "default": true
+          },
+          "print_description": {
+            "type": "boolean",
+            "title": "Print Description",
+            "default": false
+          },
+          "logfire_integration": {
+            "type": "boolean",
+            "title": "Logfire Integration",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "Debug"
+      },
+      "EpaySpecModel-Input": {
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name",
+            "default": "ISO-8583 E-pay Specification"
+          },
+          "mti": {
+            "items": {
+              "$ref": "#/components/schemas/Mti"
+            },
+            "type": "array",
+            "title": "Mti",
+            "default": []
+          },
+          "fields": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/IsoField-Input"
+            },
+            "type": "object",
+            "title": "Fields",
+            "default": {}
+          },
+          "utrnno_path": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Utrnno Path",
+            "default": [
+              "47",
+              "064"
+            ]
+          }
+        },
+        "type": "object",
+        "title": "EpaySpecModel"
+      },
+      "EpaySpecModel-Output": {
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name",
+            "default": "ISO-8583 E-pay Specification"
+          },
+          "mti": {
+            "items": {
+              "$ref": "#/components/schemas/Mti"
+            },
+            "type": "array",
+            "title": "Mti",
+            "default": []
+          },
+          "fields": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/IsoField-Output"
+            },
+            "type": "object",
+            "title": "Fields",
+            "default": {}
+          },
+          "utrnno_path": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Utrnno Path",
+            "default": [
+              "47",
+              "064"
+            ]
+          }
+        },
+        "type": "object",
+        "title": "EpaySpecModel"
+      },
+      "FieldTypes": {
+        "type": "string",
+        "enum": [
+          "COUNTRY CODE",
+          "CURRENCY CODE",
+          "MERCHANT CATEGORY CODE",
+          "DATE",
+          "OTHER"
+        ],
+        "title": "FieldTypes"
+      },
+      "Fields": {
+        "properties": {
+          "max_amount": {
+            "type": "integer",
+            "title": "Max Amount"
+          },
+          "max_amount_limited": {
+            "type": "boolean",
+            "title": "Max Amount Limited"
+          },
+          "build_fld_90": {
+            "type": "boolean",
+            "title": "Build Fld 90",
+            "default": true
+          },
+          "send_internal_id": {
+            "type": "boolean",
+            "title": "Send Internal Id",
+            "default": true
+          },
+          "json_mode": {
+            "type": "boolean",
+            "title": "Json Mode",
+            "default": true
+          },
+          "hide_secrets": {
+            "type": "boolean",
+            "title": "Hide Secrets",
+            "default": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "max_amount",
+          "max_amount_limited"
+        ],
+        "title": "Fields"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "Host": {
+        "properties": {
+          "host": {
+            "type": "string",
+            "title": "Host",
+            "default": ""
+          },
+          "port": {
+            "type": "integer",
+            "title": "Port",
+            "default": 0
+          },
+          "keep_alive_mode": {
+            "type": "boolean",
+            "title": "Keep Alive Mode",
+            "default": false
+          },
+          "keep_alive_interval": {
+            "type": "integer",
+            "title": "Keep Alive Interval",
+            "default": 300
+          },
+          "header_length": {
+            "type": "integer",
+            "title": "Header Length",
+            "default": 0
+          },
+          "header_length_exists": {
+            "type": "boolean",
+            "title": "Header Length Exists",
+            "default": true
+          }
+        },
+        "type": "object",
+        "title": "Host"
+      },
+      "IsoField-Input": {
+        "properties": {
+          "validators": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Validators"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": {
+              "min_value": 0,
+              "max_value": 0,
+              "must_not_contain": [],
+              "possible_values": [],
+              "must_start_with": [],
+              "must_end_with": [],
+              "must_contain": [],
+              "valid_values": [],
+              "invalid_values": [],
+              "must_contain_only": [],
+              "must_not_end_with": [],
+              "must_not_start_with": [],
+              "must_not_contain_only": [],
+              "justification_length": 0,
+              "field_type_validators": {
+                "change_to_lower": false,
+                "change_to_upper": false,
+                "check_luhn": false,
+                "country_a2": false,
+                "country_a3": false,
+                "country_n3": false,
+                "currency_a3": false,
+                "currency_n3": false,
+                "date_format": "",
+                "do_not_validate": false,
+                "future": false,
+                "mcc": false,
+                "only_lower": false,
+                "only_upper": false,
+                "past": false,
+                "present": false
+              }
+            }
+          },
+          "field_number": {
+            "type": "string",
+            "title": "Field Number",
+            "default": ""
+          },
+          "field_path": {
+            "items": {},
+            "type": "array",
+            "title": "Field Path",
+            "default": []
+          },
+          "min_length": {
+            "type": "integer",
+            "title": "Min Length"
+          },
+          "max_length": {
+            "type": "integer",
+            "title": "Max Length"
+          },
+          "var_length": {
+            "type": "integer",
+            "title": "Var Length"
+          },
+          "tag_length": {
+            "type": "integer",
+            "title": "Tag Length"
+          },
+          "generate": {
+            "type": "boolean",
+            "title": "Generate"
+          },
+          "reversal": {
+            "type": "boolean",
+            "title": "Reversal"
+          },
+          "matching": {
+            "type": "boolean",
+            "title": "Matching"
+          },
+          "alpha": {
+            "type": "boolean",
+            "title": "Alpha"
+          },
+          "numeric": {
+            "type": "boolean",
+            "title": "Numeric"
+          },
+          "special": {
+            "type": "boolean",
+            "title": "Special"
+          },
+          "reserved_for_future": {
+            "type": "boolean",
+            "title": "Reserved For Future"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "default": ""
+          },
+          "is_secret": {
+            "type": "boolean",
+            "title": "Is Secret",
+            "default": false
+          },
+          "is_utrnno": {
+            "type": "boolean",
+            "title": "Is Utrnno",
+            "default": false
+          },
+          "fields": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/IsoField-Input"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fields"
+          }
+        },
+        "type": "object",
+        "required": [
+          "min_length",
+          "max_length",
+          "var_length",
+          "tag_length",
+          "generate",
+          "reversal",
+          "matching",
+          "alpha",
+          "numeric",
+          "special",
+          "reserved_for_future"
+        ],
+        "title": "IsoField"
+      },
+      "IsoField-Output": {
+        "properties": {
+          "validators": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Validators"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": {
+              "min_value": 0,
+              "max_value": 0,
+              "must_not_contain": [],
+              "possible_values": [],
+              "must_start_with": [],
+              "must_end_with": [],
+              "must_contain": [],
+              "valid_values": [],
+              "invalid_values": [],
+              "must_contain_only": [],
+              "must_not_end_with": [],
+              "must_not_start_with": [],
+              "must_not_contain_only": [],
+              "justification_length": 0,
+              "field_type_validators": {
+                "change_to_lower": false,
+                "change_to_upper": false,
+                "check_luhn": false,
+                "country_a2": false,
+                "country_a3": false,
+                "country_n3": false,
+                "currency_a3": false,
+                "currency_n3": false,
+                "date_format": "",
+                "do_not_validate": false,
+                "future": false,
+                "mcc": false,
+                "only_lower": false,
+                "only_upper": false,
+                "past": false,
+                "present": false
+              }
+            }
+          },
+          "field_number": {
+            "type": "string",
+            "title": "Field Number",
+            "default": ""
+          },
+          "field_path": {
+            "items": {},
+            "type": "array",
+            "title": "Field Path",
+            "default": []
+          },
+          "min_length": {
+            "type": "integer",
+            "title": "Min Length"
+          },
+          "max_length": {
+            "type": "integer",
+            "title": "Max Length"
+          },
+          "var_length": {
+            "type": "integer",
+            "title": "Var Length"
+          },
+          "tag_length": {
+            "type": "integer",
+            "title": "Tag Length"
+          },
+          "generate": {
+            "type": "boolean",
+            "title": "Generate"
+          },
+          "reversal": {
+            "type": "boolean",
+            "title": "Reversal"
+          },
+          "matching": {
+            "type": "boolean",
+            "title": "Matching"
+          },
+          "alpha": {
+            "type": "boolean",
+            "title": "Alpha"
+          },
+          "numeric": {
+            "type": "boolean",
+            "title": "Numeric"
+          },
+          "special": {
+            "type": "boolean",
+            "title": "Special"
+          },
+          "reserved_for_future": {
+            "type": "boolean",
+            "title": "Reserved For Future"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "default": ""
+          },
+          "is_secret": {
+            "type": "boolean",
+            "title": "Is Secret",
+            "default": false
+          },
+          "is_utrnno": {
+            "type": "boolean",
+            "title": "Is Utrnno",
+            "default": false
+          },
+          "fields": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/IsoField-Output"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fields"
+          }
+        },
+        "type": "object",
+        "required": [
+          "min_length",
+          "max_length",
+          "var_length",
+          "tag_length",
+          "generate",
+          "reversal",
+          "matching",
+          "alpha",
+          "numeric",
+          "special",
+          "reserved_for_future"
+        ],
+        "title": "IsoField"
+      },
+      "Justification": {
+        "type": "string",
+        "enum": [
+          "LEFT",
+          "RIGHT",
+          "CUSTOM"
+        ],
+        "title": "Justification"
+      },
+      "LogicalValidators": {
+        "properties": {
+          "currency_a3": {
+            "type": "boolean",
+            "title": "Currency A3",
+            "default": false
+          },
+          "currency_n3": {
+            "type": "boolean",
+            "title": "Currency N3",
+            "default": false
+          },
+          "country_a3": {
+            "type": "boolean",
+            "title": "Country A3",
+            "default": false
+          },
+          "country_a2": {
+            "type": "boolean",
+            "title": "Country A2",
+            "default": false
+          },
+          "country_n3": {
+            "type": "boolean",
+            "title": "Country N3",
+            "default": false
+          },
+          "mcc": {
+            "type": "boolean",
+            "title": "Mcc",
+            "default": false
+          },
+          "date_format": {
+            "type": "string",
+            "title": "Date Format",
+            "default": ""
+          },
+          "past": {
+            "type": "boolean",
+            "title": "Past",
+            "default": false
+          },
+          "present": {
+            "type": "boolean",
+            "title": "Present",
+            "default": false
+          },
+          "future": {
+            "type": "boolean",
+            "title": "Future",
+            "default": false
+          },
+          "check_luhn": {
+            "type": "boolean",
+            "title": "Check Luhn",
+            "default": false
+          },
+          "only_upper": {
+            "type": "boolean",
+            "title": "Only Upper",
+            "default": false
+          },
+          "only_lower": {
+            "type": "boolean",
+            "title": "Only Lower",
+            "default": false
+          },
+          "change_to_upper": {
+            "type": "boolean",
+            "title": "Change To Upper",
+            "default": false
+          },
+          "change_to_lower": {
+            "type": "boolean",
+            "title": "Change To Lower",
+            "default": false
+          },
+          "do_not_validate": {
+            "type": "boolean",
+            "title": "Do Not Validate",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "LogicalValidators"
+      },
+      "Mti": {
+        "properties": {
+          "request": {
+            "type": "string",
+            "maxLength": 4,
+            "pattern": "^\\d{4}|$",
+            "title": "Request",
+            "default": ""
+          },
+          "response": {
+            "type": "string",
+            "maxLength": 4,
+            "pattern": "^\\d{4}|$",
+            "title": "Response",
+            "default": ""
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "default": ""
+          },
+          "is_reversible": {
+            "type": "boolean",
+            "title": "Is Reversible",
+            "default": false
+          },
+          "reversal_mti": {
+            "type": "string",
+            "maxLength": 4,
+            "pattern": "^\\d{4}|$",
+            "title": "Reversal Mti",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "title": "Mti"
+      },
+      "Specification": {
+        "properties": {
+          "rewrite_local_spec": {
+            "type": "boolean",
+            "title": "Rewrite Local Spec",
+            "default": false
+          },
+          "remote_spec_url": {
+            "type": "string",
+            "title": "Remote Spec Url",
+            "default": ""
+          },
+          "backup_storage_depth": {
+            "type": "integer",
+            "title": "Backup Storage Depth",
+            "default": 100
+          },
+          "backup_storage": {
+            "type": "boolean",
+            "title": "Backup Storage",
+            "default": true
+          },
+          "manual_input_mode": {
+            "type": "boolean",
+            "title": "Manual Input Mode",
+            "default": false
+          },
+          "backup_on_startup": {
+            "type": "boolean",
+            "title": "Backup On Startup",
+            "default": false
+          },
+          "backup_on_shutdown": {
+            "type": "boolean",
+            "title": "Backup On Shutdown",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "Specification"
+      },
+      "Terminal": {
+        "properties": {
+          "process_default_dump": {
+            "type": "boolean",
+            "title": "Process Default Dump",
+            "default": true
+          },
+          "connect_on_startup": {
+            "type": "boolean",
+            "title": "Connect On Startup",
+            "default": true
+          },
+          "load_remote_spec": {
+            "type": "boolean",
+            "title": "Load Remote Spec",
+            "default": false
+          },
+          "show_license_dialog": {
+            "type": "boolean",
+            "title": "Show License Dialog",
+            "default": true
+          },
+          "run_api": {
+            "type": "boolean",
+            "title": "Run Api",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "Terminal"
+      },
+      "TransTypes": {
+        "type": "string",
+        "enum": [
+          "echo-test",
+          "keep-alive",
+          "purchase",
+          "payout"
+        ],
+        "title": "TransTypes"
+      },
+      "TransValidationErrors": {
+        "properties": {
+          "validation_errors": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Validation Errors",
+            "default": []
+          }
+        },
+        "type": "object",
+        "title": "TransValidationErrors"
+      },
+      "Transaction": {
+        "properties": {
+          "trans_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Trans Id"
+          },
+          "message_type": {
+            "type": "string",
+            "title": "Message Type"
+          },
+          "data_fields": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object"
+                }
+              ]
+            },
+            "type": "object",
+            "title": "Data Fields"
+          },
+          "max_amount": {
+            "type": "integer",
+            "title": "Max Amount",
+            "default": 100
+          },
+          "generate_fields": {
+            "items": {
+              "$ref": "#/components/schemas/generated_field"
+            },
+            "type": "array",
+            "title": "Generate Fields",
+            "default": []
+          },
+          "json_fields": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Json Fields",
+            "default": []
+          },
+          "match_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Match Id"
+          },
+          "utrnno": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Utrnno"
+          },
+          "matched": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Matched"
+          },
+          "success": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Success"
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error"
+          },
+          "resp_time_seconds": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Resp Time Seconds"
+          },
+          "sending_time": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sending Time"
+          },
+          "is_request": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Is Request"
+          },
+          "is_reversal": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Is Reversal"
+          },
+          "is_keep_alive": {
+            "type": "boolean",
+            "title": "Is Keep Alive",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "message_type",
+          "data_fields"
+        ],
+        "title": "Transaction"
+      },
+      "TransactionResp": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "default": "Transaction request successfully accepted. Request ID: %s"
+          }
+        },
+        "type": "object",
+        "title": "TransactionResp"
+      },
+      "Validation": {
+        "properties": {
+          "validation_enabled": {
+            "type": "boolean",
+            "title": "Validation Enabled",
+            "default": true
+          },
+          "validate_window": {
+            "type": "boolean",
+            "title": "Validate Window",
+            "default": true
+          },
+          "validate_incoming": {
+            "type": "boolean",
+            "title": "Validate Incoming",
+            "default": false
+          },
+          "validate_outgoing": {
+            "type": "boolean",
+            "title": "Validate Outgoing",
+            "default": true
+          },
+          "validation_mode": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ValidationMode"
+              }
+            ],
+            "default": "WARNING"
+          }
+        },
+        "type": "object",
+        "title": "Validation"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "ValidationMode": {
+        "type": "string",
+        "enum": [
+          "ERROR",
+          "WARNING",
+          "FLEXIBLE"
+        ],
+        "title": "ValidationMode"
+      },
+      "Validators": {
+        "properties": {
+          "field_type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/FieldTypes"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "date_format": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Date Format"
+          },
+          "min_value": {
+            "type": "integer",
+            "title": "Min Value",
+            "default": 0
+          },
+          "max_value": {
+            "type": "integer",
+            "title": "Max Value",
+            "default": 0
+          },
+          "must_not_contain": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Must Not Contain",
+            "default": []
+          },
+          "possible_values": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Possible Values",
+            "default": []
+          },
+          "must_start_with": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Must Start With",
+            "default": []
+          },
+          "must_end_with": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Must End With",
+            "default": []
+          },
+          "must_contain": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Must Contain",
+            "default": []
+          },
+          "valid_values": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Valid Values",
+            "default": []
+          },
+          "invalid_values": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Invalid Values",
+            "default": []
+          },
+          "must_contain_only": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Must Contain Only",
+            "default": []
+          },
+          "must_not_end_with": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Must Not End With",
+            "default": []
+          },
+          "must_not_start_with": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Must Not Start With",
+            "default": []
+          },
+          "must_not_contain_only": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Must Not Contain Only",
+            "default": []
+          },
+          "justification": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Justification"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "justification_element": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Justification Element"
+          },
+          "justification_length": {
+            "type": "integer",
+            "title": "Justification Length",
+            "default": 0
+          },
+          "field_type_validators": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LogicalValidators"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": {
+              "currency_a3": false,
+              "currency_n3": false,
+              "country_a3": false,
+              "country_a2": false,
+              "country_n3": false,
+              "mcc": false,
+              "date_format": "",
+              "past": false,
+              "present": false,
+              "future": false,
+              "check_luhn": false,
+              "only_upper": false,
+              "only_lower": false,
+              "change_to_upper": false,
+              "change_to_lower": false,
+              "do_not_validate": false
+            }
+          }
+        },
+        "type": "object",
+        "title": "Validators"
+      },
+      "generated_field": {
+        "type": "string",
+        "enum": [
+          "4",
+          "7",
+          "11",
+          "12",
+          "37",
+          "128"
+        ],
+        "title": "generated_field"
+      }
+    }
+  }
+}
