@@ -1,4 +1,4 @@
-# Command line API
+# Command line API 
 
 ## How to run API in CLI mode 
 

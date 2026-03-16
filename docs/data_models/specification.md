@@ -5,7 +5,7 @@
 Signal has an internal set of constants, also known as a Specification. The Specification is a set of every field's 
 properties, such as field data type, field length, fields validators
 
-The Transaction data fields representation
+The Specification data fields representation
 
 | Part   | Type                                                                                 | Required | Default value                | Description                           |
 |--------|--------------------------------------------------------------------------------------|----------|------------------------------|---------------------------------------|

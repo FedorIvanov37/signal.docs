@@ -2,8 +2,6 @@
   max-width: 1500px;
 }
 
-/* ---------- Signal CLI block ---------- */
-
 .signal-console {
     background: #012E4F !important;
     color: #E6F3FF !important;
@@ -38,8 +36,6 @@ pre.signal-console {
     background: #012E4F !important;
     color: #E6F3FF !important;
 }
-
-/* ---------- line numbers ---------- */
 
 .signal-console .linenos,
 .signal-console .linenodiv,
