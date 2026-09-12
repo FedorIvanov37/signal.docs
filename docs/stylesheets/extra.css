@@ -1,3 +1,15 @@
+.signal-main-logo-dark {
+    display: none;
+}
+
+[data-md-color-scheme="slate"] .signal-main-logo-light {
+    display: none;
+}
+
+[data-md-color-scheme="slate"] .signal-main-logo-dark {
+    display: inline;
+}
+
 .md-grid {
   max-width: 1500px;
 }

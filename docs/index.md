@@ -1,5 +1,18 @@
 # Signal
-<p align="center"><img src="images/triforce_signed.png" alt="Signal" width="500" height="500"></p>
+
+<p align="center">
+  <img class="signal-main-logo signal-main-logo-light"
+       src="images/triforce_signed.png"
+       alt="Signal"
+       width="500"
+       height="500">
+  <img class="signal-main-logo signal-main-logo-dark"
+       src="images/triforce_signed_white.png"
+       alt="Signal"
+       width="500"
+       height="500">
+</p>
+
 <p align="center">
 Signal is a multi-interface desktop application for testing ISO8583-based payment systems<br>Built for the everyday 
 workflows of fintech and banking engineers<br><br>See the system <a href="/general/overview">overview</a><br><br>
