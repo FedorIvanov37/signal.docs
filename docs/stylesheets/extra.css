@@ -1,3 +1,15 @@
+.signal-screenshot-dark {
+    display: none;
+}
+
+[data-md-color-scheme="slate"] .signal-screenshot-light {
+    display: none;
+}
+
+[data-md-color-scheme="slate"] .signal-screenshot-dark {
+    display: block;
+}
+
 .signal-main-logo-dark {
     display: none;
 }

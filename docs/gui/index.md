@@ -2,7 +2,14 @@
 
 ## Graphic User Interface
 
-![image](/images/main_window.png)
+<p>
+<img class="signal-screenshot signal-screenshot-light"
+     src="../images/main_window_light.png"
+     alt="Signal main window">
+<img class="signal-screenshot signal-screenshot-dark"
+     src="../images/main_window_dark.png"
+     alt="Signal main window">
+</p>
 
 The Signal GUI provides a user-friendly interface to the Signal library. Since v0.15, it has been available as an .exe 
 file, ready to run without installing dependencies. No installation or configuration is required to start the GUI 
