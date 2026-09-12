@@ -23,10 +23,10 @@ C:\signal>signal.exe --console --version
 15.03.2026 12:10:01 [INFO] ## Finish command line job ID 99437e75-25e4-4e7f-86f5-61278a56fe18 ##
 ```
 
-The Signal can be run in Command Line Interface (CLI) mode. This chapter describes CLI run commands syntax and working
-scenarios 
+Signal can run in command-line interface (CLI) mode. This chapter describes the command syntax and common usage
+scenarios.
 
-To start the Signal in CLI mode use command `signal.exe --console [other_commands]`
+To start Signal in CLI mode, use `signal.exe --console [other_commands]`.
 
-Key `--console` or `-c` is required to start CLI
+The `--console` or `-c` option is required to start CLI mode.
 

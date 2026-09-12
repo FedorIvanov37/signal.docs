@@ -1,36 +1,36 @@
 ## Author
 
-Designed and developed by **Fedor Ivanov**, fintech engineer   
+Designed and developed by **Fedor Ivanov**, a fintech engineer.
 
-In case of any question feel free to [contract author](/general/author/#contacts) directly
+If you have any questions, feel free to [contact the author](/general/author/#contacts) directly.
 
 ## Contacts
 
 | Channel  | Link                                                                |
 |----------|---------------------------------------------------------------------|
 | LinkedIn | [Fedor Ivanov](https://www.linkedin.com/in/fedor-ivanov-4529b738b/) |
-| Mail     | [fedornivanov@gmail.com](mailto:fedornivanov@gmail.com)             |
-| Github   | [FedorIvanov37](https://github.com/FedorIvanov37)                   |  
+| Email     | [fedornivanov@gmail.com](mailto:fedornivanov@gmail.com)             |
+| GitHub   | [FedorIvanov37](https://github.com/FedorIvanov37)                   |  
 
 ## Support
 
-The project was designed and developed concerning the everyday needs of banking systems support engineers. 
-It helped to save thousands of working hours and meet hundreds of deadlines. The basic monetization concept is that 
-Signal is free, always, and for everyone, not depending on usage. All the licensing and copyright targeting firstly 
-to protect usage for free 
+The project was designed around the everyday needs of banking systems support engineers. 
+It has helped save thousands of working hours and meet hundreds of deadlines. The guiding principle is that 
+Signal is always free for everyone, regardless of how it is used. Its licensing and copyright provisions are 
+primarily intended to protect that freedom.
 
-However, the project needs your support. If you want to support the project you can spend your time, working on it or 
-make a voluntary donation directly to the author
+The project also needs your support. You can contribute your time and expertise or make a voluntary donation 
+directly to the author.
 
-⚠️ **Any donation can be voluntary only**
+⚠️ **All donations are strictly voluntary**
 
-The project needs help
+You can help with:
 
-* Code review, architecture development, advice
-* Documentation development and translate
-* Feedback, ideas
-* Testing, especially auto-tests, unit-tests
-* Financial support to BTC wallet
+* Code reviews, architecture, and technical advice
+* Writing and translating documentation
+* Feedback and ideas
+* Testing, especially automated tests and unit tests
+* Financial support through the BTC wallet below
 
 ??? "❤️Support the project"
     ![image](/images/support_qr_code.png){width="200"}

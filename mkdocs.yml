@@ -29,16 +29,16 @@ theme:
   logo: images/logo_triangle.ico
   favicon: images/logo_triangle.ico
   palette:
-    - scheme: slate
-      primary: blue grey
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
     - scheme: default
       primary: blue grey
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+    - scheme: slate
+      primary: blue grey
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
   features:
     - navigation.footer
 #    - navigation.instant
@@ -91,7 +91,24 @@ nav:
   - API:
       - api/index.md
       - API Spec: api/openapi.md
-  - Python: todo2.md
+  - Python Library:
+      - lib/index.md
+      - Installation: lib/installation.md
+      - Concept: lib/concept.md
+      - Usage Examples:
+          - lib/examples/index.md
+          - Create Transaction: lib/examples/create_transaction.md
+          - Send Transaction: lib/examples/send_transaction.md
+          - Response Processing: lib/examples/response_processing.md
+#          - Validate transaction: lib/examples/validate_transaction.md
+#          - Generate fields: lib/examples/generate_fields.md
+
+      - Library Reference:
+          - lib/components.md
+          - Constants: lib/constants.md
+          - Data Models: lib/data_models.md
+          - Program Modules: lib/program_modules.md
+      - Dependencies: lib/dependencies.md
   - Data models:
       - data_models/index.md
       - Transaction: data_models/transaction.md

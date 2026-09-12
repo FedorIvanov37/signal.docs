@@ -2,21 +2,21 @@
 
 ## Signal dictionaries
 
-This chapter contains predefined constant values for use in the Signal environment
+This chapter lists predefined constant values used by Signal.
 
 ## Log level
 
-The Signal log writing level 
+The logging level determines which messages Signal records.
 
 ??? example "Log levels"
-    | Level    | Write log messages level                    | When writes                                                       | Comment          |
+    | Level    | Message levels recorded                    | When messages are recorded                                                       | Comment          |
     |----------|---------------------------------------------|-------------------------------------------------------------------|------------------|
-    | NOTSET   | Do not write log at all                     | -                                                                 |                  |
-    | CRITICAL | `CRITICAL`                                  | Critical usually system errors                                    |                  |
-    | ERROR    | `CRITICAL` `ERROR`                          | The Signal cannot process user's request                          |                  |
-    | WARNING  | `CRITICAL` `ERROR` `WARNING`                | The Signal cannot process user's request as is, need some changes |                  |
+    | NOTSET   | Disable logging                     | -                                                                 |                  |
+    | CRITICAL | `CRITICAL`                                  | Critical errors, usually system errors                                    |                  |
+    | ERROR    | `CRITICAL` `ERROR`                          | Signal cannot process the request                          |                  |
+    | WARNING  | `CRITICAL` `ERROR` `WARNING`                | Signal cannot process the request as supplied; changes are needed |                  |
     | INFO     | `CRITICAL` `ERROR` `WARNING` `INFO`         | Regular Signal events                                             | Recommended mode |
-    | DEBUG    | `CRITICAL` `ERROR` `WARNING` `INFO` `DEBUG` | Write maximum information to log                                  | Writes raw dumps |
+    | DEBUG    | `CRITICAL` `ERROR` `WARNING` `INFO` `DEBUG` | Record the most detailed information                                  | Writes raw dumps |
 
 
 ## Fields justification
@@ -24,21 +24,21 @@ The Signal log writing level
 ??? example "Fields justification"
     | Justification | Description            |
     |---------------|------------------------|
-    | LEFT          | Put data on left side  |
-    | RIGHT         | Put data on right side |
+    | LEFT          | Align data to the left  |
+    | RIGHT         | Align data to the right |
 
 
 
 ## Field Types
 
-??? example "Fields predefined types"
-    | Field Type             | Field should contain               |
+??? example "Predefined field types"
+    | Field Type             | Expected field contents               |
     |------------------------|------------------------------------|
     | COUNTRY CODE           | Valid country code                 |
     | CURRENCY CODE          | Valid currency code                |
     | MERCHANT CATEGORY CODE | Valid Merchant Category Code (MCC) |
     | DATE                   | Date or date and time              |
-    | OTHER                  | Other value, not from listing      |
+    | OTHER                  | A value of another type      |
 
 
 ## Validation Mode
@@ -46,9 +46,9 @@ The Signal log writing level
 ??? example "Transaction data validation violation processing mode"
     | Mode     | Reaction                                                                                                         |
     |----------|------------------------------------------------------------------------------------------------------------------|
-    | WARNING  | Set warning and process transaction                                                                              |
-    | ERROR    | Set error and stop transaction processing                                                                        |
-    | FLEXIBLE | Combined approach. Set error and stop on critical violation, set warning and process transaction on non-critical |
+    | WARNING  | Report a warning and process the transaction                                                                              |
+    | ERROR    | Report an error and stop transaction processing                                                                        |
+    | FLEXIBLE | Combined approach: stop on critical violations; warn and continue on non-critical violations |
 
 
 ## Countries list

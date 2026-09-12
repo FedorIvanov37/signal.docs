@@ -3,19 +3,19 @@
 ## Transaction data
 
 The Transaction data model is the central dataset used by Signal to represent payment transactions. Each request and 
-response is represented as a separate Transaction object
+response is represented as a separate Transaction object.
 
 Signal receives transactions from multiple sources (files, API, TCP sockets, GUI), converts them into the internal 
-Transaction model, processes them in the Signal Core, and routes them to the appropriate destination
+Transaction model, processes them in the Signal Core, and routes them to the appropriate destination.
 
 After processing, the Transaction can be converted to a target format and returned via various interfaces, such as a 
-GUI, an API response, CLI output, or a TCP connection
+GUI, an API response, CLI output, or a TCP connection.
 
-See [here](/data_models) how to read the transaction data in any Signal run mode
+See [Data models](/data_models) for how to load transaction data in each Signal operating mode.
 
 ## Transaction format
 
-The signal supports three transaction data formats
+Signal supports three transaction data formats.
 
 | Data format | File extension    | Supported in  | Comment                             |
 |-------------|-------------------|---------------|-------------------------------------|
@@ -23,16 +23,15 @@ The signal supports three transaction data formats
 | DUMP        | `.dump` or `.txt` | GUI, CLI      |                                     |
 | INI         | `.ini`            | GUI, CLI      |                                     |
 
-In case when the Signal GUI incoming transaction file cannot be recognized by the incoming file extension the Signal 
-will try to parse the transaction as every known format. See details in [data exchange](/gui/features/data_exchange) 
-chapter
+If the Signal GUI cannot identify a transaction file by its extension, it tries each supported format. 
+See the [data exchange](/gui/features/data_exchange) chapter for details.
 
 ## Transaction data model
 
 ### JSON
 
-The Transaction data fields representation. The Transaction dataset is the target format of data, so all the others 
-formats, e.g., DUMP or INI, will be converted to Transaction for future data processing
+The table below describes the Transaction data fields. Transaction is the internal data model, so other formats, 
+such as DUMP and INI, are converted to it for further processing.
 
 <table>
   <thead>
@@ -53,7 +52,7 @@ formats, e.g., DUMP or INI, will be converted to Transaction for future data pro
       <td>Yes</td>
       <td>-</td>
       <td>Transaction Message Type Identifier</td>
-      <td>Length is exact 4<br>Digits only<br>Field exists in Specification</td>
+      <td>Length is exactly 4<br>Digits only<br>Field exists in the specification</td>
       <td><code>0200</code></td>
     </tr>
     <tr>
@@ -70,7 +69,7 @@ formats, e.g., DUMP or INI, will be converted to Transaction for future data pro
      <td>list[str[int]]</td>
      <td>No</td>
      <td>[ ]</td>
-     <td>Field numbers to generate</td>
+     <td>Numbers of fields to generate</td>
      <td>Digits only</td>
      <td><code>["4", "11", "37"]</code></td>
     </tr>
@@ -79,7 +78,7 @@ formats, e.g., DUMP or INI, will be converted to Transaction for future data pro
      <td>dict[str, str | dict]</td>
      <td>Yes</td>
      <td>-</td>
-     <td>JSON-like transaction data fields representation</td>
+     <td>JSON-like representation of transaction fields</td>
      <td>According to the field specification</td>
      <td><pre><code class="language-json">{
  "3": "000000", 
@@ -104,9 +103,9 @@ formats, e.g., DUMP or INI, will be converted to Transaction for future data pro
 
 ### INI
 
-INI transaction fields representation. See more about INI format [here](https://en.wikipedia.org/wiki/INI_file)
+Transaction fields can also be represented in INI format. Learn more about INI [here](https://en.wikipedia.org/wiki/INI_file).
 
-INI format contains the following parts: sections, options, and options values
+INI files contain sections, options, and option values.
 
 ```ini linenums="1"
 [SECTION]
@@ -120,7 +119,7 @@ ANOTHER_OPTION = [ANOTHER_VALUE]
 ;...
 ```
 
-All the options values should be put in square brackets like [this]
+Enclose all option values in square brackets, like [this].
 
 ```ini linenums="1"
 [MESSAGE]
@@ -128,7 +127,7 @@ F002 = [4000000000000000]  ; Correct
 F003 = 000000              ; Incorrect
 ```
 
-All the fields numbers in the section [MESSAGE] must start from F. E.g. F002
+All field numbers in the [MESSAGE] section must start with F, for example F002.
 
 ```ini linenums="1"
 [MESSAGE]
@@ -136,29 +135,29 @@ F002 = [4000000000000000]  ; Correct
 3    = [000000]            ; Incorrect
 ```
 
-INI transaction data contains up to three sections
+An INI transaction contains up to three sections.
 
 | Section    | Required | Contains                                                                 |
 |------------|----------|--------------------------------------------------------------------------|
 | [MTI]      | Yes      | Transaction Message Type Identifier                                      |
-| [CONFIG]   | No       | Transaction configuration params such as MAX_AMOUNT and GENERATE_FIELDS  |
-| [MESSAGE]  | Yes      | Message body, contains data fields values                                |
+| [CONFIG]   | No       | Transaction configuration parameters, such as MAX_AMOUNT and GENERATE_FIELDS  |
+| [MESSAGE]  | Yes      | Message body containing field values                                |
 
 
-The sections should be filled according to the data model 
+Fill in the sections according to the data model below.
 
 | Section     | Option                         | Type      | Required   | Default value | Contains                                          | Validation                                        | Valid example                                                        | 
 |-------------|--------------------------------|-----------|------------|---------------|---------------------------------------------------|---------------------------------------------------|----------------------------------------------------------------------|
-| [MTI]       | MTI                            | str[int]  | Yes        | -             | Transaction Message Type Identifier               | lenght is 4, digits only, exists in Specification | `[0200]`                                                             |
-| [CONFIG]    | MAX_AMOUNT                     | str[int]  | No         | 100           | Maximum generated transaction amoun               | Digits only                                       | `[100]`                                                              |
-| [CONFIG]    | GENERATE_FIELDS                | list[int] | No         | [ ]           | Field numbers to generate before send transaction | Digits only                                       | `[4, 11, 37]`                                                        |
+| [MTI]       | MTI                            | str[int]  | Yes        | -             | Transaction Message Type Identifier               | Length is 4, digits only, exists in the specification | `[0200]`                                                             |
+| [CONFIG]    | MAX_AMOUNT                     | str[int]  | No         | 100           | Maximum generated transaction amount               | Digits only                                       | `[100]`                                                              |
+| [CONFIG]    | GENERATE_FIELDS                | list[int] | No         | [ ]           | Numbers of fields to generate before sending the transaction | Digits only                                       | `[4, 11, 37]`                                                        |
 | [MESSAGE]   | FNNN where NNN is field number | str       | yes        | -             | Transaction data fields                           | According to the field specification              | `F002 = [4000000000000000]`<br>`F003 = [000000]`<br>`;...`<br>`;...` |
 
 
 !!! danger "% Substitution"
-    Due to ConfigParser library restrictions the sign `%` in options values must be written as double percent, `%%` only
+    The ConfigParser library requires percent signs in option values to be escaped: write `%%` instead of `%`.
 
-    Refer to the [ConfigParser docs](https://docs.python.org/3/library/configparser.html) for details 
+    Refer to the [ConfigParser docs](https://docs.python.org/3/library/configparser.html) for details.
     
     ```ini linenums="1"
     [MESSSAGE]
@@ -173,14 +172,14 @@ The sections should be filled according to the data model
 
 ### DUMP
 
-Dump is a hex-encoded transaction message, ready to be sent to a remote host over TCP/IP. It can be set as a single 
-string or a multi-string value. The right side in ASCII representation is optional, and the Signal never reads it
+A dump is a hex-encoded transaction message, ready to be sent to a remote host over TCP/IP. It can occupy a single 
+line or multiple lines. The ASCII representation on the right is optional; Signal does not read it.
 
-The transaction data in dump representation can be used in GUI or CLI mode. You can also generate the dump using the GUI 
-or API tools
+Transaction dumps can be used in GUI or CLI mode. You can also generate a dump using the GUI 
+or API tools.
 
-The dump is raw transaction data, so there is no configuration or any other additional fields. MTI, Bitmap, and all the 
-field values should be pre-calculated
+A dump contains raw transaction data, with no configuration or other additional fields. The MTI, bitmap, and all 
+field values must be calculated in advance.
 
 ??? example "DUMP transaction example"
     ```text linenums="1"
