@@ -7,7 +7,7 @@
        width="500"
        height="500">
   <img class="signal-main-logo signal-main-logo-dark"
-       src="images/triforce_signed_white.png"
+       src="images/triforce_signed_grey.png"
        alt="Signal"
        width="500"
        height="500">
