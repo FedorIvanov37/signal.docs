@@ -1,7 +1,14 @@
 ## Signal general overview
 
 
-![image](/images/main_window.png)
+<p>
+<img class="signal-screenshot signal-screenshot-light"
+     src="../images/main_window_light.png"
+     alt="Signal main window">
+<img class="signal-screenshot signal-screenshot-dark"
+     src="../images/main_window_dark.png"
+     alt="Signal main window">
+</p>
 
 Signal provides graphical and programmatic interfaces for sending e-commerce card transactions to card processing 
 systems. It sends transactions using the ISO 8583 E-pay protocol.
