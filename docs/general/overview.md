@@ -1,12 +1,11 @@
 ## Signal general overview
 
-
 <p>
 <img class="signal-screenshot signal-screenshot-light"
-     src="../images/main_window_light.png"
+     src="/images/main_window_light.png"
      alt="Signal main window">
 <img class="signal-screenshot signal-screenshot-dark"
-     src="../images/main_window_dark.png"
+     src="/images/main_window_dark.png"
      alt="Signal main window">
 </p>
 
