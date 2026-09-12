@@ -1,27 +1,20 @@
-## Signal v0.20 release info
-
+## Signal v0.21 release info
 
  * **New features**
-     * Complex field parsing in output
-     * Field descriptions in output
-     * OpenAPI specification page. See {{base_api_url}}/openapi
-     * Live log browser tool. See {{base_api_url}}/api/log/live
-   
+     * Color customization with live preview
+     * Resizable field and log panels
+     * Drag-and-drop support for transactions and configuration text data
+     * Undo and redo in the complex field constructor
+     * Specification recovery from backups
+
 
  * **Updates**
-     * New specification backup settings 
-     * New Backup and Backup Dir buttons in SpecWindow
-     * CTRL + D shortcut to enable or disable a field
-     * MainWindow layout: larger log area and smaller field area
-     * Updated API URL mappings
-     * Log access through the API
-     * New SpecWindow buttons
-     * Reordered buttons
-     
-    
+     * Improved interface, keyboard navigation and error reporting
+     * Consistent configuration updates across GUI and API
+     * Core code cleanup and reliability improvements
+
 
  * **Fixed**
-     * API overwriting transactions
-     * Log retention settings having no effect
-     * Unexpected SettingsWindow resizing
-
+     * TCP message handling and response matching
+     * Configuration and specification saving issues
+     * Various editing, display and connection shutdown issues
