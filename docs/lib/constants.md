@@ -69,7 +69,7 @@ files.
     | COUNTRY_DICT        | Path to the file containing the list of available countries                                        | `common/data/dictionary/countries.json`                     |                                                                                                                  |
     | MCC_DICT            | Path to the file containing the list of available Merchant Category Codes (MCC)                    | `common/data/dictionary/merch_categories.json`              |                                                                                                                  |
     | LICENSE_AGREEMENT   | Path to the file containing the text of the user license agreement                                 | `common/data/license/license.agreement.txt`                 |                                                                                                                  |
-    | POSTMAN_COLLECTION  | Path to the archive with the Postman collection                                                    | `common/data/postman/Signal_v0.19.1_postman_collection.zip` | Used for downloading through the API                                                                             |
+    | POSTMAN_COLLECTION  | Path to the archive with the Postman collection                                                    | `common/data/postman/Signal_v0.20_postman_collection.zip` | Legacy API resource; the current v0.21 collection is on the [Downloads page](../downloads.md)                                                                             |
 
 ### TextConstants
 

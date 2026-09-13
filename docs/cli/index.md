@@ -14,13 +14,13 @@ C:\signal>signal.exe --console --version
  #+#    #+#     #+#     #+#    #+#  #+#   #+#+#  #+#     #+#  #+#
   ########  ###########  ########   ###    ####  ###     ###  ##########
 
-  Simplified ISO generation algorithm v0.20
+  Simplified ISO generation algorithm v0.21
 
-15.03.2026 12:10:01 [INFO] Press CTRL+C to exit
-15.03.2026 12:10:01 [INFO]
-15.03.2026 12:10:01 [INFO] ## Begin command line job ID 99437e75-25e4-4e7f-86f5-61278a56fe18 ##
-15.03.2026 12:10:01 [INFO] Signal v0.20 | March 2026
-15.03.2026 12:10:01 [INFO] ## Finish command line job ID 99437e75-25e4-4e7f-86f5-61278a56fe18 ##
+13.09.2026 12:10:01 [INFO] Press CTRL+C to exit
+13.09.2026 12:10:01 [INFO]
+13.09.2026 12:10:01 [INFO] ## Begin command line job ID 99437e75-25e4-4e7f-86f5-61278a56fe18 ##
+13.09.2026 12:10:01 [INFO] Signal v0.21 | Sep 2026
+13.09.2026 12:10:01 [INFO] ## Finish command line job ID 99437e75-25e4-4e7f-86f5-61278a56fe18 ##
 ```
 
 Signal can run in command-line interface (CLI) mode. This chapter describes the command syntax and common usage

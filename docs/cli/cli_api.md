@@ -18,7 +18,7 @@ C:\signal>signal.exe --console --api-mode
  #+#    #+#     #+#     #+#    #+#  #+#   #+#+#  #+#     #+#  #+#
   ########  ###########  ########   ###    ####  ###     ###  ##########
 
-  Simplified ISO generation algorithm v0.20
+  Simplified ISO generation algorithm v0.21
 
 15.03.2026 20:13:55 [INFO] Press CTRL+C to exit
 15.03.2026 20:13:55 [INFO]
